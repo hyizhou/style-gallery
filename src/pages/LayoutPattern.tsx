@@ -17,6 +17,7 @@ import FeatureAlternatingDemo from '../components/layouts/FeatureAlternatingDemo
 import CenteredCardDemo from '../components/layouts/CenteredCardDemo'
 import ZPatternDemo from '../components/layouts/ZPatternDemo'
 import WizardDemo from '../components/layouts/WizardDemo'
+import ThreeColumnDemo from '../components/layouts/ThreeColumnDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -35,6 +36,7 @@ const demos: Record<string, () => JSX.Element> = {
   'centered-card': CenteredCardDemo,
   'z-pattern': ZPatternDemo,
   wizard: WizardDemo,
+  'three-column': ThreeColumnDemo,
 }
 
 const widths = [
