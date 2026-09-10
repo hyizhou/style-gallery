@@ -3,10 +3,12 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { layoutPatterns, readyLayoutPatterns } from '../data/layouts'
 import HolyGrailDemo from '../components/layouts/HolyGrailDemo'
 import SidebarDashboardDemo from '../components/layouts/SidebarDashboardDemo'
+import MasterDetailDemo from '../components/layouts/MasterDetailDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
   'sidebar-dashboard': SidebarDashboardDemo,
+  'master-detail': MasterDetailDemo,
 }
 
 const widths = [

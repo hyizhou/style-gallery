@@ -411,6 +411,112 @@
   }
 }
 
+/* ---------- 主从布局 ---------- */
+
+.md {
+  display: grid;
+  grid-template-columns: 44% 1fr;
+  min-height: 440px;
+}
+
+.md-master {
+  padding: 0.8rem;
+  border-right: 1px solid var(--lp-border);
+}
+
+.md-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 0.8rem;
+}
+
+.md-item {
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: background 0.2s ease;
+}
+
+.md-item:hover {
+  background: var(--lp-bg);
+}
+
+.md-item.active {
+  background: var(--lp-accent-soft);
+}
+
+.md-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+  color: var(--lp-ink);
+}
+
+.md-item-subject {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.md-item.active .md-item-subject {
+  color: var(--lp-accent);
+}
+
+.md-item-excerpt {
+  font-size: 0.78rem;
+  color: var(--lp-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.md-detail {
+  padding: 1.1rem 1.3rem;
+}
+
+.md-detail h4 {
+  font-size: 1.15rem;
+  margin-top: 0.9rem;
+}
+
+.md-meta {
+  font-size: 0.78rem;
+  color: var(--lp-ink);
+  margin: 0.4rem 0 1rem;
+}
+
+.md-body {
+  font-size: 0.92rem;
+  line-height: 1.95;
+  color: var(--ink);
+}
+
+@container (max-width: 430px) {
+  .md {
+    grid-template-columns: 1fr;
+  }
+
+  .md-master {
+    border-right: none;
+    border-bottom: 1px solid var(--lp-border);
+  }
+
+  .md-list {
+    max-height: 170px;
+    overflow-y: auto;
+  }
+}
+
 /* ---------- 要点区 ---------- */
 
 .lp-notes {
@@ -525,6 +631,41 @@
 
 .lp-thumb-holy-grail i:nth-child(5) {
   grid-area: ft;
+}
+
+/* 主从缩略图 */
+
+.lp-thumb-master-detail {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px;
+  width: 82%;
+  height: 74%;
+  margin-inline: auto;
+}
+
+.lp-thumb-master-detail i:nth-child(1) {
+  grid-area: 1 / 1 / 4 / 2;
+  background: var(--lp-accent-soft);
+  border-style: solid;
+  border-color: var(--lp-accent);
+}
+
+.lp-thumb-master-detail i:nth-child(2) {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.lp-thumb-master-detail i:nth-child(3) {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.lp-thumb-master-detail i:nth-child(4) {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.lp-thumb-master-detail i:nth-child(5) {
+  display: none;
 }
 
 /* 未实现模式的占位缩略图 */
