@@ -31,7 +31,9 @@ const on = (b: boolean) => (b ? true : undefined)
 
 export default function M3DemoKit() {
   const [seed, setSeed] = useState<Seed>('s-purple')
-  const [dark, setDark] = useState(() => document.documentElement.dataset.theme === 'dark')
+  const [dark, setDark] = useState(() =>
+    typeof document === 'undefined' ? false : document.documentElement.dataset.theme === 'dark',
+  )
 
   // 跟随头部按钮的全局明暗状态
   useEffect(() => {
