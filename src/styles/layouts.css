@@ -1588,3 +1588,135 @@
   color: var(--lp-accent);
   font-size: 0.95rem;
 }
+
+/* ---------- 分步向导 ---------- */
+
+.wz {
+  padding: 1.2rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  align-items: flex-start;
+}
+
+.wz-steps {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.4rem;
+}
+
+.wz-step {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 1;
+  color: var(--lp-ink);
+  font-size: 0.82rem;
+}
+
+.wz-step:not(:last-child)::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: var(--lp-border);
+  margin-left: 0.45rem;
+}
+
+.wz-step.done:not(:last-child)::after {
+  background: var(--lp-accent);
+}
+
+.wz-dot {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--lp-border);
+  background: var(--lp-region);
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex: none;
+}
+
+.wz-step.active .wz-dot {
+  border-color: var(--lp-accent);
+  background: var(--lp-accent);
+  color: #fff;
+}
+
+.wz-step.done .wz-dot {
+  border-color: var(--lp-accent);
+  color: var(--lp-accent);
+}
+
+.wz-step.active {
+  color: var(--ink);
+}
+
+.wz-body {
+  width: 100%;
+  min-height: 150px;
+  border: 1.5px dashed var(--lp-border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.wz-step-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.wz-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.wz-field {
+  border: 1px solid var(--lp-border);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--lp-ink);
+}
+
+.wz-field-static {
+  border-style: dashed;
+  background: var(--lp-bg);
+}
+
+.wz-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.wz-btn {
+  padding: 0.5rem 1.3rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--lp-border);
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.wz-btn:disabled {
+  opacity: 0.45;
+}
+
+.wz-btn-primary {
+  background: var(--lp-accent);
+  border-color: var(--lp-accent);
+  color: #fff;
+}
+
+.wz-btn-primary:disabled {
+  background: var(--lp-accent);
+}

@@ -16,6 +16,7 @@ import KanbanDemo from '../components/layouts/KanbanDemo'
 import FeatureAlternatingDemo from '../components/layouts/FeatureAlternatingDemo'
 import CenteredCardDemo from '../components/layouts/CenteredCardDemo'
 import ZPatternDemo from '../components/layouts/ZPatternDemo'
+import WizardDemo from '../components/layouts/WizardDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -33,6 +34,7 @@ const demos: Record<string, () => JSX.Element> = {
   'feature-alternating': FeatureAlternatingDemo,
   'centered-card': CenteredCardDemo,
   'z-pattern': ZPatternDemo,
+  wizard: WizardDemo,
 }
 
 const widths = [
