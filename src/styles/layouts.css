@@ -1223,3 +1223,86 @@
     animation: none;
   }
 }
+
+/* ---------- 杂志编辑布局 ---------- */
+
+.mgz {
+  display: grid;
+  grid-template-areas:
+    'feat feat side'
+    'colA colB side'
+    'strip strip strip';
+  grid-template-columns: 1fr 1fr 30%;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.mgz-block {
+  border: 1.5px dashed var(--lp-border);
+  border-radius: 10px;
+  background: var(--lp-region);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.mgz-feature {
+  grid-area: feat;
+  background: var(--lp-accent-soft);
+  border: 1.5px solid var(--lp-accent);
+}
+
+.mgz-feature h4 {
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.mgz-feature p,
+.mgz-col p,
+.mgz-side-item p,
+.mgz-strip p {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--lp-ink);
+  margin: 0;
+}
+
+.mgz-side {
+  grid-area: side;
+}
+
+.mgz-side-item {
+  border-top: 1px solid var(--lp-border);
+  padding-top: 0.55rem;
+}
+
+.mgz-side-item strong {
+  font-size: 0.88rem;
+}
+
+.mgz-col {
+  grid-area: colA;
+}
+
+.mgz-block:nth-of-type(4) {
+  grid-area: colB;
+}
+
+.mgz-strip {
+  grid-area: strip;
+  flex-direction: row;
+  align-items: center;
+}
+
+@container (max-width: 700px) {
+  .mgz {
+    grid-template-areas:
+      'feat'
+      'side'
+      'colA'
+      'colB'
+      'strip';
+    grid-template-columns: 1fr;
+  }
+}

@@ -11,6 +11,7 @@ import CardGridDemo from '../components/layouts/CardGridDemo'
 import BentoGridDemo from '../components/layouts/BentoGridDemo'
 import TopHeroDemo from '../components/layouts/TopHeroDemo'
 import FullBleedDemo from '../components/layouts/FullBleedDemo'
+import MagazineDemo from '../components/layouts/MagazineDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -23,6 +24,7 @@ const demos: Record<string, () => JSX.Element> = {
   'bento-grid': BentoGridDemo,
   'top-hero': TopHeroDemo,
   'full-bleed': FullBleedDemo,
+  magazine: MagazineDemo,
 }
 
 const widths = [
