@@ -33,7 +33,9 @@ const primaryName = (value: string) => primaries.find((p) => p.value === value)?
 
 export default function AntDemoKit() {
   const [primary, setPrimary] = useState('#1677ff')
-  const [dark, setDark] = useState(() => document.documentElement.dataset.theme === 'dark')
+  const [dark, setDark] = useState(() =>
+    typeof document === 'undefined' ? false : document.documentElement.dataset.theme === 'dark',
+  )
   const [checkable, setCheckable] = useState(true)
 
   // 跟随头部按钮的全局明暗状态

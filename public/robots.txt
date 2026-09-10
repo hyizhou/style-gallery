@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hyizhou.github.io/style-gallery/sitemap.xml

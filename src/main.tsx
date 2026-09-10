@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './styles/base.css'
 import './styles/themes/minimal.css'
@@ -21,8 +21,8 @@ import './styles/layouts.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HashRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </StrictMode>,
 )
