@@ -367,7 +367,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '沿对角线编排视线：起点-横扫-落点。',
     desc: '针对内容较少的页面，按 Z 字安排视线落点：左上 Logo、右上导航、中央主视觉、左下文案、右下按钮。每个拐角都是一次信息强化。',
     tags: ['视线编排', '落地页', '少内容'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '内容极少的单屏页面：启动页、简单落地页、二维码入口页',
+        '希望引导视线按「1→2→3→4」编号顺序阅读的场景',
+        'Call to Action 需要落在视线终点（右下）的转化页',
+      ],
+      caveats: [
+        '内容一多 Z 字就失效，它只服务「一屏、五块以内」的极简页面',
+        '编号顺序要与视觉重量一致，否则用户会直接跳到右下角',
+        'Z 型是动线假设而非铁律，用热力图验证后再固定版式',
+      ],
+      css: 'grid-template-areas: "logo nav" "hero hero" "copy cta";',
+    },
   },
   {
     id: 'wizard',
