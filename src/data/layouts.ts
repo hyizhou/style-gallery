@@ -487,7 +487,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '内容沿横轴滑动成卷。',
     desc: '打破纵向滚动惯性，让内容沿横轴展开成横向长卷：画廊、时间轴、品牌叙事。叙事节奏独特，但需要明显的滚动暗示，否则用户容易迷路。',
     tags: ['长卷', '画廊', '叙事'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '画廊、时间轴、作品长卷等「横向叙事」的内容',
+        '面板数量固定（5-8 个）、每个面板自成一章的场景',
+        '需要制造「与普通网页不一样」记忆点的品牌页',
+      ],
+      caveats: [
+        '鼠标用户没有横向滚轮，必须提供明显的滚动暗示或导航点',
+        '纵向滚动惯性强，横向叙事的每个面板要能独立成章',
+        '移动端天然支持横滑，但注意不要与系统返回手势冲突',
+      ],
+      css: 'display: grid; grid-auto-flow: column; overflow-x: auto; scroll-snap-type: x mandatory;',
+    },
   },
 ]
 

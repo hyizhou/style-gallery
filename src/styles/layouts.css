@@ -1938,3 +1938,60 @@
   color: var(--lp-ink);
   max-width: 62ch;
 }
+
+/* ---------- 横向滚动 ---------- */
+
+.hs {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.hs-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 62%;
+  gap: 12px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.hs-panel {
+  scroll-snap-align: center;
+  min-height: 250px;
+  border: 1.5px dashed var(--lp-border);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 80% 15%, var(--lp-accent-soft), transparent 55%),
+    var(--lp-region);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.3rem 1.5rem;
+}
+
+.hs-no {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--lp-accent);
+  font-family: 'Courier New', ui-monospace, monospace;
+}
+
+.hs-panel h4 {
+  font-size: 1.2rem;
+}
+
+.hs-panel p {
+  font-size: 0.85rem;
+  color: var(--lp-ink);
+}
+
+.hs-hint {
+  font-size: 0.76rem;
+  color: var(--lp-ink);
+}

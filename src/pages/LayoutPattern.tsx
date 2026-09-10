@@ -20,6 +20,7 @@ import WizardDemo from '../components/layouts/WizardDemo'
 import ThreeColumnDemo from '../components/layouts/ThreeColumnDemo'
 import BoxedDemo from '../components/layouts/BoxedDemo'
 import FPatternDemo from '../components/layouts/FPatternDemo'
+import HorizontalScrollDemo from '../components/layouts/HorizontalScrollDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -41,6 +42,7 @@ const demos: Record<string, () => JSX.Element> = {
   'three-column': ThreeColumnDemo,
   boxed: BoxedDemo,
   'f-pattern': FPatternDemo,
+  'horizontal-scroll': HorizontalScrollDemo,
 }
 
 const widths = [
