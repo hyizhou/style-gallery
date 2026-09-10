@@ -13,6 +13,7 @@ import TopHeroDemo from '../components/layouts/TopHeroDemo'
 import FullBleedDemo from '../components/layouts/FullBleedDemo'
 import MagazineDemo from '../components/layouts/MagazineDemo'
 import KanbanDemo from '../components/layouts/KanbanDemo'
+import FeatureAlternatingDemo from '../components/layouts/FeatureAlternatingDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -27,6 +28,7 @@ const demos: Record<string, () => JSX.Element> = {
   'full-bleed': FullBleedDemo,
   magazine: MagazineDemo,
   kanban: KanbanDemo,
+  'feature-alternating': FeatureAlternatingDemo,
 }
 
 const widths = [
