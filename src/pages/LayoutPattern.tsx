@@ -5,12 +5,14 @@ import HolyGrailDemo from '../components/layouts/HolyGrailDemo'
 import SidebarDashboardDemo from '../components/layouts/SidebarDashboardDemo'
 import MasterDetailDemo from '../components/layouts/MasterDetailDemo'
 import SplitScreenDemo from '../components/layouts/SplitScreenDemo'
+import SingleColumnDemo from '../components/layouts/SingleColumnDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
   'sidebar-dashboard': SidebarDashboardDemo,
   'master-detail': MasterDetailDemo,
   split: SplitScreenDemo,
+  'single-column': SingleColumnDemo,
 }
 
 const widths = [

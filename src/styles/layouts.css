@@ -658,6 +658,53 @@
 
 /* ---------- 单栏内容优先 ---------- */
 
+.sc {
+  max-width: 68ch;
+  margin-inline: auto;
+  padding: 2.2rem 1.4rem 2.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.sc > .region-tag {
+  align-self: flex-start;
+  margin-bottom: 0.4rem;
+}
+
+.sc h4 {
+  font-size: 1.6rem;
+  line-height: 1.35;
+}
+
+.sc h5 {
+  font-size: 1.08rem;
+  margin-top: 0.6rem;
+}
+
+.sc p {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--ink);
+}
+
+.sc-meta {
+  font-size: 0.78rem;
+  color: var(--lp-ink);
+}
+
+.sc blockquote {
+  border-left: 3px solid var(--lp-accent);
+  padding: 0.4rem 0 0.4rem 1rem;
+  color: var(--lp-accent);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+/* ---------- 单栏内容优先 ---------- */
+
+/* ---------- 单栏内容优先 ---------- */
+
 @media (max-width: 880px) {
   .lp-notes {
     grid-template-columns: 1fr;

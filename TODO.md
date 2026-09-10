@@ -18,7 +18,7 @@
 - [x] 侧边栏仪表盘 Sidebar Dashboard（页面骨架 · 热门）—— 本轮已交付（含窄屏图标化 / 底部标签栏收纳）
 - [x] 主从布局 Master-Detail（交互容器 · 热门）—— 已交付（列表详情联动）
 - [x] 分屏布局 Split Screen（页面骨架 · 热门）—— 已交付
-- [ ] 单栏内容优先 Single Column（内容组织 · 热门）
+- [x] 单栏内容优先 Single Column（内容组织 · 热门）—— 已交付（68ch 阅读纵轴演示）
 - [ ] 瀑布流 Masonry（内容组织 · 热门）
 - [ ] 卡片网格 Card Grid（内容组织 · 热门）
 - [ ] 便当盒网格 Bento Grid（内容组织 · 热门）
