@@ -4,11 +4,13 @@ import { layoutPatterns, readyLayoutPatterns } from '../data/layouts'
 import HolyGrailDemo from '../components/layouts/HolyGrailDemo'
 import SidebarDashboardDemo from '../components/layouts/SidebarDashboardDemo'
 import MasterDetailDemo from '../components/layouts/MasterDetailDemo'
+import SplitScreenDemo from '../components/layouts/SplitScreenDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
   'sidebar-dashboard': SidebarDashboardDemo,
   'master-detail': MasterDetailDemo,
+  split: SplitScreenDemo,
 }
 
 const widths = [

@@ -569,6 +569,95 @@
   word-break: break-all;
 }
 
+/* ---------- 分屏布局 ---------- */
+
+.sp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 440px;
+}
+
+.sp-visual {
+  position: relative;
+  background:
+    radial-gradient(circle at 70% 25%, rgba(249, 116, 63, 0.35), transparent 55%),
+    repeating-linear-gradient(45deg, var(--lp-accent-soft) 0 14px, transparent 14px 28px),
+    var(--lp-region);
+  border-right: 1px solid var(--lp-border);
+  padding: 0.9rem;
+}
+
+.sp-visual .region-tag {
+  background: var(--lp-bg);
+}
+
+.sp-visual-glyph {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: var(--lp-accent);
+}
+
+.sp-info {
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sp-info h4 {
+  font-size: 1.35rem;
+}
+
+.sp-info p {
+  color: var(--lp-ink);
+  line-height: 1.9;
+  font-size: 0.92rem;
+}
+
+.sp-actions {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.4rem;
+}
+
+.sp-btn {
+  padding: 0.55rem 1.3rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--lp-border);
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.sp-btn-primary {
+  background: var(--lp-accent);
+  border-color: var(--lp-accent);
+  color: #fff;
+}
+
+@container (max-width: 640px) {
+  .sp {
+    grid-template-columns: 1fr;
+  }
+
+  .sp-visual {
+    border-right: none;
+    border-bottom: 1px solid var(--lp-border);
+    min-height: 130px;
+  }
+
+  .sp-info {
+    padding: 1.3rem 1.2rem;
+  }
+}
+
+/* ---------- 单栏内容优先 ---------- */
+
 @media (max-width: 880px) {
   .lp-notes {
     grid-template-columns: 1fr;
