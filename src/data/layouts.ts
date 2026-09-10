@@ -175,7 +175,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '等尺寸卡片铺排，信息等权陈列。',
     desc: '用统一的卡片单元在规则网格中陈列内容，每张卡片自成一体（图 + 题 + 摘要 + 动作）。信息等权、易于扫读，是作品集、商品列表与功能介绍的通用解。',
     tags: ['等权陈列', '扫读', '通用'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '商品列表、文章列表、作品集等信息等权的陈列场景',
+        '内容单元结构一致、数量会增减的集合页',
+        '需要 auto-fill 自动决定列数的响应式陈列',
+      ],
+      caveats: [
+        '所有卡片等权意味着没有主角，需要强调时改用 Bento 或交替行',
+        '卡片内文案行数要约束，否则网格会被撑得高低不齐',
+        'auto-fill 与 auto-fit 的空轨道行为不同，按需选择',
+      ],
+      css: 'grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));',
+    },
   },
   {
     id: 'bento-grid',

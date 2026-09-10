@@ -7,6 +7,7 @@ import MasterDetailDemo from '../components/layouts/MasterDetailDemo'
 import SplitScreenDemo from '../components/layouts/SplitScreenDemo'
 import SingleColumnDemo from '../components/layouts/SingleColumnDemo'
 import MasonryDemo from '../components/layouts/MasonryDemo'
+import CardGridDemo from '../components/layouts/CardGridDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -15,6 +16,7 @@ const demos: Record<string, () => JSX.Element> = {
   split: SplitScreenDemo,
   'single-column': SingleColumnDemo,
   masonry: MasonryDemo,
+  'card-grid': CardGridDemo,
 }
 
 const widths = [
