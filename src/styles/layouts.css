@@ -1772,3 +1772,76 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- 盒装布局 ---------- */
+
+.bx {
+  padding: 1.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  background:
+    repeating-linear-gradient(45deg, var(--lp-accent-soft) 0 18px, transparent 18px 36px),
+    var(--lp-bg);
+  min-height: 470px;
+  justify-content: center;
+}
+
+.bx-page {
+  width: min(960px, 100%);
+  margin-inline: auto;
+  border: 1px solid var(--lp-border);
+  border-radius: 10px;
+  background: var(--lp-region);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+}
+
+.bx-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1.1rem;
+  border-bottom: 1px solid var(--lp-border);
+  font-size: 0.85rem;
+  color: var(--lp-ink);
+}
+
+.bx-nav strong {
+  color: var(--ink);
+  letter-spacing: 0.06em;
+}
+
+.bx-hero {
+  padding: 2.4rem 1.2rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--lp-accent-soft), var(--lp-region));
+  border-bottom: 1px solid var(--lp-border);
+}
+
+.bx-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+}
+
+.bx-cols p {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--lp-ink);
+  margin: 0;
+}
+
+@container (max-width: 700px) {
+  .bx {
+    padding: 0.8rem;
+  }
+
+  .bx-cols {
+    grid-template-columns: 1fr;
+  }
+}

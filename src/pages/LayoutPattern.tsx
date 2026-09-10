@@ -18,6 +18,7 @@ import CenteredCardDemo from '../components/layouts/CenteredCardDemo'
 import ZPatternDemo from '../components/layouts/ZPatternDemo'
 import WizardDemo from '../components/layouts/WizardDemo'
 import ThreeColumnDemo from '../components/layouts/ThreeColumnDemo'
+import BoxedDemo from '../components/layouts/BoxedDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -37,6 +38,7 @@ const demos: Record<string, () => JSX.Element> = {
   'z-pattern': ZPatternDemo,
   wizard: WizardDemo,
   'three-column': ThreeColumnDemo,
+  boxed: BoxedDemo,
 }
 
 const widths = [
