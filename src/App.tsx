@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import StyleDetail from './pages/StyleDetail'
+import LayoutPattern from './pages/LayoutPattern'
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/styles/:id" element={<StyleDetail />} />
+        <Route path="/layouts/:id" element={<LayoutPattern />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </Layout>

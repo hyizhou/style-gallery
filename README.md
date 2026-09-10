@@ -2,11 +2,17 @@
 
 一个用于展示主流 UI 设计风格的多页 Web 应用：主页是站点介绍与风格导航，每个风格卡片以该风格的组件作为预览；点击进入对应风格页，可查看按钮、表单、卡片、徽章、进度反馈等一整套可交互组件，以及一件「风格签名」特色组件。
 
+其中 Material Design 3 页面由官方 [@material/web](https://github.com/material-components/material-web) 组件库渲染（动态色：3 种种子色 × 明暗模式）；Ant Design 页面由官方 [antd](https://ant.design) 组件库渲染（设计令牌：3 种品牌色 × 暗色算法）。
+
 ## 收录风格
 
 极简主义 / 玻璃拟态 / 新拟物 / 粘土拟物 / 新粗野主义 / 极光暗夜 / 便当盒 / 复古像素 / Material Design 3 / Ant Design / 瑞士排版 / 终端 CRT / Y2K 千禧
 
 其中 Material Design 3 页面由官方 [@material/web](https://github.com/material-components/material-web) 组件库渲染（动态色：3 种种子色 × 明暗模式）；Ant Design 页面由官方 [antd](https://ant.design) 组件库渲染（设计令牌：3 种品牌色 × 暗色算法）。
+
+## 布局模式大类
+
+主页可在「视觉风格 / 布局模式」之间切换。布局模式与视觉风格正交：风格回答"长什么样"，布局回答"东西怎么摆"。每个布局模式配有可切换预览宽度（桌面/平板/手机）的活体演示，使用容器查询按容器宽度自动重排。调研编目见 [docs/layout-patterns.md](docs/layout-patterns.md)，接入设计见 [docs/layout-mode-design.md](docs/layout-mode-design.md)，推进计划见 [TODO.md](TODO.md)。当前已实现：圣杯布局。
 
 ## 技术栈
 

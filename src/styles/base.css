@@ -748,6 +748,35 @@ svg {
   border-color: var(--ink);
 }
 
+/* ---------- 主页类别切换 ---------- */
+
+.home-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  margin-bottom: 2.2rem;
+}
+
+.home-switch button {
+  padding: 0.55rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.home-switch button:hover {
+  color: var(--ink);
+}
+
+.home-switch button.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 /* ---------- 签名件共享 ---------- */
 
 .sig-id {

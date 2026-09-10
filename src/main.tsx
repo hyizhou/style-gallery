@@ -16,6 +16,7 @@ import './styles/themes/antd.css'
 import './styles/themes/swiss.css'
 import './styles/themes/crt.css'
 import './styles/themes/y2k.css'
+import './styles/layouts.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
