@@ -1845,3 +1845,96 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- F 型动线 ---------- */
+
+.fp {
+  position: relative;
+  padding: 1rem;
+}
+
+.fp-guide {
+  position: absolute;
+  inset: 1rem;
+  pointer-events: none;
+}
+
+.fp-stroke {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #fff;
+  background: var(--lp-accent);
+  border-radius: 6px;
+  padding: 0.14rem 0.5rem;
+  opacity: 0.92;
+}
+
+.fp-stroke-1 {
+  top: 2.6rem;
+  left: 1rem;
+  right: 1rem;
+  height: 22px;
+}
+
+.fp-stroke-2 {
+  top: 8.4rem;
+  left: 1rem;
+  width: 62%;
+  height: 22px;
+  opacity: 0.75;
+}
+
+.fp-stroke-3 {
+  left: 1rem;
+  top: 11.4rem;
+  bottom: 1rem;
+  width: 26px;
+  writing-mode: vertical-rl;
+  opacity: 0.75;
+}
+
+.fp-content {
+  position: relative;
+}
+
+.fp-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.9rem;
+}
+
+.fp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.fp-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.15rem;
+  border-bottom: 1px solid var(--lp-border);
+  font-size: 0.88rem;
+}
+
+.fp-list li strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.fp-list li span {
+  color: var(--lp-ink);
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.fp-para {
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1.95;
+  color: var(--lp-ink);
+  max-width: 62ch;
+}
