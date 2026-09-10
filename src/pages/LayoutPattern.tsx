@@ -14,6 +14,7 @@ import FullBleedDemo from '../components/layouts/FullBleedDemo'
 import MagazineDemo from '../components/layouts/MagazineDemo'
 import KanbanDemo from '../components/layouts/KanbanDemo'
 import FeatureAlternatingDemo from '../components/layouts/FeatureAlternatingDemo'
+import CenteredCardDemo from '../components/layouts/CenteredCardDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -29,6 +30,7 @@ const demos: Record<string, () => JSX.Element> = {
   magazine: MagazineDemo,
   kanban: KanbanDemo,
   'feature-alternating': FeatureAlternatingDemo,
+  'centered-card': CenteredCardDemo,
 }
 
 const widths = [
