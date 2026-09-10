@@ -302,3 +302,168 @@
     0 20px 32px rgba(255, 179, 71, 0.4),
     inset 0 4px 6px rgba(255, 255, 255, 0.6);
 }
+
+/* ---- 全局暗色 ---- */
+
+:root[data-theme='dark'] .theme-clay {
+  background-color: #241a2e;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.2px, transparent 1.3px);
+  color: #f0e2f5;
+}
+
+:root[data-theme='dark'] .theme-clay .demo-block {
+  background: #3a2c44;
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.45),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.3),
+    inset 0 6px 10px rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme='dark'] .theme-clay .demo-title {
+  color: #d9a8c8;
+}
+
+:root[data-theme='dark'] .theme-clay .btn {
+  background: #4a3a56;
+  color: #f0e2f5;
+  box-shadow:
+    0 6px 0 #2b2130,
+    0 12px 20px rgba(0, 0, 0, 0.4),
+    inset 0 4px 6px rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme='dark'] .theme-clay .btn:active {
+  box-shadow: 0 2px 0 #2b2130, inset 0 3px 6px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme='dark'] .theme-clay .btn-primary {
+  background: linear-gradient(180deg, #ff8ad0, #ff2ea6);
+  color: #fff;
+  box-shadow:
+    0 6px 0 #a81566,
+    0 12px 22px rgba(255, 46, 166, 0.4),
+    inset 0 3px 5px rgba(255, 255, 255, 0.35);
+}
+
+:root[data-theme='dark'] .theme-clay .btn-ghost {
+  background: transparent;
+  box-shadow: none;
+  border-color: #6a4f82;
+  color: #d9a8c8;
+}
+
+:root[data-theme='dark'] .theme-clay .btn:disabled {
+  background: #3a2c44;
+  color: #8a7596;
+  box-shadow: 0 5px 0 #2b2130;
+}
+
+:root[data-theme='dark'] .theme-clay .btn-icon {
+  background: #4a3a56;
+  color: #ff9ad5;
+  box-shadow: 0 5px 0 #2b2130, 0 10px 16px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .field {
+  background: #3a2c44;
+  color: #b89ac2;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.35), inset -3px -3px 6px rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme='dark'] .theme-clay .toggle-track {
+  background: #3a2c44;
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .toggle-knob {
+  background: #c9b6d6;
+}
+
+:root[data-theme='dark'] .theme-clay .sr-input:checked + .toggle-track {
+  background: #56405f;
+}
+
+:root[data-theme='dark'] .theme-clay .sr-input:checked + .toggle-track .toggle-knob {
+  background: #ff9ad5;
+}
+
+:root[data-theme='dark'] .theme-clay .check-box {
+  background: #3a2c44;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 -3px 5px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme='dark'] .theme-clay .slider {
+  background: #3a2c44;
+  box-shadow: inset 2px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .slider::-webkit-slider-thumb {
+  background: #c9b6d6;
+  box-shadow: 0 4px 0 #2b2130, 0 8px 14px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .slider::-moz-range-thumb {
+  background: #c9b6d6;
+  box-shadow: 0 4px 0 #2b2130, 0 8px 14px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .demo-card {
+  background: #3a2c44;
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.45),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme='dark'] .theme-clay .type-body,
+:root[data-theme='dark'] .theme-clay .ctl-label {
+  color: #cbb8d8;
+}
+
+:root[data-theme='dark'] .theme-clay .type-caption {
+  color: #9a7fae;
+}
+
+:root[data-theme='dark'] .theme-clay .chip {
+  background: #3a2c44;
+  color: #cbb8d8;
+  box-shadow: 0 4px 0 #2b2130;
+}
+
+:root[data-theme='dark'] .theme-clay .progress {
+  background: #3a2c44;
+  box-shadow: inset 2px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .spinner {
+  border: 3px solid #56405f;
+  border-top-color: #ff9ad5;
+}
+
+:root[data-theme='dark'] .theme-clay .banner {
+  background: #2e2440;
+  color: #c9b6f0;
+  box-shadow: inset 0 -4px 0 rgba(120, 90, 200, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .clay-cloud {
+  background: #c9b6d6;
+  box-shadow:
+    0 14px 0 #1a1220,
+    0 26px 42px rgba(0, 0, 0, 0.5),
+    inset 0 8px 12px rgba(255, 255, 255, 0.45),
+    inset 0 -10px 14px rgba(90, 60, 110, 0.5);
+}
+
+:root[data-theme='dark'] .theme-clay .clay-cloud::before,
+:root[data-theme='dark'] .theme-clay .clay-cloud::after {
+  background: #c9b6d6;
+  box-shadow: inset 0 6px 8px rgba(255, 255, 255, 0.4), inset 0 -6px 8px rgba(90, 60, 110, 0.4);
+}
+
+:root[data-theme='dark'] .theme-clay .clay-cloud .eye {
+  background: #2b1e38;
+}
+
+:root[data-theme='dark'] .theme-clay .clay-cloud .mouth {
+  border-bottom-color: #2b1e38;
+}

@@ -164,3 +164,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---- 全局暗色：主页预览卡片跟随（详情页由暗色算法开关控制） ---- */
+
+:root[data-theme='dark'] .card-preview.theme-antd {
+  background: #141414;
+}
+
+:root[data-theme='dark'] .card-preview.theme-antd .type-h2 {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+:root[data-theme='dark'] .card-preview.theme-antd .chip {
+  background: #1f1f1f;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+:root[data-theme='dark'] .card-preview.theme-antd .progress {
+  background: rgba(255, 255, 255, 0.12);
+}

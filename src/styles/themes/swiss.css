@@ -365,3 +365,190 @@
   height: 12px;
   background: #e2231a;
 }
+
+/* ---- 全局暗色 ---- */
+
+:root[data-theme='dark'] .theme-swiss {
+  background: #111111;
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .backlink {
+  color: #8a8a8a;
+}
+
+:root[data-theme='dark'] .theme-swiss .backlink:hover {
+  color: #e2231a;
+}
+
+:root[data-theme='dark'] .theme-swiss .detail-head {
+  border-top-color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .demo-block {
+  background: #111111;
+  border-top-color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .demo-title {
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn {
+  background: transparent;
+  border-color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn:hover {
+  background: #f2f2f2;
+  color: #111111;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn-primary {
+  background: #e2231a;
+  border-color: #e2231a;
+  color: #fff;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn-primary:hover {
+  background: #ff3b30;
+  border-color: #ff3b30;
+  color: #fff;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn-ghost {
+  border-color: transparent;
+  background: transparent;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn-ghost:hover {
+  background: transparent;
+  color: #e2231a;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn:disabled {
+  border-color: #444444;
+  color: #666666;
+  background: transparent;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn-icon {
+  background: transparent;
+  border-color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .btn-icon:hover {
+  background: #f2f2f2;
+  color: #111111;
+}
+
+:root[data-theme='dark'] .theme-swiss .type-display,
+:root[data-theme='dark'] .theme-swiss .type-h2 {
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .type-body {
+  color: #c9c9c9;
+}
+
+:root[data-theme='dark'] .theme-swiss .type-caption {
+  color: #7a7a7a;
+}
+
+:root[data-theme='dark'] .theme-swiss .field {
+  border-bottom-color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .field:focus-within {
+  border-bottom-color: #e2231a;
+}
+
+:root[data-theme='dark'] .theme-swiss .toggle-track {
+  background: #111111;
+}
+
+:root[data-theme='dark'] .theme-swiss .toggle-knob {
+  background: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .sr-input:checked + .toggle-track .toggle-knob {
+  background: #e2231a;
+}
+
+:root[data-theme='dark'] .theme-swiss .check-box {
+  border-color: #f2f2f2;
+  background: #111111;
+}
+
+:root[data-theme='dark'] .theme-swiss .sr-input:checked + .check-box {
+  background: #e2231a;
+  border-color: #e2231a;
+  color: #fff;
+}
+
+:root[data-theme='dark'] .theme-swiss .slider {
+  background: #333333;
+}
+
+:root[data-theme='dark'] .theme-swiss .slider::-webkit-slider-thumb {
+  background: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .slider::-moz-range-thumb {
+  background: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .demo-card {
+  background: #111111;
+  border-color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .card-cover {
+  background: linear-gradient(90deg, #e2231a 0 50%, #f2f2f2 50% 100%);
+}
+
+:root[data-theme='dark'] .theme-swiss .chip {
+  background: transparent;
+  border-color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .chip-active {
+  background: #e2231a;
+  border-color: #e2231a;
+  color: #fff;
+}
+
+:root[data-theme='dark'] .theme-swiss .progress {
+  background: #333333;
+}
+
+:root[data-theme='dark'] .theme-swiss .progress-fill {
+  background: #e2231a;
+}
+
+:root[data-theme='dark'] .theme-swiss .spinner {
+  border-color: #333333;
+  border-top-color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .banner {
+  background: #111111;
+  border-top-color: #f2f2f2;
+  border-bottom-color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .swiss-aa {
+  color: #f2f2f2;
+}
+
+:root[data-theme='dark'] .theme-swiss .swiss-row {
+  border-top-color: #333333;
+}
+
+:root[data-theme='dark'] .theme-swiss .swiss-note {
+  color: #8a8a8a;
+}

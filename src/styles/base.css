@@ -691,6 +691,63 @@ svg {
   }
 }
 
+/* ---------- 全局明暗主题 ---------- */
+
+.bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: #f9743f;
+  border-color: #f9743f;
+  transform: rotate(15deg);
+}
+
+:root[data-theme='dark'] {
+  --ink: #e8e9ec;
+  --ink-soft: #9aa0aa;
+  --paper: #141519;
+  --line: #2c2e34;
+}
+
+:root[data-theme='dark'] .site-bar {
+  background: rgba(20, 21, 25, 0.85);
+}
+
+:root[data-theme='dark'] .style-card {
+  background: #1c1e23;
+  border-color: var(--line);
+}
+
+:root[data-theme='dark'] .nav-card {
+  background: #1c1e23;
+  border-color: var(--line);
+}
+
+:root[data-theme='dark'] .theme-toggle {
+  border-color: #3a3d45;
+  color: var(--ink-soft);
+}
+
+:root[data-theme='dark'] .theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
 /* ---------- 签名件共享 ---------- */
 
 .sig-id {

@@ -260,3 +260,37 @@
 .sig-neu .pad.active::after {
   background: var(--n-accent);
 }
+
+/* ---- 全局暗色：只翻转变量 ---- */
+
+:root[data-theme='dark'] .theme-neu {
+  --n-bg: #22262e;
+  --n-ink: #d5dae3;
+  --n-soft: #828d9e;
+  --n-accent: #ff9d73;
+  --n-dark: rgba(0, 0, 0, 0.5);
+  --n-light: rgba(255, 255, 255, 0.05);
+  --n-idark: rgba(0, 0, 0, 0.45);
+  --n-ilight: rgba(255, 255, 255, 0.04);
+}
+
+:root[data-theme='dark'] .theme-neu .type-body,
+:root[data-theme='dark'] .theme-neu .ctl-label {
+  color: #9aa4b5;
+}
+
+:root[data-theme='dark'] .theme-neu .type-caption {
+  color: #6b7484;
+}
+
+:root[data-theme='dark'] .theme-neu .chip {
+  color: #9aa4b5;
+}
+
+:root[data-theme='dark'] .theme-neu .banner {
+  color: #9aa4b5;
+}
+
+:root[data-theme='dark'] .theme-neu .btn:disabled {
+  color: #4a5361;
+}

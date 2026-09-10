@@ -31,7 +31,16 @@ const on = (b: boolean) => (b ? true : undefined)
 
 export default function M3DemoKit() {
   const [seed, setSeed] = useState<Seed>('s-purple')
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(() => document.documentElement.dataset.theme === 'dark')
+
+  // 跟随头部按钮的全局明暗状态
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setDark(document.documentElement.dataset.theme === 'dark')
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
 
   // 把当前动态色方案挂到整页 .detail 上，令标题区与组件区同步重映射
   useEffect(() => {

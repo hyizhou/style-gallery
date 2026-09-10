@@ -465,3 +465,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---- 全局暗色：主页预览卡片跟随（详情页由动态色开关控制） ---- */
+
+:root[data-theme='dark'] .card-preview.theme-m3 {
+  --md-sys-color-surface: #141218;
+  --md-sys-color-on-surface: #e6e0e9;
+  --md-sys-color-primary: #d0bcff;
+  --md-sys-color-surface-container-highest: #36343b;
+  --md-sys-color-secondary-container: #4a4458;
+  --md-sys-color-on-secondary-container: #e8def8;
+  --md-sys-color-outline-variant: #49454f;
+}
+
+:root[data-theme='dark'] .theme-m3 .backlink {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+:root[data-theme='dark'] .theme-m3 .backlink:hover {
+  color: var(--md-sys-color-primary);
+}

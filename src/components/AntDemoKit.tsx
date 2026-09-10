@@ -33,8 +33,17 @@ const primaryName = (value: string) => primaries.find((p) => p.value === value)?
 
 export default function AntDemoKit() {
   const [primary, setPrimary] = useState('#1677ff')
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(() => document.documentElement.dataset.theme === 'dark')
   const [checkable, setCheckable] = useState(true)
+
+  // 跟随头部按钮的全局明暗状态
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setDark(document.documentElement.dataset.theme === 'dark')
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
 
   // 暗色算法只作用于 antd 组件，页面底色与强调色变量在这里同步
   useEffect(() => {

@@ -421,3 +421,113 @@
   color: #8bc34a;
   font-size: 1.4rem;
 }
+
+/* ---- 全局暗色：午夜千禧 ---- */
+
+:root[data-theme='dark'] .theme-y2k {
+  background: #241028;
+  color: #f5e3ff;
+}
+
+:root[data-theme='dark'] .theme-y2k .backlink {
+  color: #c88ab8;
+  opacity: 1;
+}
+
+:root[data-theme='dark'] .theme-y2k .backlink:hover {
+  color: #ff7ac8;
+}
+
+:root[data-theme='dark'] .theme-y2k .detail-desc {
+  color: #c9a8d8;
+  opacity: 1;
+}
+
+:root[data-theme='dark'] .theme-y2k .demo-block {
+  background: #33173d;
+  border-color: #5c2b6e;
+  box-shadow: 7px 7px 0 rgba(255, 46, 166, 0.28);
+}
+
+:root[data-theme='dark'] .theme-y2k .type-h2 {
+  color: #f5e3ff;
+}
+
+:root[data-theme='dark'] .theme-y2k .type-body,
+:root[data-theme='dark'] .theme-y2k .ctl-label {
+  color: #d3b3e4;
+}
+
+:root[data-theme='dark'] .theme-y2k .type-caption {
+  color: #a97fc4;
+}
+
+:root[data-theme='dark'] .theme-y2k .btn:disabled {
+  background: #4a2a52;
+  color: #9a7fae;
+  border-color: #5c2b6e;
+  box-shadow: 0 4px 0 #2b102e;
+}
+
+:root[data-theme='dark'] .theme-y2k .btn-icon {
+  box-shadow: 0 4px 0 #a8337f;
+}
+
+:root[data-theme='dark'] .theme-y2k .field {
+  background: #2b1032;
+  color: #f5e3ff;
+}
+
+:root[data-theme='dark'] .theme-y2k .toggle-track {
+  background: #4a2a52;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-y2k .sr-input:checked + .toggle-track {
+  background: #1f6d68;
+}
+
+:root[data-theme='dark'] .theme-y2k .check-box {
+  background: #2b1032;
+}
+
+:root[data-theme='dark'] .theme-y2k .slider {
+  background: #4a2a52;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-y2k .demo-card {
+  background: #33173d;
+  border-color: #5c2b6e;
+  box-shadow: 7px 7px 0 rgba(255, 46, 166, 0.28);
+}
+
+:root[data-theme='dark'] .theme-y2k .chip {
+  background: transparent;
+  border-color: #c88ab8;
+  color: #e3c7f5;
+}
+
+:root[data-theme='dark'] .theme-y2k .progress {
+  background: #4a2a52;
+  border-color: #ff9ad5;
+}
+
+:root[data-theme='dark'] .theme-y2k .spinner {
+  border: 3px solid #4a2a52;
+  border-top-color: #ff9ad5;
+}
+
+:root[data-theme='dark'] .theme-y2k .banner {
+  background: #0e3b3d;
+  border-color: #7ee8e2;
+  color: #9ff0ec;
+}
+
+:root[data-theme='dark'] .theme-y2k .y2k-window {
+  background: #2b1032;
+}
+
+:root[data-theme='dark'] .theme-y2k .y2k-bubble.lime {
+  color: #2e4a00;
+}
