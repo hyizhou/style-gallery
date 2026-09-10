@@ -223,7 +223,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '横向导航条下接大面积首屏宣传区。',
     desc: '最经典的官网落地页骨架：顶部横向导航，下方是一整块带大标题、副文案与行动按钮的 Hero 区，再往下滚动才进入内容分区。几乎所有产品官网的第一屏。',
     tags: ['落地页', '官网', 'CTA'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '产品官网、活动页等以「第一印象」为核心的落地页',
+        '需要一条清晰的视觉主线：标题 → 副文案 → 行动按钮',
+        '内容分区在下方、首屏只承担转化任务的页面',
+      ],
+      caveats: [
+        '首屏文案要能一句话说清价值，超过两行的副文案没人读',
+        '导航项控制在 5 个以内，次要入口收进「更多」',
+        'Hero 配图与文字要有主次，别让大图吃掉行动按钮的对比度',
+      ],
+      css: 'nav 横向 flex；hero 用 flex-direction: column + text-align: center;',
+    },
   },
   {
     id: 'full-bleed',
