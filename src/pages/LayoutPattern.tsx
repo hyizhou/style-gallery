@@ -8,6 +8,7 @@ import SplitScreenDemo from '../components/layouts/SplitScreenDemo'
 import SingleColumnDemo from '../components/layouts/SingleColumnDemo'
 import MasonryDemo from '../components/layouts/MasonryDemo'
 import CardGridDemo from '../components/layouts/CardGridDemo'
+import BentoGridDemo from '../components/layouts/BentoGridDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -17,6 +18,7 @@ const demos: Record<string, () => JSX.Element> = {
   'single-column': SingleColumnDemo,
   masonry: MasonryDemo,
   'card-grid': CardGridDemo,
+  'bento-grid': BentoGridDemo,
 }
 
 const widths = [

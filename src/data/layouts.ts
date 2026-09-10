@@ -199,7 +199,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '大小不一的格子拼装，重要内容占大格。',
     desc: '把内容装进跨度不同的圆角格子里：核心信息占大格，次要信息填小格，密度高却井然有序。视觉风格大类中已有它的皮肤示范，此处专注格子跨度与信息层级本身。',
     tags: ['跨度层级', 'Apple', '高密度'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '功能总览页、个人主页、数据概览等「多模块拼盘」场景',
+        '模块重要性不同、需要用面积表达优先级的信息面板',
+        '模块数量在 5-9 个之间、层级分明的展示需求',
+      ],
+      caveats: [
+        '格子一多就会退化成普通卡片网格，先用重要性筛掉一半内容',
+        '跨度要有明确的层级逻辑（主 2×2、次 1×1），不要为对称而对称',
+        '格子内边距与圆角保持一致，否则拼盘会散架',
+      ],
+      css: 'grid-template-columns: repeat(3, 1fr); .tile-main { grid-area: span 2 / span 2; }',
+    },
   },
   {
     id: 'top-hero',
