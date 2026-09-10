@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { layoutPatterns, readyLayoutPatterns } from '../data/layouts'
 import HolyGrailDemo from '../components/layouts/HolyGrailDemo'
+import SidebarDashboardDemo from '../components/layouts/SidebarDashboardDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
+  'sidebar-dashboard': SidebarDashboardDemo,
 }
 
 const widths = [

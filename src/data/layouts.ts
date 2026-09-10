@@ -55,7 +55,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '固定侧边导航 + 顶栏 + 内容区，后台系统的统治性形态。',
     desc: '应用外壳（App Shell）的代表：左侧常驻导航栏，顶部工具栏，右侧为可滚动的工作区。几乎所有中后台管理系统、开发者工具与 SaaS 控制台都以它为骨架。',
     tags: ['App Shell', '中后台', 'SaaS'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '中后台管理系统、SaaS 控制台、开发者工具等高频任务型产品',
+        '导航项多且需要常驻可见、便于频繁切换的应用',
+        '需要为后续业务模块扩展预留稳定骨架的产品',
+      ],
+      caveats: [
+        '侧栏长期占用横向空间，内容阅读型产品要慎用（阅读场景优先单栏）',
+        '窄屏下侧栏必须有明确的收纳策略：图标化、抽屉或移到底部标签栏',
+        '导航层级过深时改用分组折叠或二级菜单，避免侧栏变成滚动长条',
+      ],
+      css: 'grid-template-areas: "side top" "side main"; grid-template-columns: 220px 1fr;',
+    },
   },
   {
     id: 'master-detail',

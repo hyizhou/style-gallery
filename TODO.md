@@ -14,8 +14,8 @@
 
 ### 模式实现清单（一轮一个，验收后继续）
 
-- [x] 圣杯布局 Holy Grail（页面骨架 · 热门）—— 本轮已交付
-- [ ] 侧边栏仪表盘 Sidebar Dashboard（页面骨架 · 热门）
+- [x] 圣杯布局 Holy Grail（页面骨架 · 热门）
+- [x] 侧边栏仪表盘 Sidebar Dashboard（页面骨架 · 热门）—— 本轮已交付（含窄屏图标化 / 底部标签栏收纳）
 - [ ] 主从布局 Master-Detail（交互容器 · 热门）
 - [ ] 分屏布局 Split Screen（页面骨架 · 热门）
 - [ ] 单栏内容优先 Single Column（内容组织 · 热门）
