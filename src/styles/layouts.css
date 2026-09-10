@@ -1117,3 +1117,109 @@
     font-size: 1.3rem;
   }
 }
+
+/* ---------- 全屏沉浸 ---------- */
+
+.fb {
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.fb-art {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 154, 109, 0.35), transparent 45%),
+    radial-gradient(circle at 75% 70%, rgba(45, 212, 191, 0.22), transparent 50%),
+    #101418;
+}
+
+.fb-orb {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(60px);
+  background: rgba(249, 116, 63, 0.5);
+  left: 12%;
+  top: 18%;
+}
+
+.fb-orb-2 {
+  width: 180px;
+  height: 180px;
+  background: rgba(45, 212, 191, 0.35);
+  right: 10%;
+  bottom: 12%;
+  left: auto;
+}
+
+.fb-content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.fb-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  color: var(--lp-accent);
+}
+
+.fb-content h4 {
+  font-size: 1.8rem;
+  color: #f2f4f8;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+}
+
+.fb-content p {
+  color: rgba(242, 244, 248, 0.72);
+  font-size: 0.95rem;
+}
+
+.fb-arrow {
+  position: absolute;
+  bottom: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(242, 244, 248, 0.8);
+  font-size: 1.3rem;
+  animation: fb-bob 1.8s ease-in-out infinite;
+}
+
+@keyframes fb-bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 8px;
+  }
+}
+
+.fb-strip {
+  position: relative;
+  border-top: 1px solid var(--lp-border);
+  background: var(--lp-region);
+  padding: 0.8rem 1rem;
+}
+
+.fb-strip p {
+  color: var(--lp-ink);
+  font-size: 0.85rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-arrow {
+    animation: none;
+  }
+}

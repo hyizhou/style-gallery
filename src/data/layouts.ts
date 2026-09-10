@@ -247,7 +247,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '首屏整屏铺满，滚动揭示后续。',
     desc: '第一屏用整屏的图像、视频或交互场景填满，导航悬浮其上，向下滚动才逐步展开内容。强视觉冲击力，适合品牌站、产品发布页与叙事型页面。',
     tags: ['沉浸', '品牌站', '滚动叙事'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '品牌官网、发布会页等需要「一屏定调」的叙事入口',
+        '有高质量主视觉（摄影 / 3D / 视频）可以铺满整屏的场景',
+        '希望用滚动行为驱动内容逐步揭示的叙事型页面',
+      ],
+      caveats: [
+        '整屏图上必须有可读性保障：遮罩、暗角或文字底衬',
+        '滚动提示要明显，否则用户不知道下面还有内容',
+        '移动端整屏图会裁切构图，关键元素要放在安全区内',
+      ],
+      css: 'min-height: 100%; background: cover + overlay; place-content: center;',
+    },
   },
   {
     id: 'magazine',
