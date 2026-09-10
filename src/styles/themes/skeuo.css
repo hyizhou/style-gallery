@@ -1,0 +1,662 @@
+/* 拟物风格 Skeuomorphism —— 皮革、纸张、缝线与黄铜的真实质感 */
+
+.theme-skeuo {
+  background-color: #7c5030;
+  background-image:
+    radial-gradient(rgba(255, 235, 210, 0.05) 1px, transparent 1.4px),
+    radial-gradient(rgba(40, 22, 9, 0.28) 1px, transparent 1.6px),
+    linear-gradient(163deg, #8d5f3c, #66401f);
+  background-size:
+    23px 23px,
+    31px 31px,
+    100% 100%;
+  color: #f3e7cf;
+}
+
+.theme-skeuo .demo-block {
+  background: linear-gradient(180deg, #f9f3e1, #efe4c8);
+  border: 1px solid rgba(122, 86, 44, 0.45);
+  border-radius: 8px;
+  color: #43301d;
+  box-shadow:
+    0 2px 4px rgba(38, 21, 8, 0.4),
+    0 14px 28px rgba(38, 21, 8, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.theme-skeuo .demo-title {
+  color: #8a6a45;
+  opacity: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+/* ---- 按钮：凸起的光泽实体，按下即凹陷 ---- */
+
+.theme-skeuo .btn {
+  border-radius: 9px;
+  padding: 0.72rem 1.5rem;
+  background: linear-gradient(180deg, #ead9b5, #cbb184);
+  border: 1px solid #9a7f52;
+  color: #4d3a22;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -3px 4px rgba(120, 90, 45, 0.35),
+    0 3px 5px rgba(38, 21, 8, 0.45);
+}
+
+.theme-skeuo .btn:hover {
+  filter: brightness(1.06);
+}
+
+.theme-skeuo .btn:active {
+  filter: brightness(0.97);
+  box-shadow:
+    inset 0 2px 5px rgba(50, 26, 9, 0.5),
+    0 1px 2px rgba(38, 21, 8, 0.4);
+}
+
+.theme-skeuo .btn-primary {
+  background: linear-gradient(180deg, #d96a55 0%, #b03a28 55%, #992f1f 100%);
+  border-color: #7c2417;
+  color: #fff6ea;
+  text-shadow: 0 -1px 0 rgba(60, 12, 4, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -4px 6px rgba(90, 20, 8, 0.55),
+    0 3px 6px rgba(38, 21, 8, 0.5);
+}
+
+.theme-skeuo .btn-primary:active {
+  box-shadow:
+    inset 0 2px 6px rgba(60, 12, 4, 0.6),
+    0 1px 2px rgba(38, 21, 8, 0.4);
+}
+
+.theme-skeuo .btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(122, 86, 44, 0.55);
+  color: #6b543a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: none;
+}
+
+.theme-skeuo .btn-ghost:hover {
+  filter: none;
+  color: #3f2e1a;
+  border-color: #6b4a2a;
+}
+
+.theme-skeuo .btn-ghost:active {
+  box-shadow: inset 0 1px 3px rgba(50, 26, 9, 0.3);
+}
+
+.theme-skeuo .btn:disabled {
+  background: linear-gradient(180deg, #ddd0af, #cbbc98);
+  border-color: #b3a17a;
+  color: #9a8a68;
+  text-shadow: none;
+  box-shadow: inset 0 1px 3px rgba(50, 26, 9, 0.25);
+}
+
+.theme-skeuo .btn-icon {
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #f4e3b2, #cfae6c 55%, #9c7c3e);
+  border: 1px solid #7c6130;
+  color: #4d3a22;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.65),
+    inset 0 -3px 5px rgba(110, 80, 30, 0.5),
+    0 3px 5px rgba(38, 21, 8, 0.45);
+}
+
+/* ---- 输入与开关：凹陷的槽与真实的旋钮 ---- */
+
+.theme-skeuo .field {
+  background: #e6d9ba;
+  border: 1px solid rgba(110, 75, 35, 0.55);
+  border-radius: 8px;
+  color: #6b543a;
+  box-shadow:
+    inset 0 2px 4px rgba(60, 35, 12, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.theme-skeuo .toggle-track {
+  background: #6b4a2a;
+  border: 1px solid rgba(58, 34, 14, 0.7);
+  box-shadow:
+    inset 0 2px 4px rgba(38, 21, 8, 0.6),
+    inset 0 -1px 0 rgba(255, 235, 210, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.theme-skeuo .toggle-knob {
+  background: radial-gradient(circle at 32% 28%, #fffdf3, #e8dcbf 60%, #cdbb92);
+  box-shadow:
+    0 2px 3px rgba(40, 22, 8, 0.55),
+    inset 0 -2px 3px rgba(150, 120, 70, 0.4),
+    inset 0 2px 2px rgba(255, 255, 255, 0.9);
+}
+
+.theme-skeuo .sr-input:checked + .toggle-track {
+  background: linear-gradient(180deg, #8ec76f, #55893d);
+  border-color: #3f6b2c;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -3px 5px rgba(30, 60, 18, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.theme-skeuo .sr-input:checked + .toggle-track .toggle-knob {
+  background: radial-gradient(circle at 32% 28%, #ffffff, #f0ead2 60%, #d6c8a0);
+}
+
+.theme-skeuo .check-box {
+  border-radius: 5px;
+  background: #6b4a2a;
+  border: 1px solid rgba(58, 34, 14, 0.7);
+  box-shadow:
+    inset 0 2px 3px rgba(38, 21, 8, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.theme-skeuo .sr-input:checked + .check-box {
+  background: linear-gradient(180deg, #8ec76f, #55893d);
+  border-color: #3f6b2c;
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 3px rgba(30, 60, 18, 0.5);
+}
+
+.theme-skeuo .slider {
+  background: #6b4a2a;
+  height: 10px;
+  border: 1px solid rgba(58, 34, 14, 0.7);
+  box-shadow:
+    inset 0 2px 4px rgba(38, 21, 8, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.theme-skeuo .slider::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at 32% 28%, #f4e3b2, #cfae6c 55%, #9c7c3e);
+  border: 1px solid #7c6130;
+  box-shadow:
+    0 2px 4px rgba(40, 22, 8, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.theme-skeuo .slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at 32% 28%, #f4e3b2, #cfae6c 55%, #9c7c3e);
+  border: 1px solid #7c6130;
+  box-shadow:
+    0 2px 4px rgba(40, 22, 8, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+/* ---- 卡片：纸张上的照片与绿呢封面 ---- */
+
+.theme-skeuo .demo-card {
+  background: linear-gradient(180deg, #f9f3e1, #efe4c8);
+  border: 1px solid rgba(122, 86, 44, 0.45);
+  border-radius: 8px;
+  box-shadow:
+    0 2px 4px rgba(38, 21, 8, 0.35),
+    0 12px 24px rgba(38, 21, 8, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.theme-skeuo .card-cover {
+  background: radial-gradient(ellipse at 50% 28%, #86bb6b, #5d9043 68%, #47702f);
+  box-shadow: inset 0 -14px 22px rgba(30, 56, 18, 0.45), inset 0 2px 3px rgba(255, 255, 255, 0.35);
+}
+
+.theme-skeuo .type-display,
+.theme-skeuo .type-h2 {
+  font-family: Georgia, 'Times New Roman', 'Songti SC', 'STSong', 'SimSun', serif;
+  color: #3d2c1a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.theme-skeuo .type-body,
+.theme-skeuo .ctl-label {
+  color: #5d4a33;
+}
+
+.theme-skeuo .type-caption {
+  color: #8a7454;
+}
+
+/* ---- 标签与徽章：牛皮纸签与红蜡徽记 ---- */
+
+.theme-skeuo .chip {
+  background: linear-gradient(180deg, #efe2c0, #e2d1a8);
+  border: 1px solid #bfa46e;
+  color: #6b5433;
+  border-radius: 6px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 2px rgba(38, 21, 8, 0.3);
+}
+
+.theme-skeuo .chip-active {
+  background: linear-gradient(180deg, #d96a55, #a53120);
+  border-color: #7c2417;
+  color: #fff6ea;
+  text-shadow: 0 -1px 0 rgba(60, 12, 4, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -3px 5px rgba(90, 20, 8, 0.5),
+    0 2px 3px rgba(38, 21, 8, 0.4);
+}
+
+.theme-skeuo .badge {
+  background: linear-gradient(180deg, #d96a55, #a53120);
+  border: 1px solid #7c2417;
+  color: #fff6ea;
+  text-shadow: 0 -1px 0 rgba(60, 12, 4, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 2px 3px rgba(38, 21, 8, 0.45);
+}
+
+/* ---- 进度与反馈：凹槽里的绿呢液面 ---- */
+
+.theme-skeuo .progress {
+  background: #6b4a2a;
+  height: 12px;
+  border: 1px solid rgba(58, 34, 14, 0.7);
+  box-shadow:
+    inset 0 2px 4px rgba(38, 21, 8, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.theme-skeuo .progress-fill {
+  background: linear-gradient(180deg, #8ec76f, #55893d);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -2px 3px rgba(30, 60, 18, 0.5);
+}
+
+.theme-skeuo .spinner {
+  border: 3px solid rgba(163, 129, 63, 0.35);
+  border-top-color: #a3813f;
+}
+
+.theme-skeuo .banner {
+  background: linear-gradient(180deg, #e9f0d8, #dbe6c2);
+  border: 1px solid #b7cfa0;
+  border-radius: 8px;
+  color: #4a6d33;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 1px 3px rgba(38, 21, 8, 0.3);
+}
+
+/* ---- 签名件：皮革桌面上的手账 ---- */
+
+.sig-skeuo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 2.6rem 2.2rem 2.8rem;
+  border-radius: 14px;
+  background-color: #6e4527;
+  background-image:
+    radial-gradient(rgba(255, 235, 210, 0.05) 1px, transparent 1.4px),
+    radial-gradient(rgba(40, 22, 9, 0.3) 1px, transparent 1.6px),
+    linear-gradient(163deg, #7e5232, #59371b);
+  background-size:
+    23px 23px,
+    31px 31px,
+    100% 100%;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 210, 0.2),
+    inset 0 -2px 5px rgba(30, 16, 6, 0.5),
+    0 2px 5px rgba(38, 21, 8, 0.35);
+}
+
+.sig-skeuo::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1.5px dashed rgba(255, 238, 214, 0.35);
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+.skeuo-journal {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 8px 12px 12px 8px;
+  background-color: #7a4c2a;
+  background-image:
+    radial-gradient(rgba(255, 235, 210, 0.05) 1px, transparent 1.4px),
+    radial-gradient(rgba(40, 22, 9, 0.3) 1px, transparent 1.6px),
+    linear-gradient(165deg, #8a5a39, #5d371c);
+  background-size:
+    21px 21px,
+    29px 29px,
+    100% 100%;
+  box-shadow:
+    0 4px 8px rgba(30, 16, 6, 0.5),
+    0 18px 30px rgba(30, 16, 6, 0.45),
+    inset 0 1px 0 rgba(255, 235, 210, 0.25),
+    inset 0 -3px 5px rgba(40, 20, 8, 0.55);
+}
+
+.skeuo-journal::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1.5px dashed rgba(255, 238, 214, 0.4);
+  border-radius: 4px 9px 9px 4px;
+  pointer-events: none;
+}
+
+.sk-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 26px;
+  border-radius: 8px 0 0 8px;
+  background: linear-gradient(90deg, #4e2f18, #7a4f2c 48%, #5b3a1e);
+  box-shadow:
+    inset -2px 0 3px rgba(30, 15, 5, 0.55),
+    1px 0 0 rgba(255, 235, 210, 0.12);
+}
+
+.sk-pages {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: -7px;
+  width: 9px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #fbf6e8, #e9dfc4);
+  box-shadow:
+    2px 0 0 #f2ead4,
+    4px 0 0 #ddd0ac,
+    6px 0 0 #cdbd92,
+    4px 3px 6px rgba(30, 16, 6, 0.4);
+}
+
+.sk-emboss-title {
+  position: absolute;
+  top: 62px;
+  left: 40px;
+  right: 24px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', 'Songti SC', 'STSong', 'SimSun', serif;
+  font-weight: 700;
+  font-size: 1.55rem;
+  letter-spacing: 0.28em;
+  color: rgba(58, 33, 15, 0.9);
+  text-shadow: 0 1px 0 rgba(255, 235, 210, 0.3);
+}
+
+.sk-emboss-sub {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  right: 24px;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  color: #e6c37c;
+  text-shadow:
+    0 -1px 1px rgba(60, 35, 10, 0.85),
+    0 1px 1px rgba(255, 240, 200, 0.3);
+}
+
+.sk-ribbon {
+  position: absolute;
+  top: -13px;
+  right: 46px;
+  width: 16px;
+  height: 66px;
+  background: linear-gradient(180deg, #c0392b, #96281b);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
+  box-shadow: 0 3px 6px rgba(30, 16, 6, 0.45);
+}
+
+.sk-clasp {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 44px;
+  border-radius: 5px 3px 3px 5px;
+  background: linear-gradient(180deg, #6b4224, #4e2f18);
+  box-shadow:
+    0 3px 6px rgba(30, 16, 6, 0.5),
+    inset 0 1px 0 rgba(255, 235, 210, 0.2);
+}
+
+.sk-clasp::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #f2e0ae, #cfae6c 55%, #9c7c3e);
+  box-shadow:
+    inset 0 -1px 2px rgba(70, 50, 18, 0.7),
+    0 1px 2px rgba(30, 16, 6, 0.6);
+}
+
+.skeuo-sig-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 15em;
+  color: #f0e0c2;
+}
+
+.skeuo-sig-note strong {
+  font-family: Georgia, 'Times New Roman', 'Songti SC', 'STSong', 'SimSun', serif;
+  font-size: 1.12rem;
+  letter-spacing: 0.08em;
+}
+
+.skeuo-sig-note span {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  opacity: 0.82;
+}
+
+/* ---- 全局暗色：暗房里的深色皮革 ---- */
+
+:root[data-theme='dark'] .theme-skeuo {
+  background-color: #2b1a0c;
+  background-image:
+    radial-gradient(rgba(255, 235, 210, 0.04) 1px, transparent 1.4px),
+    radial-gradient(rgba(0, 0, 0, 0.4) 1px, transparent 1.6px),
+    linear-gradient(163deg, #3d2512, #241404);
+  color: #e6d5b5;
+}
+
+:root[data-theme='dark'] .theme-skeuo .demo-block {
+  background: linear-gradient(180deg, #e9dcb9, #d9c99b);
+  border-color: rgba(0, 0, 0, 0.4);
+  color: #43301d;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.5),
+    0 14px 28px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+:root[data-theme='dark'] .theme-skeuo .demo-title {
+  color: #7c6242;
+}
+
+:root[data-theme='dark'] .theme-skeuo .btn {
+  background: linear-gradient(180deg, #d9c8a0, #b39c6d);
+  border-color: #7a6238;
+  color: #43301d;
+}
+
+:root[data-theme='dark'] .theme-skeuo .btn-primary {
+  background: linear-gradient(180deg, #b84432 0%, #99291a 55%, #832013 100%);
+  border-color: #6e1c10;
+}
+
+:root[data-theme='dark'] .theme-skeuo .btn-ghost {
+  border-color: rgba(110, 75, 35, 0.75);
+  color: #57432b;
+}
+
+:root[data-theme='dark'] .theme-skeuo .btn:disabled {
+  background: linear-gradient(180deg, #cfc2a0, #bfb08c);
+  color: #8a7a58;
+}
+
+:root[data-theme='dark'] .theme-skeuo .btn-icon {
+  background: radial-gradient(circle at 32% 28%, #e3cd93, #b3934f 55%, #826428);
+}
+
+:root[data-theme='dark'] .theme-skeuo .field {
+  background: #cbbb95;
+}
+
+:root[data-theme='dark'] .theme-skeuo .toggle-track {
+  background: #4e3117;
+}
+
+:root[data-theme='dark'] .theme-skeuo .sr-input:checked + .toggle-track {
+  background: linear-gradient(180deg, #6a9c50, #4a7333);
+  border-color: #38572a;
+}
+
+:root[data-theme='dark'] .theme-skeuo .toggle-knob {
+  background: radial-gradient(circle at 32% 28%, #f2ead4, #d6c8a0 60%, #b3a37c);
+}
+
+:root[data-theme='dark'] .theme-skeuo .check-box {
+  background: #4e3117;
+}
+
+:root[data-theme='dark'] .theme-skeuo .sr-input:checked + .check-box {
+  background: linear-gradient(180deg, #6a9c50, #4a7333);
+  border-color: #38572a;
+}
+
+:root[data-theme='dark'] .theme-skeuo .slider {
+  background: #4e3117;
+}
+
+:root[data-theme='dark'] .theme-skeuo .slider::-webkit-slider-thumb {
+  background: radial-gradient(circle at 32% 28%, #e3cd93, #b3934f 55%, #826428);
+}
+
+:root[data-theme='dark'] .theme-skeuo .slider::-moz-range-thumb {
+  background: radial-gradient(circle at 32% 28%, #e3cd93, #b3934f 55%, #826428);
+}
+
+:root[data-theme='dark'] .theme-skeuo .demo-card {
+  background: linear-gradient(180deg, #e9dcb9, #d9c99b);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .theme-skeuo .card-cover {
+  background: radial-gradient(ellipse at 50% 28%, #6a9c50, #4a7333 68%, #3a5c26);
+}
+
+:root[data-theme='dark'] .theme-skeuo .type-body,
+:root[data-theme='dark'] .theme-skeuo .ctl-label {
+  color: #57432b;
+}
+
+:root[data-theme='dark'] .theme-skeuo .type-caption {
+  color: #7d684a;
+}
+
+:root[data-theme='dark'] .theme-skeuo .chip {
+  background: linear-gradient(180deg, #d9c99b, #c6b284);
+  border-color: #93743c;
+  color: #57432b;
+}
+
+:root[data-theme='dark'] .theme-skeuo .chip-active {
+  background: linear-gradient(180deg, #b84432, #8a2416);
+  border-color: #6e1c10;
+}
+
+:root[data-theme='dark'] .theme-skeuo .badge {
+  background: linear-gradient(180deg, #b84432, #8a2416);
+  border-color: #6e1c10;
+}
+
+:root[data-theme='dark'] .theme-skeuo .progress {
+  background: #4e3117;
+}
+
+:root[data-theme='dark'] .theme-skeuo .progress-fill {
+  background: linear-gradient(180deg, #6ba04e, #4a7333);
+}
+
+:root[data-theme='dark'] .theme-skeuo .spinner {
+  border-color: rgba(131, 100, 40, 0.4);
+  border-top-color: #836428;
+}
+
+:root[data-theme='dark'] .theme-skeuo .banner {
+  background: linear-gradient(180deg, #cfe0ba, #bccfa2);
+  border-color: #8fa876;
+  color: #43622f;
+}
+
+:root[data-theme='dark'] .sig-skeuo {
+  background-color: #241404;
+  background-image:
+    radial-gradient(rgba(255, 235, 210, 0.04) 1px, transparent 1.4px),
+    radial-gradient(rgba(0, 0, 0, 0.45) 1px, transparent 1.6px),
+    linear-gradient(163deg, #33200d, #1c0f03);
+}
+
+:root[data-theme='dark'] .skeuo-journal {
+  background-color: #5d3a1e;
+  background-image:
+    radial-gradient(rgba(255, 235, 210, 0.04) 1px, transparent 1.4px),
+    radial-gradient(rgba(0, 0, 0, 0.45) 1px, transparent 1.6px),
+    linear-gradient(165deg, #6b4425, #42250e);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 18px 30px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 235, 210, 0.18),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme='dark'] .sk-pages {
+  background: linear-gradient(180deg, #ddd0ac, #c6b48a);
+  box-shadow:
+    2px 0 0 #cfc09a,
+    4px 0 0 #b8a67c,
+    6px 0 0 #a08e66,
+    4px 3px 6px rgba(0, 0, 0, 0.55);
+}
+
+:root[data-theme='dark'] .sk-ribbon {
+  background: linear-gradient(180deg, #96281b, #6e1c10);
+}
+
+:root[data-theme='dark'] .skeuo-sig-note {
+  color: #d9c8a4;
+}

@@ -6,7 +6,7 @@
 
 ## 收录风格
 
-极简主义 / 玻璃拟态 / 新拟物 / 粘土拟物 / 新粗野主义 / 极光暗夜 / 便当盒 / 复古像素 / Material Design 3 / Ant Design / 瑞士排版 / 终端 CRT / Y2K 千禧
+极简主义 / 玻璃拟态 / 拟物风格 / 新拟物 / 粘土拟物 / 新粗野主义 / 极光暗夜 / 便当盒 / 复古像素 / Material Design 3 / Ant Design / 瑞士排版 / 终端 CRT / Y2K 千禧
 
 其中 Material Design 3 页面由官方 [@material/web](https://github.com/material-components/material-web) 组件库渲染（动态色：3 种种子色 × 明暗模式）；Ant Design 页面由官方 [antd](https://ant.design) 组件库渲染（设计令牌：3 种品牌色 × 暗色算法）。
 

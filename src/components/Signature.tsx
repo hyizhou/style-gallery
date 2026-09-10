@@ -45,6 +45,23 @@ export default function Signature({ styleId }: { styleId: string }) {
           </div>
         </div>
       )
+    case 'skeuo':
+      return (
+        <div className="sig-skeuo">
+          <div className="skeuo-journal" aria-hidden="true">
+            <span className="sk-spine" />
+            <span className="sk-pages" />
+            <span className="sk-emboss-title">FIELD NOTES</span>
+            <span className="sk-emboss-sub">皮革手账 · EST. 1908</span>
+            <span className="sk-ribbon" />
+            <span className="sk-clasp" />
+          </div>
+          <div className="skeuo-sig-note">
+            <strong>把屏幕做成一件实物</strong>
+            <span>皮革、缝线、压印与黄铜扣——拟物风格用真实材质唤起操作的直觉。</span>
+          </div>
+        </div>
+      )
     case 'neu':
       return (
         <div className="sig-neu">
