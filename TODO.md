@@ -15,27 +15,27 @@
 ### 模式实现清单（一轮一个，验收后继续）
 
 - [x] 圣杯布局 Holy Grail（页面骨架 · 热门）
-- [x] 侧边栏仪表盘 Sidebar Dashboard（页面骨架 · 热门）—— 本轮已交付（含窄屏图标化 / 底部标签栏收纳）
-- [x] 主从布局 Master-Detail（交互容器 · 热门）—— 已交付（列表详情联动）
-- [x] 分屏布局 Split Screen（页面骨架 · 热门）—— 已交付
-- [x] 单栏内容优先 Single Column（内容组织 · 热门）—— 已交付（68ch 阅读纵轴演示）
-- [ ] 瀑布流 Masonry（内容组织 · 热门）
-- [ ] 卡片网格 Card Grid（内容组织 · 热门）
-- [ ] 便当盒网格 Bento Grid（内容组织 · 热门）
-- [ ] 顶部导航 + Hero（页面骨架 · 热门）
-- [ ] 全屏沉浸 Full-bleed（视觉动线 · 热门）
-- [ ] 杂志编辑布局 Magazine（内容组织 · 常见）
-- [ ] 看板 Kanban（交互容器 · 常见）
-- [ ] 特性交替行 Feature Alternating（内容组织 · 常见）
-- [ ] 居中卡片 Centered Card（页面骨架 · 常见）
-- [ ] Z 型动线 Z-Pattern（视觉动线 · 常见）
-- [ ] 分步向导 Wizard（交互容器 · 常见）
-- [ ] 三栏对称 Three-Column（页面骨架 · 冷门）
-- [ ] 盒装布局 Boxed Layout（页面骨架 · 冷门）
-- [ ] F 型动线 F-Pattern（视觉动线 · 冷门）
-- [ ] 横向滚动 Horizontal Scroll（交互容器 · 冷门）
+- [x] 侧边栏仪表盘 Sidebar Dashboard（页面骨架 · 热门）—— 含窄屏图标化 / 底部标签栏收纳
+- [x] 主从布局 Master-Detail（交互容器 · 热门）—— 列表详情联动
+- [x] 分屏布局 Split Screen（页面骨架 · 热门）
+- [x] 单栏内容优先 Single Column（内容组织 · 热门）—— 68ch 阅读纵轴演示
+- [x] 瀑布流 Masonry（内容组织 · 热门）—— CSS 多栏方案，3/2/1 列响应
+- [x] 卡片网格 Card Grid（内容组织 · 热门）—— auto-fill 响应式网格
+- [x] 便当盒网格 Bento Grid（内容组织 · 热门）—— 跨度层级 + 容器查询降列
+- [x] 顶部导航 + Hero（页面骨架 · 热门）—— 落地页首屏骨架
+- [x] 全屏沉浸 Full-bleed（视觉动线 · 热门）—— 整屏定调 + 滚动揭示
+- [x] 杂志编辑布局 Magazine（内容组织 · 常见）—— 头条/次栏/简讯带版面层级
+- [x] 看板 Kanban（交互容器 · 常见）—— 阶段列 + 卡片流转，窄屏横向滚动
+- [x] 特性交替行 Feature Alternating（内容组织 · 常见）—— Z 字图文交替
+- [x] 居中卡片 Centered Card（页面骨架 · 常见）—— place-items 单焦点页
+- [x] Z 型动线 Z-Pattern（视觉动线 · 常见）—— 编号视线流
+- [x] 分步向导 Wizard（交互容器 · 常见）—— 步骤条 + 可交互推进
+- [x] 三栏对称 Three-Column（页面骨架 · 冷门）—— 等宽三栏古典排法
+- [x] 盒装布局 Boxed Layout（页面骨架 · 冷门）—— 固定盒宽 + 装裱背景
+- [x] F 型动线 F-Pattern（视觉动线 · 冷门）—— 眼动热区引导层
+- [x] 横向滚动 Horizontal Scroll（交互容器 · 冷门）—— scroll-snap 长卷
 
-优先级说明：先做「热门」中的页面骨架与交互容器（圣杯已做，下一个建议：侧边栏仪表盘），再补内容组织，最后收尾冷门模式。
+全部 20 个模式已完成。
 
 ## 其他
 
