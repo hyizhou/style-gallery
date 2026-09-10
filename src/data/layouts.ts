@@ -295,7 +295,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '按阶段横排的列，卡片在列间流转。',
     desc: '把工作流拆成若干阶段列（如 待办 / 进行中 / 已完成），任务以卡片形式在列间拖拽流转。项目管理与协作工具的核心界面，也是「状态即布局」的代表。',
     tags: ['任务流', '拖拽', '协作'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '项目管理、工单系统、CRM 等以「状态流转」为核心的工具',
+        '阶段数量固定（2-5 个）、卡片在阶段间单向推进的流程',
+        '需要一眼看清各阶段负载（列内卡片数量）的协作场景',
+      ],
+      caveats: [
+        '列数超过五个后横向滚动会吃掉全局感，配合列折叠使用',
+        '卡片内容要克制：标题 + 标签 + 负责人足矣，详情留给点开',
+        '没有拖拽能力的静态看板只是表格，交互成本要预算进去',
+      ],
+      css: 'display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr);',
+    },
   },
   {
     id: 'feature-alternating',
