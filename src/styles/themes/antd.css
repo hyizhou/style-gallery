@@ -1,0 +1,166 @@
+/* Ant Design —— 官方 antd 组件库（组件样式由 cssinjs 渲染），此处只负责页面底座与主页预览 */
+
+.theme-antd {
+  background: #f5f5f5;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.theme-antd .backlink {
+  color: rgba(0, 0, 0, 0.45);
+  opacity: 1;
+}
+
+.theme-antd .backlink:hover {
+  color: var(--ant-color-primary, #1677ff);
+}
+
+.theme-antd .detail-en {
+  color: var(--ant-color-primary, #1677ff);
+  opacity: 1;
+}
+
+.theme-antd .demo-block {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.theme-antd .demo-title {
+  color: var(--ant-color-primary, #1677ff);
+  opacity: 1;
+  letter-spacing: 0.12em;
+}
+
+.theme-antd .ctl-label,
+.theme-antd .ctl-value {
+  font-size: 0.9rem;
+}
+
+/* 设计令牌控制 */
+
+.theme-antd .antd-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 0.85rem;
+}
+
+.theme-antd .antd-gap {
+  flex: 1;
+}
+
+/* 表单 */
+
+.theme-antd .antd-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+/* 卡片封面 */
+
+.theme-antd .antd-card-cover {
+  height: 120px;
+  background: linear-gradient(135deg, var(--ant-color-primary, #1677ff), var(--ant-color-primary-bg, #e6f4ff));
+}
+
+/* 签名件 */
+
+.theme-antd .antd-sig {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+/* 暗色算法时同步页面底座 */
+
+.theme-antd.antd-dark {
+  background: #141414;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.theme-antd.antd-dark .backlink {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.theme-antd.antd-dark .backlink:hover {
+  color: var(--ant-color-primary, #1677ff);
+}
+
+.theme-antd.antd-dark .demo-block {
+  background: #1f1f1f;
+  border-color: #303030;
+}
+
+.theme-antd.antd-dark .chip {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.theme-antd.antd-dark .detail-desc {
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 1;
+}
+
+.theme-antd.antd-dark .chip {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---- 主页卡片预览：通用类 → antd 外观 ---- */
+
+.theme-antd .btn {
+  background: var(--ant-color-primary, #1677ff);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+.theme-antd .btn:hover {
+  color: #fff;
+  transform: none;
+  background: var(--ant-color-primary-hover, #4096ff);
+}
+
+.theme-antd .type-h2 {
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.theme-antd .chip {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background: #fafafa;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.theme-antd .chip-active {
+  border-color: var(--ant-color-primary, #1677ff);
+  background: transparent;
+  color: var(--ant-color-primary, #1677ff);
+}
+
+.theme-antd .progress {
+  height: 8px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+}
+
+.theme-antd .progress-fill {
+  background: var(--ant-color-primary, #1677ff);
+}
+
+@media (max-width: 880px) {
+  .theme-antd .antd-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-antd .antd-sig {
+    grid-template-columns: 1fr;
+  }
+}

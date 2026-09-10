@@ -1,0 +1,291 @@
+/* 玻璃拟态 Glassmorphism —— 深色底 + 彩色光斑 + 毛玻璃面板 */
+
+.theme-glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(closest-side at 22% 12%, rgba(45, 212, 191, 0.22), transparent 70%),
+    #0f1319;
+  color: #eef2f7;
+}
+
+.theme-glass::before,
+.theme-glass::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.theme-glass::before {
+  width: 430px;
+  height: 430px;
+  background: #ff7a59;
+  top: -130px;
+  right: -90px;
+}
+
+.theme-glass::after {
+  width: 400px;
+  height: 400px;
+  background: #f472b6;
+  bottom: -160px;
+  left: -110px;
+}
+
+.theme-glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+.theme-glass .demo-block {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.35);
+}
+
+.theme-glass .demo-title {
+  color: rgba(238, 242, 247, 0.55);
+  opacity: 1;
+}
+
+.theme-glass .btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 14px;
+  color: #eef2f7;
+}
+
+.theme-glass .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-glass .btn-primary {
+  background: rgba(255, 255, 255, 0.93);
+  border-color: transparent;
+  color: #10151c;
+}
+
+.theme-glass .btn-primary:hover {
+  background: #fff;
+}
+
+.theme-glass .btn-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.theme-glass .btn-icon {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.theme-glass .btn-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-glass .field {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+}
+
+.theme-glass .field:focus-within {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.theme-glass .toggle-track {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.theme-glass .toggle-knob {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.theme-glass .sr-input:checked + .toggle-track {
+  background: rgba(45, 212, 191, 0.5);
+  border-color: rgba(45, 212, 191, 0.7);
+}
+
+.theme-glass .check-box {
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.theme-glass .sr-input:checked + .check-box {
+  background: #2dd4bf;
+  border-color: #2dd4bf;
+  color: #06302a;
+}
+
+.theme-glass .slider {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.theme-glass .slider::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.theme-glass .slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.theme-glass .demo-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.35);
+}
+
+.theme-glass .card-cover {
+  background: linear-gradient(135deg, rgba(255, 122, 89, 0.9), rgba(244, 114, 182, 0.85));
+}
+
+.theme-glass .type-body,
+.theme-glass .ctl-label {
+  color: rgba(238, 242, 247, 0.78);
+}
+
+.theme-glass .type-caption {
+  color: rgba(238, 242, 247, 0.45);
+}
+
+.theme-glass .chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #eef2f7;
+}
+
+.theme-glass .chip-active {
+  background: rgba(45, 212, 191, 0.24);
+  border-color: rgba(45, 212, 191, 0.62);
+}
+
+.theme-glass .badge {
+  background: #ff7a59;
+  color: #fff;
+}
+
+.theme-glass .progress {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.theme-glass .progress-fill {
+  background: linear-gradient(90deg, #2dd4bf, #ffb84d);
+}
+
+.theme-glass .spinner {
+  border: 2.5px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #2dd4bf;
+}
+
+.theme-glass .banner {
+  background: rgba(45, 212, 191, 0.14);
+  border: 1px solid rgba(45, 212, 191, 0.4);
+  color: #bdf3e8;
+}
+
+/* 签名件：悬浮玻璃面板 */
+
+.sig-glass-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 3.4rem 2rem;
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(closest-side at 15% 20%, rgba(45, 212, 191, 0.35), transparent 70%),
+    radial-gradient(closest-side at 85% 80%, rgba(244, 114, 182, 0.3), transparent 70%),
+    #131820;
+}
+
+.sig-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(52px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.sig-blob.b1 {
+  width: 220px;
+  height: 220px;
+  background: #ff7a59;
+  top: -70px;
+  left: 8%;
+}
+
+.sig-blob.b2 {
+  width: 240px;
+  height: 240px;
+  background: #2dd4bf;
+  bottom: -100px;
+  right: 10%;
+}
+
+.sig-blob.b3 {
+  width: 150px;
+  height: 150px;
+  background: #f4d03f;
+  top: 18%;
+  right: 32%;
+  opacity: 0.6;
+}
+
+.sig-glass-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  width: min(560px, 100%);
+  padding: 1.35rem 1.7rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.42);
+}
+
+.sig-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #341303;
+  background: linear-gradient(135deg, #ff7a59, #f4d03f);
+}
+
+.sig-glass-panel .sig-id strong {
+  font-size: 1.08rem;
+}
+
+.sig-glass-panel .sig-id span:last-child {
+  font-size: 0.85rem;
+  color: rgba(238, 242, 247, 0.65);
+}

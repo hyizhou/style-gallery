@@ -1,0 +1,272 @@
+/* 新粗野主义 Neo-Brutalism —— 粗黑描边、实色硬投影、高饱和撞色 */
+
+.theme-brutal {
+  background: #f5d549;
+  color: #111;
+}
+
+.theme-brutal .demo-block {
+  background: #fff;
+  border: 3px solid #111;
+  border-radius: 14px;
+  box-shadow: 7px 7px 0 #111;
+}
+
+.theme-brutal .demo-title {
+  opacity: 1;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.theme-brutal .detail-head h1 {
+  text-shadow: 4px 4px 0 rgba(17, 17, 17, 0.16);
+}
+
+.theme-brutal .btn {
+  background: #fff;
+  border: 3px solid #111;
+  border-radius: 10px;
+  color: #111;
+  box-shadow: 5px 5px 0 #111;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.theme-brutal .btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 #111;
+}
+
+.theme-brutal .btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 #111;
+}
+
+.theme-brutal .btn-primary {
+  background: #ff5d73;
+  color: #fff;
+}
+
+.theme-brutal .btn-ghost {
+  background: transparent;
+  box-shadow: none;
+  border-style: dashed;
+}
+
+.theme-brutal .btn-ghost:hover {
+  transform: none;
+  background: rgba(17, 17, 17, 0.06);
+  box-shadow: none;
+}
+
+.theme-brutal .btn:disabled {
+  background: #e6e6e6;
+  color: #8a8a8a;
+  border-color: #8a8a8a;
+  box-shadow: 5px 5px 0 #8a8a8a;
+}
+
+.theme-brutal .btn-icon {
+  border-radius: 10px;
+  background: #fff;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #111;
+}
+
+.theme-brutal .btn-icon:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #111;
+}
+
+.theme-brutal .field {
+  background: #fff;
+  border: 3px solid #111;
+  border-radius: 10px;
+  box-shadow: inset 4px 4px 0 rgba(17, 17, 17, 0.08);
+}
+
+.theme-brutal .field:focus-within {
+  box-shadow: inset 4px 4px 0 rgba(255, 93, 115, 0.35);
+}
+
+.theme-brutal .toggle-track {
+  background: #fff;
+  border: 3px solid #111;
+}
+
+.theme-brutal .toggle-knob {
+  background: #111;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+}
+
+.theme-brutal .sr-input:checked + .toggle-track {
+  background: #2dd4bf;
+}
+
+.theme-brutal .sr-input:checked + .toggle-track .toggle-knob {
+  transform: translateX(24px);
+}
+
+.theme-brutal .check-box {
+  border: 3px solid #111;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.theme-brutal .sr-input:checked + .check-box {
+  background: #2dd4bf;
+  color: #111;
+}
+
+.theme-brutal .slider {
+  height: 16px;
+  background: #fff;
+  border: 3px solid #111;
+  border-radius: 999px;
+}
+
+.theme-brutal .slider::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #ff5d73;
+  border: 3px solid #111;
+}
+
+.theme-brutal .slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #ff5d73;
+  border: 3px solid #111;
+}
+
+.theme-brutal .demo-card {
+  background: #fff;
+  border: 3px solid #111;
+  border-radius: 14px;
+  box-shadow: 8px 8px 0 #111;
+}
+
+.theme-brutal .card-cover {
+  background: #2dd4bf;
+  border-bottom: 3px solid #111;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(17, 17, 17, 0.14) 0 12px,
+    transparent 12px 24px
+  );
+}
+
+.theme-brutal .chip {
+  border: 2.5px solid #111;
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 700;
+}
+
+.theme-brutal .chip-active {
+  background: #111;
+  color: #f5d549;
+}
+
+.theme-brutal .badge {
+  background: #ff5d73;
+  color: #fff;
+  border: 2.5px solid #111;
+  border-radius: 8px;
+  transform: rotate(3deg);
+  box-shadow: 3px 3px 0 #111;
+}
+
+.theme-brutal .progress {
+  height: 20px;
+  background: #fff;
+  border: 3px solid #111;
+}
+
+.theme-brutal .progress-fill {
+  background: #ff5d73;
+  border-right: 3px solid #111;
+}
+
+.theme-brutal .spinner {
+  border: 3.5px solid #111;
+  border-top-color: #ff5d73;
+}
+
+.theme-brutal .banner {
+  background: #2dd4bf;
+  border: 3px solid #111;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0 #111;
+  font-weight: 700;
+}
+
+/* 签名件：粗野海报 */
+
+.sig-brutal {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 2.4rem;
+}
+
+.brutal-poster {
+  position: relative;
+  max-width: 430px;
+  background: #2dd4bf;
+  border: 3px solid #111;
+  border-radius: 14px;
+  box-shadow: 10px 10px 0 #111;
+  padding: 2.4rem 2.6rem;
+  transform: rotate(-1.4deg);
+}
+
+.brutal-poster h4 {
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.brutal-poster p {
+  margin-top: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.sticker {
+  position: absolute;
+  border: 3px solid #111;
+  border-radius: 8px;
+  padding: 0.32rem 0.8rem;
+  font-weight: 900;
+  font-size: 0.9rem;
+  box-shadow: 4px 4px 0 #111;
+}
+
+.sticker.s1 {
+  background: #f5d549;
+  top: -18px;
+  right: -16px;
+  transform: rotate(8deg);
+}
+
+.sticker.s2 {
+  background: #ff5d73;
+  color: #fff;
+  bottom: -16px;
+  left: -16px;
+  transform: rotate(-6deg);
+}
+
+.sticker.s3 {
+  background: #fff;
+  top: 42%;
+  right: -22px;
+  transform: rotate(5deg);
+}

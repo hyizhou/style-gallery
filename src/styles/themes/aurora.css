@@ -1,0 +1,282 @@
+/* 极光暗夜 Aurora Glow —— 深色底、模糊光晕、渐变描边与发光强调 */
+
+.theme-aurora {
+  background:
+    radial-gradient(60% 46% at 78% 0%, rgba(45, 212, 191, 0.14), transparent 65%),
+    radial-gradient(48% 40% at 12% 88%, rgba(255, 184, 107, 0.12), transparent 62%),
+    #0a0d13;
+  color: #e8ecf4;
+}
+
+.theme-aurora .demo-block {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.theme-aurora .demo-title {
+  color: rgba(232, 236, 244, 0.5);
+  opacity: 1;
+}
+
+.theme-aurora .btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  color: #e8ecf4;
+}
+
+.theme-aurora .btn:hover {
+  border-color: rgba(124, 255, 178, 0.55);
+  color: #7cffb2;
+}
+
+.theme-aurora .btn-primary {
+  background: linear-gradient(120deg, #2dd4bf, #7cffb2);
+  color: #06231a;
+  border: none;
+  box-shadow: 0 0 26px rgba(45, 212, 191, 0.35);
+}
+
+.theme-aurora .btn-primary:hover {
+  box-shadow: 0 0 36px rgba(124, 255, 178, 0.5);
+  color: #06231a;
+}
+
+.theme-aurora .btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: rgba(232, 236, 244, 0.62);
+}
+
+.theme-aurora .btn-icon {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(232, 236, 244, 0.7);
+}
+
+.theme-aurora .btn-icon:hover {
+  color: #7cffb2;
+  border-color: rgba(124, 255, 178, 0.55);
+}
+
+.theme-aurora .field {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+}
+
+.theme-aurora .field:focus-within {
+  border-color: rgba(124, 255, 178, 0.5);
+}
+
+.theme-aurora .toggle-track {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.theme-aurora .toggle-knob {
+  background: #cdd6e4;
+}
+
+.theme-aurora .sr-input:checked + .toggle-track {
+  background: rgba(45, 212, 191, 0.4);
+  border-color: rgba(45, 212, 191, 0.7);
+  box-shadow: 0 0 16px rgba(45, 212, 191, 0.4);
+}
+
+.theme-aurora .sr-input:checked + .toggle-track .toggle-knob {
+  background: #7cffb2;
+}
+
+.theme-aurora .check-box {
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.theme-aurora .sr-input:checked + .check-box {
+  background: #2dd4bf;
+  border-color: #2dd4bf;
+  color: #06231a;
+}
+
+.theme-aurora .slider {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.theme-aurora .slider::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #7cffb2;
+  box-shadow: 0 0 12px rgba(124, 255, 178, 0.65);
+}
+
+.theme-aurora .slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #7cffb2;
+  box-shadow: 0 0 12px rgba(124, 255, 178, 0.65);
+}
+
+.theme-aurora .demo-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.theme-aurora .card-cover {
+  background: linear-gradient(130deg, rgba(45, 212, 191, 0.55), rgba(255, 184, 107, 0.5));
+}
+
+.theme-aurora .type-body,
+.theme-aurora .ctl-label {
+  color: rgba(232, 236, 244, 0.75);
+}
+
+.theme-aurora .type-caption {
+  color: rgba(232, 236, 244, 0.42);
+}
+
+.theme-aurora .type-display {
+  background: linear-gradient(100deg, #7cffb2, #2dd4bf 45%, #ffb86b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.theme-aurora .chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #c6cdd9;
+}
+
+.theme-aurora .chip-active {
+  background: rgba(124, 255, 178, 0.08);
+  border-color: rgba(124, 255, 178, 0.55);
+  color: #7cffb2;
+}
+
+.theme-aurora .badge {
+  background: rgba(45, 212, 191, 0.18);
+  border: 1px solid rgba(45, 212, 191, 0.5);
+  color: #7cffb2;
+  box-shadow: 0 0 14px rgba(45, 212, 191, 0.3);
+}
+
+.theme-aurora .progress {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.theme-aurora .progress-fill {
+  background: linear-gradient(90deg, #2dd4bf, #7cffb2);
+  box-shadow: 0 0 14px rgba(45, 212, 191, 0.55);
+}
+
+.theme-aurora .spinner {
+  border: 2.5px solid rgba(255, 255, 255, 0.12);
+  border-top-color: #7cffb2;
+}
+
+.theme-aurora .banner {
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  color: #a9f2d8;
+}
+
+/* 签名件：极光观测站 */
+
+.sig-aurora-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #070a0f;
+  padding: 3.6rem 2rem 2.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sig-aurora-stage .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sig-aurora-stage .o1 {
+  width: 280px;
+  height: 280px;
+  background: #2dd4bf;
+  top: -110px;
+  left: 14%;
+}
+
+.sig-aurora-stage .o2 {
+  width: 240px;
+  height: 240px;
+  background: #ffb86b;
+  bottom: -120px;
+  right: 10%;
+}
+
+.sig-aurora-text {
+  position: relative;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: 0.34em;
+  margin-left: 0.34em;
+  background: linear-gradient(100deg, #7cffb2, #2dd4bf 45%, #ffb86b);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: aurora-shift 6s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-shift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+.sig-aurora-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  width: min(500px, 100%);
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#0b101a, #0b101a) padding-box,
+    linear-gradient(120deg, rgba(124, 255, 178, 0.75), rgba(255, 184, 107, 0.75)) border-box;
+}
+
+.sig-aurora-card .sig-id strong {
+  font-size: 1.05rem;
+}
+
+.sig-aurora-card .sig-id span:last-child {
+  font-size: 0.85rem;
+  color: rgba(232, 236, 244, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sig-aurora-text {
+    animation: none;
+  }
+}

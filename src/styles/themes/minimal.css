@@ -1,0 +1,221 @@
+/* 极简主义 Minimalism —— 黑白灰、细边框、字体层级 */
+
+.theme-minimal {
+  background: #ffffff;
+  color: #131417;
+}
+
+.theme-minimal .demo-title {
+  opacity: 0.42;
+}
+
+.theme-minimal .demo-block {
+  background: #fff;
+  border: 1px solid #e8e8e5;
+  border-radius: 6px;
+}
+
+.theme-minimal .btn {
+  background: #fff;
+  border: 1px solid #131417;
+  border-radius: 4px;
+  color: #131417;
+}
+
+.theme-minimal .btn:hover {
+  background: #131417;
+  color: #fff;
+}
+
+.theme-minimal .btn-primary {
+  background: #131417;
+  color: #fff;
+}
+
+.theme-minimal .btn-primary:hover {
+  background: #000;
+  color: #fff;
+}
+
+.theme-minimal .btn-ghost {
+  border-color: transparent;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.theme-minimal .btn-ghost:hover {
+  background: transparent;
+  color: #6d727b;
+}
+
+.theme-minimal .btn:disabled {
+  border-color: #cfcfcb;
+  color: #b6b6b1;
+  background: #fff;
+}
+
+.theme-minimal .btn-icon {
+  border: 1px solid #e8e8e5;
+  border-radius: 4px;
+}
+
+.theme-minimal .btn-icon:hover {
+  border-color: #131417;
+  color: #131417;
+  background: #fff;
+}
+
+.theme-minimal .type-display {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.theme-minimal .type-h2 {
+  font-weight: 600;
+}
+
+.theme-minimal .type-body {
+  color: #45484f;
+}
+
+.theme-minimal .type-caption {
+  color: #b4b6ba;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.theme-minimal .field {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #131417;
+  border-radius: 0;
+  padding-left: 0.2rem;
+}
+
+.theme-minimal .field:focus-within {
+  border-bottom-width: 2px;
+}
+
+.theme-minimal .toggle-track {
+  background: #e6e6e3;
+}
+
+.theme-minimal .toggle-knob {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+
+.theme-minimal .sr-input:checked + .toggle-track {
+  background: #131417;
+}
+
+.theme-minimal .check-box {
+  border: 1.5px solid #131417;
+  border-radius: 3px;
+  background: #fff;
+}
+
+.theme-minimal .sr-input:checked + .check-box {
+  background: #131417;
+  border-color: #131417;
+  color: #fff;
+}
+
+.theme-minimal .slider {
+  background: #e6e6e3;
+  height: 2px;
+  border-radius: 0;
+}
+
+.theme-minimal .slider::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #131417;
+}
+
+.theme-minimal .slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #131417;
+}
+
+.theme-minimal .demo-card {
+  background: #fff;
+  border: 1px solid #e8e8e5;
+  border-radius: 6px;
+}
+
+.theme-minimal .card-cover {
+  background: linear-gradient(135deg, #f3f3f1, #e4e4e1);
+}
+
+.theme-minimal .chip {
+  background: #fff;
+  border: 1px solid #dcdcd8;
+  color: #45484f;
+}
+
+.theme-minimal .chip-active {
+  border-color: #131417;
+  color: #131417;
+}
+
+.theme-minimal .badge {
+  background: #131417;
+  color: #fff;
+}
+
+.theme-minimal .progress {
+  height: 2px;
+  background: #e6e6e3;
+  border-radius: 0;
+}
+
+.theme-minimal .progress-fill {
+  background: #131417;
+  border-radius: 0;
+}
+
+.theme-minimal .spinner {
+  border: 2px solid #e6e6e3;
+  border-top-color: #131417;
+}
+
+.theme-minimal .banner {
+  background: #f6f6f4;
+  border-left: 3px solid #131417;
+  border-radius: 0;
+  color: #45484f;
+}
+
+/* 签名件：大字排版 */
+
+.sig-minimal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  padding: 3rem 1rem 2.2rem;
+  text-align: center;
+}
+
+.sig-big {
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.sig-rule {
+  width: 56px;
+  height: 1px;
+  background: #131417;
+}
+
+.sig-note {
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  color: #b4b6ba;
+}

@@ -1,0 +1,304 @@
+/* 粘土拟物 Claymorphism —— 奶油底、糖果色、蓬松内阴影 */
+
+.theme-clay {
+  background-color: #fff3e6;
+  background-image: radial-gradient(rgba(94, 74, 63, 0.06) 1.2px, transparent 1.3px);
+  background-size: 22px 22px;
+  color: #5a4a3f;
+}
+
+.theme-clay .demo-block {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow:
+    0 16px 32px rgba(214, 144, 102, 0.22),
+    inset 0 -8px 14px rgba(238, 180, 140, 0.26),
+    inset 0 6px 10px rgba(255, 255, 255, 0.9);
+}
+
+.theme-clay .demo-title {
+  color: #c08a66;
+  opacity: 1;
+}
+
+.theme-clay .btn {
+  border-radius: 999px;
+  padding: 0.78rem 1.65rem;
+  background: #fff;
+  color: #5a4a3f;
+  box-shadow:
+    0 6px 0 #ecd0b8,
+    0 12px 20px rgba(214, 144, 102, 0.24),
+    inset 0 4px 6px rgba(255, 255, 255, 0.9);
+}
+
+.theme-clay .btn:hover {
+  transform: translateY(-2px);
+}
+
+.theme-clay .btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #ecd0b8, inset 0 3px 6px rgba(214, 144, 102, 0.28);
+}
+
+.theme-clay .btn-primary {
+  background: linear-gradient(180deg, #ff9a6b, #ff7a4d);
+  color: #fff;
+  box-shadow:
+    0 6px 0 #d95f35,
+    0 12px 22px rgba(255, 122, 77, 0.35),
+    inset 0 3px 5px rgba(255, 255, 255, 0.45);
+}
+
+.theme-clay .btn-primary:active {
+  box-shadow: 0 2px 0 #d95f35, inset 0 3px 6px rgba(160, 60, 20, 0.3);
+}
+
+.theme-clay .btn-ghost {
+  background: transparent;
+  box-shadow: none;
+  border: 2px dashed #e9b68f;
+  color: #c08a66;
+}
+
+.theme-clay .btn-ghost:hover {
+  transform: none;
+  color: #d97a4a;
+}
+
+.theme-clay .btn:disabled {
+  background: #f3e3d3;
+  color: #c8b2a0;
+  box-shadow: 0 5px 0 #e6d0bb;
+}
+
+.theme-clay .btn-icon {
+  border-radius: 50%;
+  background: #fff;
+  color: #d97a4a;
+  box-shadow: 0 5px 0 #ecd0b8, 0 10px 16px rgba(214, 144, 102, 0.24);
+}
+
+.theme-clay .field {
+  background: #fff;
+  border-radius: 999px;
+  color: #b08a70;
+  box-shadow: inset 4px 4px 8px rgba(238, 180, 140, 0.38), inset -3px -3px 6px rgba(255, 255, 255, 0.9);
+}
+
+.theme-clay .toggle-track {
+  background: #ffe3cc;
+  box-shadow: inset 3px 3px 6px rgba(214, 144, 102, 0.35);
+}
+
+.theme-clay .toggle-knob {
+  background: #fff;
+  box-shadow: 2px 4px 6px rgba(214, 144, 102, 0.42), inset 0 2px 3px rgba(255, 255, 255, 0.9);
+}
+
+.theme-clay .sr-input:checked + .toggle-track {
+  background: #ffd0a8;
+}
+
+.theme-clay .sr-input:checked + .toggle-track .toggle-knob {
+  background: #ff8a5c;
+}
+
+.theme-clay .check-box {
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(214, 144, 102, 0.26), inset 0 -3px 5px rgba(238, 180, 140, 0.3);
+}
+
+.theme-clay .sr-input:checked + .check-box {
+  background: #5cc8a8;
+  color: #fff;
+  box-shadow: 0 4px 0 #3da585;
+}
+
+.theme-clay .slider {
+  background: #ffe3cc;
+  height: 12px;
+  box-shadow: inset 2px 3px 6px rgba(214, 144, 102, 0.35);
+}
+
+.theme-clay .slider::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 0 #ecd0b8, 0 8px 14px rgba(214, 144, 102, 0.35);
+}
+
+.theme-clay .slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 0 #ecd0b8, 0 8px 14px rgba(214, 144, 102, 0.35);
+}
+
+.theme-clay .demo-card {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow:
+    0 16px 32px rgba(214, 144, 102, 0.22),
+    inset 0 -8px 14px rgba(238, 180, 140, 0.2);
+}
+
+.theme-clay .card-cover {
+  background: linear-gradient(135deg, #ffd9b3, #ffb27d);
+}
+
+.theme-clay .type-body,
+.theme-clay .ctl-label {
+  color: #7a655a;
+}
+
+.theme-clay .type-caption {
+  color: #c4a68e;
+}
+
+.theme-clay .chip {
+  background: #fff;
+  color: #8a6a52;
+  box-shadow: 0 4px 0 #f0d4bd;
+}
+
+.theme-clay .chip-active {
+  background: #5cc8a8;
+  color: #fff;
+  box-shadow: 0 4px 0 #3da585;
+}
+
+.theme-clay .badge {
+  background: #ff8a5c;
+  color: #fff;
+  box-shadow: 0 3px 0 #d95f35;
+}
+
+.theme-clay .progress {
+  background: #ffe3cc;
+  height: 14px;
+  box-shadow: inset 2px 3px 6px rgba(214, 144, 102, 0.35);
+}
+
+.theme-clay .progress-fill {
+  background: linear-gradient(180deg, #ffb27d, #ff8a5c);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.theme-clay .spinner {
+  border: 3px solid #ffe3cc;
+  border-top-color: #ff8a5c;
+}
+
+.theme-clay .banner {
+  background: #dff3ea;
+  color: #2e7d64;
+  border-radius: 20px;
+  box-shadow: inset 0 -4px 0 rgba(92, 200, 168, 0.35);
+}
+
+/* 签名件：粘土小场景 */
+
+.sig-clay-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+  padding: 2.4rem 0 1.6rem;
+}
+
+.clay-cloud {
+  position: relative;
+  width: 190px;
+  height: 108px;
+  background: #fff;
+  border-radius: 60px;
+  box-shadow:
+    0 14px 0 #ecd0b8,
+    0 26px 42px rgba(214, 144, 102, 0.28),
+    inset 0 8px 12px rgba(255, 255, 255, 0.9),
+    inset 0 -10px 14px rgba(238, 180, 140, 0.35);
+}
+
+.clay-cloud::before,
+.clay-cloud::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0 6px 8px rgba(255, 255, 255, 0.9), inset 0 -6px 8px rgba(238, 180, 140, 0.3);
+}
+
+.clay-cloud::before {
+  width: 74px;
+  height: 74px;
+  top: -34px;
+  left: 26px;
+}
+
+.clay-cloud::after {
+  width: 58px;
+  height: 58px;
+  top: -24px;
+  right: 28px;
+}
+
+.clay-cloud .eye {
+  position: absolute;
+  top: 44px;
+  width: 11px;
+  height: 13px;
+  border-radius: 50%;
+  background: #5a4a3f;
+}
+
+.clay-cloud .eye.l {
+  left: 58px;
+}
+
+.clay-cloud .eye.r {
+  right: 58px;
+}
+
+.clay-cloud .mouth {
+  position: absolute;
+  top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 12px;
+  border-bottom: 4px solid #5a4a3f;
+  border-radius: 0 0 22px 22px;
+}
+
+.clay-cloud .cheek {
+  position: absolute;
+  top: 58px;
+  width: 16px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 138, 92, 0.4);
+}
+
+.clay-cloud .cheek.l {
+  left: 36px;
+}
+
+.clay-cloud .cheek.r {
+  right: 36px;
+}
+
+.clay-sun {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffd166, #ffb347);
+  box-shadow:
+    0 10px 0 #e09b2d,
+    0 20px 32px rgba(255, 179, 71, 0.4),
+    inset 0 4px 6px rgba(255, 255, 255, 0.6);
+}
