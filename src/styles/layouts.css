@@ -841,3 +841,59 @@
 .card-titlerow .lp-planned-badge {
   margin-left: auto;
 }
+
+/* ---------- 瀑布流 ---------- */
+
+.msy {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.msy-cols {
+  columns: 3;
+  column-gap: 10px;
+  width: 100%;
+}
+
+.msy-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border: 1.5px dashed var(--lp-border);
+  border-radius: 10px;
+  background: var(--lp-region);
+  padding: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.msy-pic {
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--lp-accent-soft), var(--lp-region));
+  border: 1px solid var(--lp-border);
+}
+
+.msy-item strong {
+  font-size: 0.9rem;
+}
+
+.msy-item p {
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--lp-ink);
+}
+
+@container (max-width: 760px) {
+  .msy-cols {
+    columns: 2;
+  }
+}
+
+@container (max-width: 430px) {
+  .msy-cols {
+    columns: 1;
+  }
+}

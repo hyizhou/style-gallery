@@ -151,7 +151,20 @@ export const layoutPatterns: LayoutPattern[] = [
     tagline: '列宽固定、项高不一，依次填补最短列。',
     desc: '在等宽的多列中纵向堆砌不等高的卡片，永远填补最短的一列，形成错落有致的墙面。Pinterest 带火的图片内容站标配，最大化利用不同比例的素材。',
     tags: ['Pinterest', '图片站', '错落'],
-    status: 'planned',
+    status: 'ready',
+    notes: {
+      use: [
+        '图片、设计作品、商品等素材比例不一的信息流',
+        '希望一屏塞下尽量多内容、又保持可扫读的内容站',
+        '素材高度不可控、需要自动填缝的场景',
+      ],
+      caveats: [
+        '纯 CSS 多栏方案会把阅读顺序切成纵向，不适合强顺序内容',
+        '需要严格按行序填充时，改用 JS 计算的绝对定位瀑布流',
+        '无限滚动配合瀑布流会让「回到顶部」变得频繁而烦躁',
+      ],
+      css: 'columns: 3; column-gap: 10px; & > * { break-inside: avoid; }',
+    },
   },
   {
     id: 'card-grid',
