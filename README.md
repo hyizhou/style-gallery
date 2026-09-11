@@ -12,7 +12,7 @@
 
 ## 布局模式大类
 
-主页可在「视觉风格 / 布局模式」之间切换。布局模式与视觉风格正交：风格回答"长什么样"，布局回答"东西怎么摆"。每个布局模式配有可切换预览宽度（桌面/平板/手机）的活体演示，使用容器查询按容器宽度自动重排。调研编目见 [docs/layout-patterns.md](docs/layout-patterns.md)，接入设计见 [docs/layout-mode-design.md](docs/layout-mode-design.md)，推进计划见 [TODO.md](TODO.md)。当前已实现全部 20 个布局模式。
+主页可在「视觉风格 / 布局模式」之间切换。布局模式与视觉风格正交：风格回答"长什么样"，布局回答"东西怎么摆"。每个布局模式配有可切换预览宽度（桌面/平板/手机）的活体演示，使用容器查询按容器宽度自动重排。调研编目见 [docs/layout-patterns.md](docs/layout-patterns.md)，接入设计见 [docs/layout-mode-design.md](docs/layout-mode-design.md)，推进计划见 [TODO.md](TODO.md)。当前已实现全部 21 个布局模式。
 
 ## 技术栈
 

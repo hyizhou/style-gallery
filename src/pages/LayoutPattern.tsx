@@ -21,6 +21,7 @@ import ThreeColumnDemo from '../components/layouts/ThreeColumnDemo'
 import BoxedDemo from '../components/layouts/BoxedDemo'
 import FPatternDemo from '../components/layouts/FPatternDemo'
 import HorizontalScrollDemo from '../components/layouts/HorizontalScrollDemo'
+import ModalDemo from '../components/layouts/ModalDemo'
 
 const demos: Record<string, () => JSX.Element> = {
   'holy-grail': HolyGrailDemo,
@@ -43,6 +44,7 @@ const demos: Record<string, () => JSX.Element> = {
   boxed: BoxedDemo,
   'f-pattern': FPatternDemo,
   'horizontal-scroll': HorizontalScrollDemo,
+  modal: ModalDemo,
 }
 
 const widths = [

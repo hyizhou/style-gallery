@@ -502,6 +502,30 @@ export const layoutPatterns: LayoutPattern[] = [
       css: 'display: grid; grid-auto-flow: column; overflow-x: auto; scroll-snap-type: x mandatory;',
     },
   },
+  {
+    id: 'modal',
+    name: '弹窗',
+    en: 'Modal Dialog',
+    group: '交互容器',
+    heat: '热门',
+    tagline: '遮罩压暗页面，把一件事推到眼前。',
+    desc: '在页面之上叠加一层独立浮层：半透明遮罩压暗并挡住底层内容，居中的对话框承载必须立即处理的任务——确认、短表单、灯箱预览。它是打断强度最高的容器：一旦弹出，用户的全部注意力都必须交给它。',
+    tags: ['遮罩', '聚焦', '打断'],
+    status: 'ready',
+    notes: {
+      use: [
+        '删除确认、登录过期、支付复核等必须立即决策的阻断性任务',
+        '图片灯箱、快速编辑等「不离开当前上下文」的轻量操作',
+        '主任务只有一件、几秒内可完成的短流程（更长的流程改用独立页面）',
+      ],
+      caveats: [
+        '弹窗是最强的打断：能就地内联展开或用 toast 提示的，就不要弹窗',
+        '一次只开一层，弹窗之上再叠弹窗是可用性灾难',
+        '关闭路径要显式（取消、×、Esc、点击遮罩），破坏性操作还要留反悔出口',
+      ],
+      css: '遮罩 position: fixed + inset: 0；对话框 place-items: center 居中（原生 <dialog> 用 ::backdrop）',
+    },
+  },
 ]
 
 export const readyLayoutPatterns = layoutPatterns.filter((p) => p.status === 'ready')
