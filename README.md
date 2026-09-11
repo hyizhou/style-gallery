@@ -1,6 +1,6 @@
 # 风格标本馆 · Style Gallery
 
-一个用于展示主流 UI 设计风格的多页 Web 应用：主页是站点介绍与风格导航，每个风格卡片以该风格的组件作为预览；点击进入对应风格页，可查看按钮、表单、卡片、徽章、进度反馈等一整套可交互组件，以及一件「风格签名」特色组件。
+一个面向「使用 AI 做设计的人」的风格词典与提示词工具：看到想要的效果，拿到它的名字和提示词。主页支持用口语别名搜索（毛玻璃、黑客屏、辣妹风……），每个风格与布局词条配一整套可交互组件标本和可一键复制的 AI 提示词；另有风格词典（`/glossary`）与场景推荐（`/scenarios`）两个入口。设计见 [docs/prompt-tool-design.md](docs/prompt-tool-design.md)。
 
 其中 Material Design 3 页面由官方 [@material/web](https://github.com/material-components/material-web) 组件库渲染（动态色：3 种种子色 × 明暗模式）；Ant Design 页面由官方 [antd](https://ant.design) 组件库渲染（设计令牌：3 种品牌色 × 暗色算法）。
 
@@ -17,7 +17,7 @@
 ## 技术栈
 
 - Vite 5 + React 18 + TypeScript
-- react-router-dom（BrowserRouter）：多页路由（主页 `/`、风格页 `/styles/:id`、布局页 `/layouts/:id`）
+- react-router-dom（BrowserRouter）：多页路由（主页 `/`、风格页 `/styles/:id`、布局页 `/layouts/:id`、词典 `/glossary`、场景 `/scenarios`）
 - @material/web：Material Design 3 官方 Web 组件（m3 风格页）
 - antd + @ant-design/icons：Ant Design 官方组件库（antd 风格页）
 - 样式为手写 CSS：`styles/base.css` 提供共享骨架，`styles/themes/*.css` 以 `.theme-<id>` 作用域实现各风格皮肤

@@ -17,6 +17,8 @@ export interface LayoutPattern {
   tagline: string
   desc: string
   tags: string[]
+  aliases?: string[]
+  prompt?: { short: string; zh: string; en: string }
   status: LayoutStatus
   notes?: LayoutPatternNotes
 }
@@ -24,6 +26,12 @@ export interface LayoutPattern {
 export const layoutPatterns: LayoutPattern[] = [
   {
     id: 'holy-grail',
+    aliases: ['三栏骨架', '页头双侧栏'],
+    prompt: {
+      short: '用圣杯布局（Holy Grail）组织页面：页头 + 双侧栏 + 主内容 + 页脚。',
+      zh: '用 CSS Grid 的 grid-template-areas 实现圣杯布局（Holy Grail）：页头横贯顶部，下方左侧导航、中间主内容、右侧辅助栏，页脚收底；窄屏时侧栏折叠到主内容上下。',
+      en: 'Build a Holy Grail layout with CSS Grid grid-template-areas: a full-width header, left nav / main content / right aside below it, and a footer; collapse the side columns above and below the main content on narrow screens.',
+    },
     name: '圣杯布局',
     en: 'Holy Grail',
     group: '页面骨架',
@@ -48,6 +56,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'sidebar-dashboard',
+    aliases: ['后台骨架', 'App Shell', '中后台布局'],
+    prompt: {
+      short: '用侧边栏仪表盘布局：固定侧边导航 + 顶栏 + 可滚动工作区。',
+      zh: '用侧边栏仪表盘（App Shell）布局：左侧常驻导航栏，顶部工具栏，右侧可滚动工作区，用 grid-template-areas: "side top" "side main" 实现；窄屏时侧栏收纳为抽屉或图标栏。',
+      en: 'Use a sidebar dashboard (app shell) layout: a persistent left nav, a top toolbar and a scrollable main workspace via grid-template-areas: "side top" "side main"; collapse the sidebar into a drawer or icon rail on narrow screens.',
+    },
     name: '侧边栏仪表盘',
     en: 'Sidebar Dashboard',
     group: '页面骨架',
@@ -72,6 +86,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'master-detail',
+    aliases: ['列表详情', '双面板', '邮件客户端布局'],
+    prompt: {
+      short: '用主从布局（Master-Detail）：左列表选中、右详情联动。',
+      zh: '用主从布局（Master-Detail）：左侧主列表用于浏览与选择，右侧从面板展示选中项的详情，grid-template-columns: 40% 1fr；窄屏降级为列表页 + 详情页的两级导航。',
+      en: 'Use a master-detail layout: a left list for browsing and selection with a right detail pane, grid-template-columns: 40% 1fr; degrade into a two-level list-then-detail flow on narrow screens.',
+    },
     name: '主从布局',
     en: 'Master-Detail',
     group: '交互容器',
@@ -96,6 +116,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'split',
+    aliases: ['五五开', '左右分栏', '两栏对分'],
+    prompt: {
+      short: '用分屏布局（Split Screen）：首屏左右两栏各占一半。',
+      zh: '用分屏布局（Split Screen）把首屏对半切开：一侧品牌视觉或图像，一侧文案与行动按钮，grid-template-columns: 1fr 1fr；窄屏退化为上下堆叠。',
+      en: 'Use a split screen layout to halve the hero: one side brand visuals, the other copy and a CTA, with grid-template-columns: 1fr 1fr; stack vertically on narrow screens.',
+    },
     name: '分屏布局',
     en: 'Split Screen',
     group: '页面骨架',
@@ -120,6 +146,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'single-column',
+    aliases: ['阅读布局', '博客版式', '一栏到底'],
+    prompt: {
+      short: '用单栏内容优先布局：一条约 60–75 字符行宽的阅读纵轴。',
+      zh: '用单栏内容优先（Single Column）布局：所有内容约束在一条舒适的阅读纵轴上，max-width: 68ch 居中，无侧栏干扰，是博客、长文与文档正文的最优解。',
+      en: 'Use a single-column, content-first layout: everything flows down one comfortable reading axis with max-width: 68ch, no sidebar distractions — the best choice for blogs, long-form text and docs.',
+    },
     name: '单栏内容优先',
     en: 'Single Column',
     group: '内容组织',
@@ -144,6 +176,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'masonry',
+    aliases: ['Pinterest 布局', '图片流', '填缝布局'],
+    prompt: {
+      short: '用瀑布流布局（Masonry）：等宽多列、卡片填补最短列。',
+      zh: '用瀑布流（Masonry）布局：在等宽的多列中堆砌不等高的卡片并永远填补最短列，CSS columns: 3 或 JS 绝对定位实现，适合图片、作品等比例不一的信息流。',
+      en: 'Use a masonry layout: equal-width columns where uneven-height cards always fill the shortest one — CSS columns: 3 or JS-positioned; ideal for image-heavy, mixed-ratio feeds.',
+    },
     name: '瀑布流',
     en: 'Masonry',
     group: '内容组织',
@@ -168,6 +206,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'card-grid',
+    aliases: ['卡片列表', '等权陈列', '商品网格'],
+    prompt: {
+      short: '用卡片网格（Card Grid）：统一卡片单元铺满响应式网格。',
+      zh: '用卡片网格（Card Grid）布局：统一结构的卡片（图 + 题 + 摘要 + 动作）铺在规则网格里，grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))，信息等权、易于扫读。',
+      en: 'Use a card grid: uniform card units (image, title, summary, action) in a responsive grid via grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) — equal-weight content that is easy to scan.',
+    },
     name: '卡片网格',
     en: 'Card Grid',
     group: '内容组织',
@@ -192,6 +236,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'bento-grid',
+    aliases: ['便当布局', '大小格', '拼盘布局'],
+    prompt: {
+      short: '用便当盒网格（Bento Grid）：重要内容占大格、次要占小格。',
+      zh: '用便当盒网格（Bento Grid）布局：模块拼装成网格，主模块用 grid-area: span 2 / span 2 占大格，次要模块填小格，用面积直接表达信息优先级。',
+      en: 'Use a bento grid: tiles of different spans assembled into a grid — key modules take grid-area: span 2 / span 2 while secondary ones fill small cells; area itself communicates priority.',
+    },
     name: '便当盒网格',
     en: 'Bento Grid',
     group: '内容组织',
@@ -216,6 +266,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'top-hero',
+    aliases: ['官网首屏', '落地页骨架'],
+    prompt: {
+      short: '用顶部导航 + Hero 骨架：横向导航下接大标题首屏。',
+      zh: '用顶部导航 + Hero 骨架：顶部横向导航（五项以内），下方整块 Hero 区放大标题、副文案与一个主行动按钮，再往下才是内容分区；产品官网第一屏的标准解。',
+      en: 'Use a top nav + hero skeleton: a horizontal nav (five items or fewer) above a full-width hero with headline, subcopy and one primary CTA, followed by content sections — the standard product-site first screen.',
+    },
     name: '顶部导航 + Hero',
     en: 'Top Nav + Hero',
     group: '页面骨架',
@@ -240,6 +296,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'full-bleed',
+    aliases: ['整屏首图', '品牌首屏'],
+    prompt: {
+      short: '用全屏沉浸首屏（Full-bleed Hero）：整屏视觉 + 悬浮导航 + 滚动揭示。',
+      zh: '用全屏沉浸（Full-bleed Hero）布局：第一屏被整幅图像、视频或 3D 场景填满（min-height: 100% + object-fit: cover），导航悬浮其上，滚动后逐步展开内容，适合品牌站与发布页。',
+      en: 'Use a full-bleed hero: the first viewport is filled entirely by an image, video or 3D scene (min-height: 100% + object-fit: cover), the nav floats above it, and content reveals on scroll — great for brand and launch pages.',
+    },
     name: '全屏沉浸',
     en: 'Full-bleed Hero',
     group: '视觉动线',
@@ -264,6 +326,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'magazine',
+    aliases: ['报刊布局', '头条分栏'],
+    prompt: {
+      short: '用杂志编辑布局（Magazine）：头条横贯、次条分栏、图文穿插。',
+      zh: '用杂志编辑（Magazine / Editorial）布局：头条横贯整行，次条分栏并列，图文穿插与跨栏引言，用 grid-template-areas 编排版面层级，适合内容量大的编辑与策展页。',
+      en: 'Use a magazine / editorial layout: a headline story spanning full width, secondary stories in columns, interspersed images and cross-column pull quotes, orchestrated with grid-template-areas — ideal for content-heavy curated pages.',
+    },
     name: '杂志编辑布局',
     en: 'Magazine / Editorial',
     group: '内容组织',
@@ -288,6 +356,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'kanban',
+    aliases: ['任务板', 'Trello 布局', '阶段列'],
+    prompt: {
+      short: '用看板布局（Kanban）：按阶段横排的列，卡片在列间流转。',
+      zh: '用看板（Kanban）布局：把工作流拆成若干阶段列（待办 / 进行中 / 已完成），任务卡片在列间流转，grid-auto-flow: column 加 grid-auto-columns: minmax(220px, 1fr)，列内可滚动。',
+      en: 'Use a kanban layout: the workflow split into stage columns (todo / doing / done) with task cards moving between them — grid-auto-flow: column plus grid-auto-columns: minmax(220px, 1fr), scrollable per column.',
+    },
     name: '看板',
     en: 'Kanban',
     group: '交互容器',
@@ -312,6 +386,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'feature-alternating',
+    aliases: ['图文交替', 'Z 字下行'],
+    prompt: {
+      short: '用特性交替行（Feature Alternating）：图文两列左右交替下行。',
+      zh: '用特性交替行（Feature Alternating）布局：每个特性占一整行，一侧图像一侧文案，下一行左右互换，形成 Z 字动线逐段下行，是产品功能介绍页的黄金版式。',
+      en: 'Use a feature-alternating layout: each feature takes a full row with the image on one side and copy on the other, swapping sides each row to create a zig-zag reading path — the classic product feature section.',
+    },
     name: '特性交替行',
     en: 'Feature Alternating',
     group: '内容组织',
@@ -336,6 +416,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'centered-card',
+    aliases: ['登录卡片', '聚焦卡片'],
+    prompt: {
+      short: '用居中卡片布局（Centered Card）：一张卡片居中承载单一任务。',
+      zh: '用居中卡片（Centered Card）布局：整页只放一张水平垂直居中的卡片（登录、注册、邀请码、空状态），把注意力压缩到一个动作上，配柔和的背景。',
+      en: 'Use a centered card layout: a single horizontally and vertically centered card carrying one task (login, signup, invite code, empty state) — attention compressed onto a single action against a calm backdrop.',
+    },
     name: '居中卡片',
     en: 'Centered Card',
     group: '页面骨架',
@@ -360,6 +446,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'z-pattern',
+    aliases: ['Z 字布局'],
+    prompt: {
+      short: '用 Z 型动线（Z-Pattern）编排少内容页：关键信息压在 Z 字拐角。',
+      zh: '用 Z 型动线（Z-Pattern）编排内容较少的页面：左上 Logo、右上导航、中部主视觉、右下行动按钮，让关键信息落在 Z 字的四个拐角上，顺应扫读习惯。',
+      en: 'Use a Z-pattern for light-content pages: logo top-left, nav top-right, the main visual mid-canvas, CTA bottom-right — key elements land on the four corners of the Z, matching natural scanning.',
+    },
     name: 'Z 型动线',
     en: 'Z-Pattern',
     group: '视觉动线',
@@ -384,6 +476,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'wizard',
+    aliases: ['步骤流', 'Stepper'],
+    prompt: {
+      short: '用分步向导（Wizard / Stepper）：顶部步骤条，一次只做一步。',
+      zh: '用分步向导（Wizard / Stepper）布局：顶部步骤条标示进度与当前步，主体只呈现当前一步的表单或说明，底部上一步 / 下一步，把复杂流程切成低认知负担的顺序步骤。',
+      en: 'Use a wizard / stepper layout: a top stepper tracks progress, the body shows only the current step\u2019s form or content, with back / next actions — complex flows cut into low-cognitive-load sequential steps.',
+    },
     name: '分步向导',
     en: 'Wizard / Stepper',
     group: '交互容器',
@@ -408,6 +506,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'three-column',
+    aliases: ['三等分栏', '门户布局'],
+    prompt: {
+      short: '用三栏对称布局（Three-Column）：三条等宽纵栏并列。',
+      zh: '用三栏对称（Three-Column）布局：三条等宽纵栏并列陈列内容，栏目感与信息密度强，grid-template-columns: repeat(3, 1fr)，常见于门户与报刊式站点，注意窄屏塌缩为单栏。',
+      en: 'Use a three-column layout: three equal-width vertical columns with grid-template-columns: repeat(3, 1fr) — strong section identity and density, typical of portals; collapse to one column on narrow screens.',
+    },
     name: '三栏对称',
     en: 'Three-Column',
     group: '页面骨架',
@@ -432,6 +536,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'boxed',
+    aliases: ['定宽盒', '画布布局'],
+    prompt: {
+      short: '用盒装布局（Boxed Layout）：内容约束在居中定宽盒内，两侧留白。',
+      zh: '用盒装布局（Boxed Layout）：整页内容约束在一个居中的固定宽度盒子里（如 max-width: 1200px），盒外是纯色或图案背景，带来报刊般的安定感与边框感。',
+      en: 'Use a boxed layout: all content constrained inside a centered fixed-width box (e.g. max-width: 1200px) with a solid or patterned background outside it — printed-page stability.',
+    },
     name: '盒装布局',
     en: 'Boxed Layout',
     group: '页面骨架',
@@ -456,6 +566,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'f-pattern',
+    aliases: ['扫读优化', '文字密集布局'],
+    prompt: {
+      short: '用 F 型动线（F-Pattern）编排文字密集页：关键信息压在首行与左缘。',
+      zh: '用 F 型动线（F-Pattern）编排文字密集页面：把标题与关键词压在首行、次行与左缘（F 的三笔），因为用户扫读时先横扫前两行、再沿左缘下扫。',
+      en: 'Use an F-pattern for text-heavy pages: put headlines and keywords on the first two rows and the left edge (the three strokes of the F), because users scan the top lines horizontally and then drift down the left edge.',
+    },
     name: 'F 型动线',
     en: 'F-Pattern',
     group: '视觉动线',
@@ -480,6 +596,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'horizontal-scroll',
+    aliases: ['横向长卷', '画廊滚动'],
+    prompt: {
+      short: '用横向滚动布局（Horizontal Scroll）：内容沿横轴展开成长卷。',
+      zh: '用横向滚动（Horizontal Scroll）布局：打破纵向惯性，内容沿横轴展开成长卷（scroll-snap-type: x mandatory 逐段吸附），配明显的滚动提示，适合画廊、时间轴与叙事页。',
+      en: 'Use a horizontal scroll layout: content unfolds along the x-axis as a long reel (scroll-snap-type: x mandatory for segment snapping) with a visible scroll cue — suited to galleries, timelines and narrative pages.',
+    },
     name: '横向滚动',
     en: 'Horizontal Scroll',
     group: '交互容器',
@@ -504,6 +626,12 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'modal',
+    aliases: ['对话框', '模态框', '浮层'],
+    prompt: {
+      short: '用弹窗（Modal Dialog）承载聚焦任务：遮罩 + 居中浮层 + 确认取消。',
+      zh: '用弹窗（Modal Dialog）承载需要聚焦的短任务：半透明遮罩压暗背景，居中浮层承载表单或确认流，底部确认 / 取消按钮；打开时背景锁定滚动、焦点圈定在浮层内。',
+      en: 'Use a modal dialog for focused short tasks: a dimmed translucent overlay behind a centered floating layer carrying a form or confirmation, with confirm / cancel actions at the bottom; lock background scroll and trap focus while open.',
+    },
     name: '弹窗',
     en: 'Modal Dialog',
     group: '交互容器',

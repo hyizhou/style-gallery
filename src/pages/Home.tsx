@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { styles } from '../data/styles'
 import { layoutPatterns } from '../data/layouts'
+import { SearchIcon } from '../icons'
 import type { StyleInfo } from '../data/styles'
 import type { LayoutPattern } from '../data/layouts'
 
@@ -84,6 +85,13 @@ function LayoutCard({ p }: { p: LayoutPattern }) {
 
 export default function Home() {
   const [category, setCategory] = useState<'styles' | 'layouts'>('styles')
+  const [q, setQ] = useState('')
+  const kw = q.trim().toLowerCase()
+  const filteredStyles = kw
+    ? styles.filter((s) =>
+        [s.name, s.en, ...s.aliases, ...s.tags].some((f) => f.toLowerCase().includes(kw)),
+      )
+    : styles
 
   useEffect(() => {
     document.title = '风格标本馆 · UI 设计风格组件展'
@@ -94,18 +102,18 @@ export default function Home() {
       <section className="hero container">
         <p className="hero-eyebrow">UI DESIGN PATTERNS · SPECIMEN COLLECTION</p>
         <h1>
-          把主流界面设计
+          看到想要的效果
           <br />
-          做成可以触摸的标本
+          拿到它的名字和提示词
         </h1>
         <p className="hero-lead">
-          两个大类：视觉风格与布局模式。每种风格配有一整套可交互的组件标本；每种布局模式配有一个可切换预览宽度的活体演示。
-          点击任意标本卡片，进入它的完整页面。
+          每种风格与布局都配有一整套可交互的组件标本：看图认效果，用口语别名搜出术语——
+          毛玻璃、黑客屏、辣妹风都知道指什么。认出想要的那个，就把页面里的提示词复制给你的 AI。
         </p>
         <div className="hero-meta">
           <span>{styles.length} 种设计风格</span>
           <span>{layoutPatterns.filter((p) => p.status === 'ready').length} / {layoutPatterns.length} 个布局模式</span>
-          <span>明暗主题随时切换</span>
+          <span>每个词条附可复制 AI 提示词</span>
         </div>
       </section>
 
@@ -132,11 +140,35 @@ export default function Home() {
         </div>
 
         {category === 'styles' ? (
-          <div className="card-grid" aria-label="风格导航">
-            {styles.map((s) => (
-              <StyleCard key={s.id} s={s} />
-            ))}
-          </div>
+          <>
+            <div className="home-search">
+              <SearchIcon size={17} />
+              <input
+                type="search"
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="搜风格名或口语词，如「毛玻璃」「黑客屏」"
+                aria-label="搜索风格"
+              />
+            </div>
+            <div className="home-links">
+              <Link to="/glossary">全部术语看词典</Link>
+              <Link to="/scenarios">不知道选什么？看场景推荐</Link>
+            </div>
+            {kw && filteredStyles.length === 0 ? (
+              <div className="search-empty">
+                没有匹配的风格。试试这些口语词：<code>毛玻璃</code> <code>黑客屏</code>{' '}
+                <code>辣妹风</code> <code>像素风</code>，或去 <Link to="/glossary">风格词典</Link>{' '}
+                翻一翻。
+              </div>
+            ) : (
+              <div className="card-grid" aria-label="风格导航">
+                {filteredStyles.map((s) => (
+                  <StyleCard key={s.id} s={s} />
+                ))}
+              </div>
+            )}
+          </>
         ) : (
           <div className="card-grid" aria-label="布局模式导航">
             {layoutPatterns.map((p) => (

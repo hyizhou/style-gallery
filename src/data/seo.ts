@@ -22,8 +22,7 @@ const breadcrumb = (name: string) => ({
 const home: PageMeta = {
   path: '/',
   title: '风格标本馆 · UI 设计风格组件展',
-  description:
-    '把主流界面设计做成可以触摸的标本：极简主义、玻璃拟态、拟物风格、新粗野主义、复古像素等 UI 设计风格，每种配一整套可交互组件与风格签名件。',
+  description: `看图认风格、搜口语别名查术语：${styles.length} 种 UI 设计风格与 ${readyLayoutPatterns.length} 种布局模式的可交互组件标本，每个词条附可一键复制的 AI 提示词。`,
   jsonLd: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -39,6 +38,20 @@ const home: PageMeta = {
 
 export const pages: PageMeta[] = [
   home,
+  {
+    path: '/glossary',
+    title: '风格词典 · 术语与口语别名对照 | 风格标本馆',
+    description:
+      'UI 风格词典：毛玻璃是玻璃拟态，黑客屏是终端 CRT，辣妹风是 Y2K。用口语说法查出风格术语与布局模式，查看可交互组件标本并复制 AI 提示词。',
+    jsonLd: breadcrumb('风格词典'),
+  },
+  {
+    path: '/scenarios',
+    title: '场景风格推荐 · 什么产品用什么风格 | 风格标本馆',
+    description:
+      'AI 产品官网、个人作品集、中后台管理、活动落地页、内容博客——常见产品场景的 UI 风格与布局推荐，附推荐理由与可复制的 AI 提示词。',
+    jsonLd: breadcrumb('场景风格推荐'),
+  },
   ...styles.map((s) => ({
     path: `/styles/${s.id}`,
     title: `${s.name} ${s.en} · 风格标本馆`,

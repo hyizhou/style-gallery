@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { layoutPatterns, readyLayoutPatterns } from '../data/layouts'
+import { styles } from '../data/styles'
+import { pairings } from '../data/pairings'
+import PromptCard from '../components/PromptCard'
 import HolyGrailDemo from '../components/layouts/HolyGrailDemo'
 import SidebarDashboardDemo from '../components/layouts/SidebarDashboardDemo'
 import MasterDetailDemo from '../components/layouts/MasterDetailDemo'
@@ -55,6 +58,9 @@ const widths = [
 
 type WidthKey = (typeof widths)[number]['key']
 
+const layoutName = (id: string) => layoutPatterns.find((x) => x.id === id)?.name ?? id
+const styleName = (id: string) => styles.find((x) => x.id === id)?.name ?? id
+
 export default function LayoutPattern() {
   const { id } = useParams()
   const index = layoutPatterns.findIndex((p) => p.id === id)
@@ -72,6 +78,7 @@ export default function LayoutPattern() {
   const prev = ready[(rIndex - 1 + ready.length) % ready.length]
   const next = ready[(rIndex + 1) % ready.length]
   const Demo = demos[pattern.id]
+  const relatedPairings = pairings.filter((p) => p.layoutIds.includes(pattern.id))
 
   return (
     <>
@@ -153,6 +160,54 @@ export default function LayoutPattern() {
               </div>
             </section>
           </div>
+        )}
+
+        {pattern.prompt && (
+          <section className="container prompt-section">
+            <h2 className="section-title">对 AI 说 / Prompt</h2>
+            <PromptCard
+              defaultKey="zh"
+              variants={[
+                { key: 'short', label: '一句话', text: pattern.prompt.short },
+                { key: 'zh', label: '中文详版', text: pattern.prompt.zh },
+                { key: 'en', label: 'English', text: pattern.prompt.en },
+              ]}
+            />
+          </section>
+        )}
+
+        {relatedPairings.length > 0 && (
+          <section className="container pairing-section">
+            <h2 className="section-title">相配搭配 / Pairings</h2>
+            <div className="pairing-list">
+              {relatedPairings.map((p) => (
+                <div className="pairing-item" key={p.id}>
+                  <h3>{p.name}</h3>
+                  <p className="pairing-why">{p.why}</p>
+                  <div className="pairing-links">
+                    {p.styleIds.map((id) => (
+                      <Link to={`/styles/${id}`} key={id}>
+                        风格 · {styleName(id)}
+                      </Link>
+                    ))}
+                    {p.layoutIds
+                      .filter((id) => id !== pattern.id)
+                      .map((id) => (
+                        <Link to={`/layouts/${id}`} key={id}>
+                          布局 · {layoutName(id)}
+                        </Link>
+                      ))}
+                  </div>
+                  <PromptCard
+                    variants={[
+                      { key: 'zh', label: '中文', text: p.prompt.zh },
+                      { key: 'en', label: 'English', text: p.prompt.en },
+                    ]}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
         )}
       </div>
 

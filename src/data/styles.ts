@@ -6,11 +6,19 @@ export interface StyleInfo {
   tagline: string
   desc: string
   tags: string[]
+  aliases: string[]
+  prompt: { short: string; zh: string; en: string }
 }
 
 export const styles: StyleInfo[] = [
   {
     id: 'minimal',
+    aliases: ['简约风', '性冷淡风', '极简白', 'less is more'],
+    prompt: {
+      short: '用极简主义（Minimalism）风格设计：大量留白、黑白灰、克制的字体层级。',
+      zh: '采用极简主义（Minimalism）风格：大面积留白，黑白灰为主的中性配色，单一无衬线字体的严格层级（display / body / caption 三级足够），发丝级分割线与低对比的次级信息，去掉边框、阴影与一切装饰性元素，让内容与间距本身成为设计。',
+      en: 'Use minimalism: generous whitespace, a neutral black-white-gray palette, a strict hierarchy within one sans-serif family (display / body / caption), hairline dividers, low-emphasis secondary text, and no borders, shadows or ornaments — let content and spacing be the design.',
+    },
     name: '极简主义',
     en: 'Minimalism',
     period: '2010s 至今',
@@ -20,6 +28,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'glass',
+    aliases: ['毛玻璃', '磨砂玻璃', '半透明悬浮', 'frosted glass'],
+    prompt: {
+      short: '用玻璃拟态（Glassmorphism）风格设计：半透明磨砂玻璃面板悬浮在彩色渐变背景上。',
+      zh: '采用玻璃拟态（Glassmorphism）风格：半透明磨砂玻璃质感的面板，用 backdrop-filter: blur 制造背景模糊，配 1px 半透明白描边与顶部内侧高光，悬浮在明亮的彩色渐变背景之上，层次轻盈通透，适合媒体与展示类界面。',
+      en: 'Use glassmorphism: translucent frosted-glass panels with backdrop-filter: blur, 1px translucent white borders and top inner highlights, floating over a vivid gradient background — light, layered and translucent, ideal for media and showcase interfaces.',
+    },
     name: '玻璃拟态',
     en: 'Glassmorphism',
     period: '2020s',
@@ -29,6 +43,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'skeuo',
+    aliases: ['拟真风格', '写实材质', '皮革质感', 'iOS 6 风'],
+    prompt: {
+      short: '用拟物风格（Skeuomorphism）设计：界面模仿皮革、纸张与金属按钮的真实材质。',
+      zh: '采用拟物风格（Skeuomorphism）：界面元素借用真实物件的材质与光影——皮革纹理与缝线镶边、米色纸张质感的内容卡片、凹陷的输入槽、凸起且带高光和投影的实体按钮，配色以皮革棕、纸张米色、黄铜色与深红为主。',
+      en: 'Use skeuomorphism: elements borrow real-world materials and lighting — leather grain with stitched borders, cream paper content cards, recessed input wells, and raised glossy buttons with real drop shadows; a palette of leather brown, paper cream, brass and deep red.',
+    },
     name: '拟物风格',
     en: 'Skeuomorphism',
     period: '2007–2013',
@@ -38,6 +58,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'neu',
+    aliases: ['软 UI', 'Soft UI', '浮雕风', '同色阴影'],
+    prompt: {
+      short: '用新拟物（Neumorphism）风格设计：同色底上以双向柔影表现凹凸的 Soft UI。',
+      zh: '采用新拟物（Neumorphism / Soft UI）风格：浅色单色基底，元素与背景同色，仅靠双向柔和阴影（左上受光、右下背光）表现轻微的凸起与凹陷，圆角偏大，按钮像从界面中隆起、输入框像被轻轻按下，气质安静细腻。',
+      en: 'Use neumorphism (soft UI): a light monochrome base where elements share the background color and depth comes only from paired soft shadows (lit top-left, shaded bottom-right), generous rounding, buttons that rise out of the surface and inputs that press in — quiet and tactile.',
+    },
     name: '新拟物',
     en: 'Neumorphism',
     period: '2019–2021',
@@ -47,6 +73,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'clay',
+    aliases: ['黏土风', '奶油风', '软萌风', '玩具质感'],
+    prompt: {
+      short: '用粘土拟物（Claymorphism）风格设计：大圆角糖果色的蓬松黏土质感。',
+      zh: '采用粘土拟物（Claymorphism）风格：奶油色背景，24px 以上的大圆角蓬松卡片，糖果色点缀，用饱满柔和的外阴影与内侧亮影营造黏土玩具般的厚实手感，按钮圆润柔软，整体亲切可爱。',
+      en: 'Use claymorphism: a cream background, plump cards with 24px+ rounding, candy accent colors, and thick soft outer shadows with inner highlights that feel like clay toys — friendly, soft and playful.',
+    },
     name: '粘土拟物',
     en: 'Claymorphism',
     period: '2021–2023',
@@ -56,6 +88,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'brutal',
+    aliases: ['粗野主义', '野兽派', '粗边框', '硬阴影'],
+    prompt: {
+      short: '用新粗野主义（Neo-Brutalism）设计：粗黑描边、实色硬投影、高饱和撞色。',
+      zh: '采用新粗野主义（Neo-Brutalism）风格：2–3px 粗黑描边，无模糊的实色硬投影（元素向右下位移的色块投影），高饱和撞色块，直角或极小圆角，米白底配黑边与亮色，态度直接、反精致。',
+      en: 'Use neo-brutalism: 2–3px black outlines, hard unblurred color shadows offset to the bottom-right, saturated clashing colors, and sharp or barely-rounded corners — an intentionally raw, anti-polished attitude.',
+    },
     name: '新粗野主义',
     en: 'Neo-Brutalism',
     period: '2022 至今',
@@ -65,6 +103,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'aurora',
+    aliases: ['暗黑风', '深色科技感', '发光风', '渐变光晕'],
+    prompt: {
+      short: '用极光暗夜风格设计：深色底上的彩色光晕与发光强调。',
+      zh: '采用极光暗夜（dark aurora glow）风格：近黑的深色背景上漂浮大而模糊的彩色光晕（青绿、暖橙），渐变描边与柔和发光的强调色，克制的玻璃质感叠加，深邃而有科技感，是当下 AI 产品的常见皮肤。',
+      en: 'Use a dark aurora glow style: large blurred color blooms (teal, warm amber) floating on a near-black background, gradient borders, softly glowing accents and restrained glassy layers — deep, restrained and tech-forward.',
+    },
     name: '极光暗夜',
     en: 'Aurora Glow',
     period: '2023 至今',
@@ -74,6 +118,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'bento',
+    aliases: ['便当格', '模块网格', 'Bento', '发布会风'],
+    prompt: {
+      short: '用便当盒网格（Bento Grid）版式设计：大小不一的圆角模块拼成网格。',
+      zh: '采用便当盒网格（Bento Grid）版式：圆角卡片拼装的模块化网格，核心内容占大格（如 2×2 跨度）、次要内容填小格，信息密度高却井然有序，是产品官网首页与个人主页的万能版式。',
+      en: 'Use a bento grid layout: a modular grid of rounded cards where key content spans large tiles (e.g. 2×2) and secondary content fills small ones — high density with clear order; the default choice for product homepages and personal pages.',
+    },
     name: '便当盒',
     en: 'Bento Grid',
     period: '2022 至今',
@@ -83,6 +133,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'pixel',
+    aliases: ['像素风', '8-bit', '复古游戏', '红白机'],
+    prompt: {
+      short: '用复古像素（Pixel Retro）风格设计：方形像素、有限色板与像素字体。',
+      zh: '采用复古像素（Pixel Retro / 8-bit）风格：方形像素与有限色板，等宽像素字体，硬边缘无抗锯齿，游戏式的对话框、血条与进度条，唤起早期电子游戏的视觉记忆。',
+      en: 'Use a pixel retro (8-bit) style: square pixels with a limited palette, monospaced pixel fonts, hard un-antialiased edges, game-style dialog boxes and HP/progress bars — an early-video-game visual memory.',
+    },
     name: '复古像素',
     en: 'Pixel Retro',
     period: '永恒复古',
@@ -92,6 +148,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'm3',
+    aliases: ['Material You', '谷歌风', '动态色'],
+    prompt: {
+      short: '用 Material Design 3（Material You）设计语言：种子色生成的动态色调方案。',
+      zh: '采用 Material Design 3（Material You）设计语言：从一颗种子色生成完整动态色调方案（primary / secondary / tertiary 与多级 surface），大圆角与分级阴影，清晰的状态层（hover / press 的半透明叠加），Roboto 或 Google Sans 的严谨字体分级。',
+      en: 'Use Material Design 3 (Material You): a full dynamic color scheme generated from one seed color (primary / secondary / tertiary plus a surface ramp), large corner radii with tonal elevation, clear state layers for hover/press, and a strict Roboto / Google Sans type scale.',
+    },
     name: 'Material Design 3',
     en: 'Material Design 3',
     period: '2021 至今',
@@ -101,6 +163,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'antd',
+    aliases: ['蚂蚁设计', '中后台风格', '企业级 UI'],
+    prompt: {
+      short: '用 Ant Design 设计体系：设计令牌驱动的企业级中后台 UI。',
+      zh: '采用 Ant Design 企业级设计体系：以设计令牌（design token）驱动的主色与中性色阶，4px 基准间距，标准化的按钮、表单、表格与反馈组件形态，信息密度高、秩序感强，适合中后台管理系统与工具类产品。',
+      en: 'Use the Ant Design system: a token-driven primary and neutral color ramp, a 4px spacing base, and standardized buttons, forms, tables and feedback patterns — dense, orderly, and built for admin consoles and productivity tools.',
+    },
     name: 'Ant Design',
     en: 'Ant Design',
     period: '2015 至今',
@@ -110,6 +178,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'swiss',
+    aliases: ['国际主义排版', '网格风', '瑞士平面'],
+    prompt: {
+      short: '用瑞士排版（Swiss Style）设计：严格网格、无衬线大标题、红黑白配色。',
+      zh: '采用瑞士排版（Swiss / International Typographic Style）风格：严格的网格系统，无衬线字体的大标题与夸张的字号对比，红、黑、白为主的经典配色，左对齐与大量留白，编辑感与秩序感极强的版面。',
+      en: 'Use the Swiss / International Typographic Style: a strict grid, oversized sans-serif headlines with dramatic size contrast, a classic red-black-white palette, left alignment and generous whitespace — an editorial, highly ordered layout.',
+    },
     name: '瑞士排版',
     en: 'Swiss Style',
     period: '1950s 至今',
@@ -119,6 +193,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'crt',
+    aliases: ['黑客屏', '绿字黑底', '命令行风', '终端风'],
+    prompt: {
+      short: '用终端 CRT 风格设计：黑底绿字的命令行界面质感。',
+      zh: '采用终端 / CRT 复古风格：黑底配 phosphor 绿的等宽字体，扫描线纹理与轻微的文字辉光（text-shadow 发光），ASCII 字符界面与命令行提示符，极客与黑客氛围浓厚。',
+      en: 'Use a terminal / CRT style: monospaced phosphor-green text on black, scanline textures, a faint glow via text-shadow, ASCII panels and command prompts — strong hacker and geek vibes.',
+    },
     name: '终端 CRT',
     en: 'Terminal / CRT',
     period: '永恒极客',
@@ -128,6 +208,12 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'y2k',
+    aliases: ['千禧风', '辣妹风', '铬金属', '闪亮风'],
+    prompt: {
+      short: '用 Y2K 千禧风格设计：糖果色、泡泡按钮与金属铬光泽。',
+      zh: '采用 Y2K 千禧风格：糖果粉彩与金属铬（chrome）光泽，泡泡形圆润按钮与半透明塑料质感，星星闪光装饰与渐变彩虹条，初代互联网的乐观未来主义。',
+      en: 'Use a Y2K millennial style: candy pastels with chrome metallic shine, bubble-shaped glossy buttons, translucent plastic, sparkle stars and rainbow gradient bars — the optimistic futurism of the early internet.',
+    },
     name: 'Y2K 千禧',
     en: 'Y2K / Millennial',
     period: '1997–2004 复兴',

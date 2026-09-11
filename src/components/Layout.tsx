@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <em>STYLE GALLERY</em>
           </Link>
           <div className="bar-right">
-            <span className="bar-note">{styles.length} 种风格 · 可交互组件标本</span>
+            <span className="bar-note">{styles.length} 种风格 · 附 AI 提示词</span>
             <button
               type="button"
               className="theme-toggle"
