@@ -8,6 +8,18 @@ export interface LayoutPatternNotes {
   css: string
 }
 
+export interface PatternI18n {
+  en: {
+    tagline: string
+    desc: string
+    tags: string[]
+    aliases?: string[]
+    use?: string[]
+    caveats?: string[]
+    css?: string
+  }
+}
+
 export interface LayoutPattern {
   id: string
   name: string
@@ -21,11 +33,31 @@ export interface LayoutPattern {
   prompt?: { short: string; zh: string; en: string }
   status: LayoutStatus
   notes?: LayoutPatternNotes
+  i18n?: PatternI18n
 }
 
 export const layoutPatterns: LayoutPattern[] = [
   {
     id: 'holy-grail',
+    i18n: {
+      en: {
+        tagline: 'The classic skeleton: header, twin sidebars, main content, footer.',
+        desc: 'The “holy grail” of page layout: a header on top, three columns below (left nav, main content, right aside) and a footer. It answers “where is navigation, content and auxiliary info” in one shot — the textbook whole-page skeleton and a responsive-design classic.',
+        tags: ['Three columns', 'Header & footer', 'Responsive', 'Textbook'],
+        aliases: ['three column', 'header sidebar footer'],
+        use: [
+        'Classic pages for blogs, docs sites and admin consoles: header + twin sidebars + main content',
+        'Mid-to-large pages that must present navigation, core content and auxiliary info at once',
+        'Demos that need continuous desktop / tablet / phone responsive behavior',
+      ],
+        caveats: [
+        'Three columns squeeze the main content; on narrow screens the sidebars must fold above and below it',
+        'Keep sidebar content short and stable so it never competes with the main column',
+        'Historically built with float and negative-margin hacks; today grid-template-areas does it in one step',
+      ],
+        css: 'grid-template-areas: "hd hd hd" "nav mn as" "ft ft ft";',
+      },
+    },
     aliases: ['三栏骨架', '页头双侧栏'],
     prompt: {
       short: '用圣杯布局（Holy Grail）组织页面：页头 + 双侧栏 + 主内容 + 页脚。',
@@ -56,6 +88,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'sidebar-dashboard',
+    i18n: {
+      en: {
+        tagline: 'Fixed side nav + top bar + content area — the dominant shape of admin systems.',
+        desc: 'The archetype of the App Shell: a persistent left nav, a top toolbar, and a scrollable workspace on the right. Nearly every admin console, developer tool and SaaS dashboard is built on this skeleton.',
+        tags: ['App Shell', 'Admin console', 'SaaS'],
+        aliases: ['admin layout', 'app shell'],
+        use: [
+        'High-frequency task products: admin consoles, SaaS dashboards, developer tools',
+        'Apps with many nav items that must stay visible for rapid switching',
+        'Products that need a stable skeleton for future modules',
+      ],
+        caveats: [
+        'The sidebar permanently costs horizontal space; reading-focused products should prefer a single column',
+        'On narrow screens it needs an explicit strategy: icon rail, drawer, or bottom tab bar',
+        'With deep hierarchies, switch to grouped collapsibles or sub-menus instead of an endless sidebar',
+      ],
+        css: 'grid-template-areas: "side top" "side main"; grid-template-columns: 220px 1fr;',
+      },
+    },
     aliases: ['后台骨架', 'App Shell', '中后台布局'],
     prompt: {
       short: '用侧边栏仪表盘布局：固定侧边导航 + 顶栏 + 可滚动工作区。',
@@ -86,6 +137,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'master-detail',
+    i18n: {
+      en: {
+        tagline: 'List on the left, detail on the right; selection drives the link.',
+        desc: 'Two linked panels, one large and one small: the master list for browsing and selecting, the detail pane for the chosen item. Mail clients, note apps and file managers all run on it — the standard answer to browse-and-view task flows.',
+        tags: ['Linked panels', 'Mail client', 'Two panes'],
+        aliases: ['list detail', 'two pane'],
+        use: [
+        'Browse-and-view flows: mail, notes, file managers',
+        'Long lists that must stay visible while details switch frequently',
+        'Desktop-first density; on narrow screens degrade to a list page plus a detail page',
+      ],
+        caveats: [
+        'Two panes squeeze content on phones — degrade to a two-level “list, then detail” structure',
+        'List items need a clear selected state, or the linkage is invisible',
+        'Give the empty detail pane a placeholder instead of a stark blank',
+      ],
+        css: 'grid-template-columns: 42% 1fr;',
+      },
+    },
     aliases: ['列表详情', '双面板', '邮件客户端布局'],
     prompt: {
       short: '用主从布局（Master-Detail）：左列表选中、右详情联动。',
@@ -116,6 +186,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'split',
+    i18n: {
+      en: {
+        tagline: 'Two halves: visual on one side, message on the other.',
+        desc: 'Splits the hero in half: imagery or brand visuals on one side, copy and the action button on the other. The two columns naturally form an either/or or comparison narrative — fit for landing pages, product intros and portfolio gateways.',
+        tags: ['50/50', 'Comparison narrative', 'Hero'],
+        aliases: ['two half', 'split hero'],
+        use: [
+        'Brand heroes: one strong visual side, one value-proposition side with a CTA',
+        'Login / signup pages: brand story on one side, form on the other',
+        'Portfolios or two-choice gateways: each column leads down one path',
+      ],
+        caveats: [
+        'Keep the two sides visually balanced — never one crammed, one empty',
+        'On narrow screens it must stack; compress the visual block so information wins',
+        'Keep a single primary CTA — the split itself already implies a choice',
+      ],
+        css: 'display: grid; grid-template-columns: 1fr 1fr;',
+      },
+    },
     aliases: ['五五开', '左右分栏', '两栏对分'],
     prompt: {
       short: '用分屏布局（Split Screen）：首屏左右两栏各占一半。',
@@ -146,6 +235,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'single-column',
+    i18n: {
+      en: {
+        tagline: 'One reading spine top to bottom; content is everything.',
+        desc: 'Constrains everything to one comfortable reading column (about 60–75 characters). No distractions, no columns. The optimum for blogs, long-form and docs bodies — and the natural carrier of minimal aesthetics.',
+        tags: ['Reading experience', 'Blog', 'Minimal'],
+        aliases: ['reading column', 'one column'],
+        use: [
+        'Reading-first pages: blog posts, long-form, documentation bodies',
+        'Personal sites that want zero sidebar interference',
+        'Mobile-first content products',
+      ],
+        caveats: [
+        'Hold the measure at 60–75 characters (about 680px); wider lines break the reader’s eye',
+        'Navigation and related content retreat to header and footer; retrieval is weaker than multi-column',
+        'Rhythm must be engineered with headings and whitespace, or long text tires quickly',
+      ],
+        css: 'max-width: 68ch; margin-inline: auto;',
+      },
+    },
     aliases: ['阅读布局', '博客版式', '一栏到底'],
     prompt: {
       short: '用单栏内容优先布局：一条约 60–75 字符行宽的阅读纵轴。',
@@ -176,6 +284,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'masonry',
+    i18n: {
+      en: {
+        tagline: 'Fixed column widths, varied heights, always filling the shortest column.',
+        desc: 'Stacks unequal cards in equal-width columns, forever filling the shortest one — a wall with pleasing variation. The Pinterest-era staple for image-heavy sites, making the most of mixed-aspect assets.',
+        tags: ['Pinterest', 'Image sites', 'Staggered'],
+        aliases: ['pinterest grid', 'waterfall'],
+        use: [
+        'Feeds of mixed-aspect assets: photos, design work, products',
+        'Content sites that want maximum density while staying scannable',
+        'Unpredictable asset heights that need automatic gap-filling',
+      ],
+        caveats: [
+        'Pure-CSS multi-columns read top-to-bottom per column — wrong for strongly ordered content',
+        'When row order matters, use a JS-positioned masonry instead',
+        'Infinite scroll plus masonry makes “back to top” a frequent chore',
+      ],
+        css: 'columns: 3; column-gap: 10px; & > * { break-inside: avoid; }',
+      },
+    },
     aliases: ['Pinterest 布局', '图片流', '填缝布局'],
     prompt: {
       short: '用瀑布流布局（Masonry）：等宽多列、卡片填补最短列。',
@@ -206,6 +333,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'card-grid',
+    i18n: {
+      en: {
+        tagline: 'Equal-sized cards in a regular grid; information displayed as equals.',
+        desc: 'Arranges content as uniform card units in a regular grid, each self-contained (image + title + excerpt + actions). Equal weight, easy to scan — the general-purpose answer for portfolios, product lists and feature overviews.',
+        tags: ['Equal weight', 'Scannable', 'General purpose'],
+        aliases: ['card layout', 'grid of cards'],
+        use: [
+        'Equal-weight listings: products, article lists, portfolios',
+        'Collections of structurally identical units that grow or shrink',
+        'Responsive displays that want auto-fill to decide column count',
+      ],
+        caveats: [
+        'All-equal cards have no protagonist; switch to Bento or alternating rows when emphasis is needed',
+        'Constrain card copy length or the grid grows ragged',
+        'auto-fill and auto-fit differ on empty tracks — choose deliberately',
+      ],
+        css: 'grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));',
+      },
+    },
     aliases: ['卡片列表', '等权陈列', '商品网格'],
     prompt: {
       short: '用卡片网格（Card Grid）：统一卡片单元铺满响应式网格。',
@@ -236,6 +382,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'bento-grid',
+    i18n: {
+      en: {
+        tagline: 'Tiles of different sizes; the important stuff takes the big ones.',
+        desc: 'Packs content into rounded tiles of varying spans: core info in large tiles, secondary in small ones — dense yet orderly. The visual-style wing already shows its skin; here we focus on tile spans and information hierarchy themselves.',
+        tags: ['Span hierarchy', 'Apple', 'High density'],
+        aliases: ['bento', 'apple grid'],
+        use: [
+        'Platter pages: feature overviews, personal homepages, data summaries',
+        'Panels where importance must be expressed through area',
+        'Displays of five to nine modules with clear hierarchy',
+      ],
+        caveats: [
+        'Too many tiles degrade into a plain card grid — prune half the content by importance first',
+        'Spans need explicit hierarchy logic (main 2×2, secondary 1×1), not symmetry for its own sake',
+        'Keep padding and radii consistent or the platter falls apart',
+      ],
+        css: 'grid-template-columns: repeat(3, 1fr); .tile-main { grid-area: span 2 / span 2; }',
+      },
+    },
     aliases: ['便当布局', '大小格', '拼盘布局'],
     prompt: {
       short: '用便当盒网格（Bento Grid）：重要内容占大格、次要占小格。',
@@ -266,6 +431,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'top-hero',
+    i18n: {
+      en: {
+        tagline: 'A horizontal nav bar over a large promotional hero.',
+        desc: 'The classic product-site skeleton: a horizontal nav on top, then a full hero block with big title, sub copy and a call-to-action; content sections follow below the fold. The first screen of nearly every product site.',
+        tags: ['Landing page', 'Official site', 'CTA'],
+        aliases: ['landing hero', 'nav hero'],
+        use: [
+        'Landing pages that live or die on the first impression',
+        'A clear visual line: title, then sub copy, then the action button',
+        'Pages whose first screen only carries conversion, content living below',
+      ],
+        caveats: [
+        'The hero must state the value in one sentence; nobody reads two-line sub copy',
+        'Keep nav items under five; tuck the rest into a More menu',
+        'Hero art and text need hierarchy — do not let a big photo eat the CTA’s contrast',
+      ],
+        css: 'nav as horizontal flex; hero as flex-direction: column + text-align: center;',
+      },
+    },
     aliases: ['官网首屏', '落地页骨架'],
     prompt: {
       short: '用顶部导航 + Hero 骨架：横向导航下接大标题首屏。',
@@ -296,6 +480,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'full-bleed',
+    i18n: {
+      en: {
+        tagline: 'The first screen fills the viewport; scrolling reveals the rest.',
+        desc: 'Fills the entire first screen with imagery, video or an interactive scene, nav floating above; content unfolds as you scroll. Strong visual impact — fit for brand sites, launch pages and narrative pages.',
+        tags: ['Immersive', 'Brand site', 'Scroll narrative'],
+        aliases: ['fullscreen hero', 'immersive cover'],
+        use: [
+        'Narrative entries that set the tone in one screen: brand sites, launch pages',
+        'High-quality key art (photography, 3D, video) worth a full screen',
+        'Pages that reveal content progressively as the user scrolls',
+      ],
+        caveats: [
+        'Full-screen imagery needs readability insurance: scrim, vignette or text backing',
+        'Make the scroll cue obvious, or users will not know there is more',
+        'Mobile crops full-screen art — keep key elements in the safe area',
+      ],
+        css: 'min-height: 100%; background: cover + overlay; place-content: center;',
+      },
+    },
     aliases: ['整屏首图', '品牌首屏'],
     prompt: {
       short: '用全屏沉浸首屏（Full-bleed Hero）：整屏视觉 + 悬浮导航 + 滚动揭示。',
@@ -326,6 +529,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'magazine',
+    i18n: {
+      en: {
+        tagline: 'Mixed columns, varied sizes — publication-grade typesetting.',
+        desc: 'Borrows print-magazine grammar: a spanning headline, columned secondaries, interleaved images and cross-column pull quotes. Layout hierarchy drives reading order — fit for content-heavy editorial and curatorial pages.',
+        tags: ['Publication', 'Page hierarchy', 'Curation'],
+        aliases: ['editorial layout', 'magazine grid'],
+        use: [
+        'Content-heavy editorial pages: news magazines, deep columns, curated topics',
+        'Content with a clear headline-secondary-briefing hierarchy',
+        'Curatorial sites that express what matters more through size',
+      ],
+        caveats: [
+        'The headline must truly dominate; near-equal secondaries break the page logic',
+        'Multi-column text must collapse to one column on narrow screens; recompute both measure and column width',
+        'The more complex the layout, the more the grid must be agreed upstream — avoid a new layout per article',
+      ],
+        css: 'grid-template-areas: "feat feat side" "a b side" "c c c";',
+      },
+    },
     aliases: ['报刊布局', '头条分栏'],
     prompt: {
       short: '用杂志编辑布局（Magazine）：头条横贯、次条分栏、图文穿插。',
@@ -356,6 +578,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'kanban',
+    i18n: {
+      en: {
+        tagline: 'Stage columns side by side; cards flow between them.',
+        desc: 'Splits a workflow into stage columns (To-do / Doing / Done); task cards drag between columns. The core interface of project-management and collaboration tools — and the exemplar of “state as layout”.',
+        tags: ['Task flow', 'Drag & drop', 'Collaboration'],
+        aliases: ['board', 'task board'],
+        use: [
+        'Tools organized around state flow: project management, tickets, CRM',
+        'Fixed stages (two to five) with cards advancing one way',
+        'Collaboration where each stage’s load must be visible at a glance',
+      ],
+        caveats: [
+        'Beyond five columns, horizontal scrolling eats the global picture — add column collapsing',
+        'Keep cards lean: title, tags, assignee; details belong to the opened card',
+        'A static kanban without drag is just a table — budget the interaction cost',
+      ],
+        css: 'display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr);',
+      },
+    },
     aliases: ['任务板', 'Trello 布局', '阶段列'],
     prompt: {
       short: '用看板布局（Kanban）：按阶段横排的列，卡片在列间流转。',
@@ -386,6 +627,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'feature-alternating',
+    i18n: {
+      en: {
+        tagline: 'Image and copy alternate sides down the page.',
+        desc: 'Each feature takes a full row — image on one side, copy on the other — swapping sides each row to form a zig-zag reading rhythm. The golden format for product feature pages: rhythmic without being monotonous.',
+        tags: ['Z-path flow', 'Product page', 'Rhythm'],
+        aliases: ['zigzag rows', 'alternating sections'],
+        use: [
+        'Feature pages: one screen per feature, alternating down the page',
+        'Tutorial or solution pages with paired diagram-plus-explanation content',
+        'Pages that want page-turn rhythm instead of a flat list',
+      ],
+        caveats: [
+        'Keep copy volume similar per feature or the rhythm breaks',
+        'Four or five alternations start feeling mechanical — break the rhythm with a full-width section',
+        'On mobile everything stacks image-over-text and the alternation semantics vanish',
+      ],
+        css: '.row:nth-child(even) { direction: rtl; } /* re-reset to ltr inside */',
+      },
+    },
     aliases: ['图文交替', 'Z 字下行'],
     prompt: {
       short: '用特性交替行（Feature Alternating）：图文两列左右交替下行。',
@@ -416,6 +676,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'centered-card',
+    i18n: {
+      en: {
+        tagline: 'One centered card; the whole page yields to it.',
+        desc: 'The page carries exactly one horizontally and vertically centered card: sign-in, sign-up, invite codes, empty states. It compresses attention to a single action — the standard answer for flow pages.',
+        tags: ['Sign-in', 'Empty state', 'Focus'],
+        aliases: ['login card', 'centered form'],
+        use: [
+        'Single-task flow pages: sign-in, sign-up, two-factor verification',
+        'Nothing-to-do transitional pages: empty states, 404, maintenance',
+        'Short flows demanding absolute focus: invite codes, payment confirmation',
+      ],
+        caveats: [
+        'One primary task per card; demote secondary actions to small links at the bottom',
+        'Fill an overly empty page with texture or brand elements — without stealing the show',
+        'Errors belong inside the card; never break centered focus with a popup',
+      ],
+        css: 'display: grid; place-items: center; min-height: 100%;',
+      },
+    },
     aliases: ['登录卡片', '聚焦卡片'],
     prompt: {
       short: '用居中卡片布局（Centered Card）：一张卡片居中承载单一任务。',
@@ -446,6 +725,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'z-pattern',
+    i18n: {
+      en: {
+        tagline: 'Choreograph the eye along a diagonal: start, sweep, land.',
+        desc: 'For sparse pages, place eye-stops along a Z: logo top-left, nav top-right, hero in the middle, copy bottom-left, button bottom-right. Every corner is another reinforcement.',
+        tags: ['Gaze choreography', 'Landing page', 'Sparse content'],
+        aliases: ['Z layout', 'diagonal scan'],
+        use: [
+        'Single-screen pages with little content: splash, simple landing, QR gateway',
+        'Pages meant to be read in a numbered one-two-three-four order',
+        'Conversion pages whose CTA must land at the eye’s endpoint (bottom-right)',
+      ],
+        caveats: [
+        'The Z fails once content grows — it only serves one screen with five blocks or fewer',
+        'Numbering must match visual weight or users jump straight to the bottom-right',
+        'The Z is a hypothesis, not a law — validate with heatmaps before freezing the layout',
+      ],
+        css: 'grid-template-areas: "logo nav" "hero hero" "copy cta";',
+      },
+    },
     aliases: ['Z 字布局'],
     prompt: {
       short: '用 Z 型动线（Z-Pattern）编排少内容页：关键信息压在 Z 字拐角。',
@@ -476,6 +774,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'wizard',
+    i18n: {
+      en: {
+        tagline: 'Driven by a stepper; one thing at a time.',
+        desc: 'Slices a complex flow into ordered steps: a stepper marks progress up top while the body shows only the current step’s form or explanation. It lowers per-screen cognitive load — the classic solution for signup, checkout and configuration flows.',
+        tags: ['Stepper', 'Form flow', 'Progress'],
+        aliases: ['stepper', 'multi-step form'],
+        use: [
+        'Multi-step forms: registration, checkout, configuration wizards',
+        'Long flows with strict step dependencies',
+        'Complex setups where each step fills a screen',
+      ],
+        caveats: [
+        'Past five steps, merge or allow skipping — wizards can become torture',
+        'Users jump back to edit; the way back must always be available',
+        'Steps differ in commitment — do not mechanically attach a Next button to each',
+      ],
+        css: 'stepper as horizontal flex; body min-height fixed to avoid step-change jumps.',
+      },
+    },
     aliases: ['步骤流', 'Stepper'],
     prompt: {
       short: '用分步向导（Wizard / Stepper）：顶部步骤条，一次只做一步。',
@@ -506,6 +823,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'three-column',
+    i18n: {
+      en: {
+        tagline: 'Three equal columns side by side — the classic portal arrangement.',
+        desc: 'Three equal-width vertical columns carry content in parallel, typical of traditional portals and newspaper sites. High density and a strong section feel, but narrow-screen pressure and diluted hierarchy keep it mostly on specific content sites today.',
+        tags: ['Portal', 'High density', 'Classic'],
+        aliases: ['three columns', 'portal columns'],
+        use: [
+        'Perfectly equivalent sections: three channels, three resource types',
+        'Portals and newspaper-like pages that need a sectioned feel',
+        'Wide screens presenting three independent content lines at once',
+      ],
+        caveats: [
+        'Equal weight means no protagonist; avoid it for narrative content',
+        'On phones it can only stack — the parallelism disappears entirely',
+        'Large height differences make columns ragged; cap items per column',
+      ],
+        css: 'grid-template-columns: repeat(3, 1fr);',
+      },
+    },
     aliases: ['三等分栏', '门户布局'],
     prompt: {
       short: '用三栏对称布局（Three-Column）：三条等宽纵栏并列。',
@@ -536,6 +872,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'boxed',
+    i18n: {
+      en: {
+        tagline: 'Content confined to a fixed-width box with margins on both sides.',
+        desc: 'The whole page lives inside a centered fixed-width box, with solid or patterned background outside. It brings the settled, framed feel of print — common on traditional corporate and retro sites.',
+        tags: ['Fixed width', 'Margins', 'Print feel'],
+        aliases: ['boxed layout', 'fixed frame'],
+        use: [
+        'Traditional corporate and retro brand sites that want a mounted feel',
+        'Display sites with low wide-screen pressure and controllable content width',
+        'Brands expressed through the out-of-box background color',
+      ],
+        caveats: [
+        'Box width versus big screens: ultra-wide displays get vast empty flanks',
+        'Inside the box it is still ordinary flow — boxing frames, it does not fix responsiveness',
+        'Against modern full-bleed visuals, boxed can read as conservative',
+      ],
+        css: 'max-width: 1080px; margin-inline: auto; box-shadow + outer background;',
+      },
+    },
     aliases: ['定宽盒', '画布布局'],
     prompt: {
       short: '用盒装布局（Boxed Layout）：内容约束在居中定宽盒内，两侧留白。',
@@ -566,6 +921,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'f-pattern',
+    i18n: {
+      en: {
+        tagline: 'Key information pressed onto the left edge and first rows, aligned with scanning.',
+        desc: 'Eye-tracking shows users scan text-heavy pages in an F: two horizontal sweeps, then down the left edge. Placing titles and keywords on the F’s strokes measurably raises information hit rates.',
+        tags: ['Eye tracking', 'Text-heavy', 'Usability'],
+        aliases: ['F scan', 'eye tracking layout'],
+        use: [
+        'Text-dense listings: news feeds, search results, document indexes',
+        'Efficiency pages where a glance still delivers the point',
+        'Editorial pages of paragraph content with decoration deliberately held back',
+      ],
+        caveats: [
+        'The F describes observed behavior, not a rule — content comes before the pattern',
+        'A left edge full of bold makes everything-important mean nothing is',
+        'It holds only when visuals deliberately avoid the hot zones; re-validate for mixed layouts',
+      ],
+        css: 'full-width first/second rows + left-edge alignment; body max-width caps the scan.',
+      },
+    },
     aliases: ['扫读优化', '文字密集布局'],
     prompt: {
       short: '用 F 型动线（F-Pattern）编排文字密集页：关键信息压在首行与左缘。',
@@ -596,6 +970,25 @@ export const layoutPatterns: LayoutPattern[] = [
   },
   {
     id: 'horizontal-scroll',
+    i18n: {
+      en: {
+        tagline: 'Content slides along the horizontal axis like a scroll.',
+        desc: 'Breaks the vertical-scroll habit and unfolds content along the x-axis as a lateral reel: galleries, timelines, brand narratives. A distinctive narrative rhythm — but it needs an obvious scroll cue or users get lost.',
+        tags: ['Reel', 'Gallery', 'Narrative'],
+        aliases: ['horizontal reel', 'side scroll'],
+        use: [
+        'Horizontal storytelling: galleries, timelines, work reels',
+        'A fixed number of panels (five to eight), each a self-contained chapter',
+        'Brand pages that want a not-just-another-webpage memory',
+      ],
+        caveats: [
+        'Mouse users have no horizontal wheel — provide a clear cue or nav dots',
+        'The vertical habit is strong; each panel must stand alone as a chapter',
+        'Touch swipes natively on mobile — avoid clashing with system back gestures',
+      ],
+        css: 'display: grid; grid-auto-flow: column; overflow-x: auto; scroll-snap-type: x mandatory;',
+      },
+    },
     aliases: ['横向长卷', '画廊滚动'],
     prompt: {
       short: '用横向滚动布局（Horizontal Scroll）：内容沿横轴展开成长卷。',
@@ -622,36 +1015,6 @@ export const layoutPatterns: LayoutPattern[] = [
         '移动端天然支持横滑，但注意不要与系统返回手势冲突',
       ],
       css: 'display: grid; grid-auto-flow: column; overflow-x: auto; scroll-snap-type: x mandatory;',
-    },
-  },
-  {
-    id: 'modal',
-    aliases: ['对话框', '模态框', '浮层'],
-    prompt: {
-      short: '用弹窗（Modal Dialog）承载聚焦任务：遮罩 + 居中浮层 + 确认取消。',
-      zh: '用弹窗（Modal Dialog）承载需要聚焦的短任务：半透明遮罩压暗背景，居中浮层承载表单或确认流，底部确认 / 取消按钮；打开时背景锁定滚动、焦点圈定在浮层内。',
-      en: 'Use a modal dialog for focused short tasks: a dimmed translucent overlay behind a centered floating layer carrying a form or confirmation, with confirm / cancel actions at the bottom; lock background scroll and trap focus while open.',
-    },
-    name: '弹窗',
-    en: 'Modal Dialog',
-    group: '交互容器',
-    heat: '热门',
-    tagline: '遮罩压暗页面，把一件事推到眼前。',
-    desc: '在页面之上叠加一层独立浮层：半透明遮罩压暗并挡住底层内容，居中的对话框承载必须立即处理的任务——确认、短表单、灯箱预览。它是打断强度最高的容器：一旦弹出，用户的全部注意力都必须交给它。',
-    tags: ['遮罩', '聚焦', '打断'],
-    status: 'ready',
-    notes: {
-      use: [
-        '删除确认、登录过期、支付复核等必须立即决策的阻断性任务',
-        '图片灯箱、快速编辑等「不离开当前上下文」的轻量操作',
-        '主任务只有一件、几秒内可完成的短流程（更长的流程改用独立页面）',
-      ],
-      caveats: [
-        '弹窗是最强的打断：能就地内联展开或用 toast 提示的，就不要弹窗',
-        '一次只开一层，弹窗之上再叠弹窗是可用性灾难',
-        '关闭路径要显式（取消、×、Esc、点击遮罩），破坏性操作还要留反悔出口',
-      ],
-      css: '遮罩 position: fixed + inset: 0；对话框 place-items: center 居中（原生 <dialog> 用 ::backdrop）',
     },
   },
 ]

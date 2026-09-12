@@ -8,11 +8,18 @@ export interface Pairing {
   layoutIds: string[]
   why: string
   prompt: { zh: string; en: string }
+  i18n?: { en: { name: string; why: string } }
 }
 
 export const pairings: Pairing[] = [
   {
     id: 'aurora-bento',
+    i18n: {
+      en: {
+        name: 'Aurora Glow × Bento Grid',
+        why: 'Dark glow sets the mood while bento tiles display density — a homepage that is itself the product overview; the contemporary answer for AI product sites.',
+      },
+    },
     name: '极光暗夜 × 便当盒网格',
     styleIds: ['aurora'],
     layoutIds: ['bento-grid'],
@@ -24,6 +31,12 @@ export const pairings: Pairing[] = [
   },
   {
     id: 'brutal-hero',
+    i18n: {
+      en: {
+        name: 'Neo-Brutalism × Top Nav Hero',
+        why: 'Brutalism’s straight-shot attitude on the most classic conversion hero — the anti-mediocre combo for indie creators and campaign pages.',
+      },
+    },
     name: '新粗野主义 × 顶部导航 Hero',
     styleIds: ['brutal'],
     layoutIds: ['top-hero'],
@@ -35,6 +48,12 @@ export const pairings: Pairing[] = [
   },
   {
     id: 'swiss-column',
+    i18n: {
+      en: {
+        name: 'Swiss Style × Single Column',
+        why: 'The most orderly typographic style on a pure reading spine — the golden pair for editorial blogs and text-driven portfolios.',
+      },
+    },
     name: '瑞士排版 × 单栏内容优先',
     styleIds: ['swiss'],
     layoutIds: ['single-column'],
@@ -46,6 +65,12 @@ export const pairings: Pairing[] = [
   },
   {
     id: 'crt-dashboard',
+    i18n: {
+      en: {
+        name: 'Terminal CRT × Sidebar Dashboard',
+        why: 'A terminal skin over an app-shell skeleton — the geek standard for developer tools and ops consoles.',
+      },
+    },
     name: '终端 CRT × 侧边栏仪表盘',
     styleIds: ['crt'],
     layoutIds: ['sidebar-dashboard'],
@@ -57,6 +82,12 @@ export const pairings: Pairing[] = [
   },
   {
     id: 'clay-cards',
+    i18n: {
+      en: {
+        name: 'Claymorphism × Card Grid',
+        why: 'Clay softness on low-barrier scannable cards — a reassuring combo for kids and playful products.',
+      },
+    },
     name: '粘土拟物 × 卡片网格',
     styleIds: ['clay'],
     layoutIds: ['card-grid'],

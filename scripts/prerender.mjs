@@ -27,21 +27,28 @@ const escAttr = (s) => escContent(s).replace(/"/g, '&quot;')
 const jsonLdScript = (obj) =>
   `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`
 
+const abs = (path) => (path === '/' || path === '/en' ? `${SITE_URL}${path}/` : `${SITE_URL}${path}/`)
+
 function buildHead(page) {
-  const canonical = page.path === '/' ? `${SITE_URL}/` : `${SITE_URL}${page.path}/`
-  return [
+  const canonical = abs(page.path)
+  const head = [
     `<link rel="canonical" href="${canonical}" />`,
     `<meta property="og:title" content="${escAttr(page.title)}" />`,
     `<meta property="og:description" content="${escAttr(page.description)}" />`,
     `<meta property="og:url" content="${canonical}" />`,
     `<meta property="og:type" content="website" />`,
-    `<meta property="og:site_name" content="风格标本馆" />`,
-    `<meta property="og:locale" content="zh_CN" />`,
+    `<meta property="og:site_name" content="${page.locale === 'en' ? 'Style Gallery' : '风格标本馆'}" />`,
+    `<meta property="og:locale" content="${page.locale === 'en' ? 'en_US' : 'zh_CN'}" />`,
     `<meta name="twitter:card" content="summary" />`,
-    page.jsonLd ? jsonLdScript(page.jsonLd) : '',
   ]
-    .filter(Boolean)
-    .join('\n    ')
+  // 中英页面互为 hreflang 替代；x-default 指向中文版
+  if (page.alternates) {
+    head.push(`<link rel="alternate" hreflang="zh" href="${abs(page.alternates.zh)}" />`)
+    head.push(`<link rel="alternate" hreflang="en" href="${abs(page.alternates.en)}" />`)
+    head.push(`<link rel="alternate" hreflang="x-default" href="${abs(page.alternates.zh)}" />`)
+  }
+  if (page.jsonLd) head.push(jsonLdScript(page.jsonLd))
+  return head.join('\n    ')
 }
 
 const template = await readFile(join(dist, 'index.html'), 'utf8')
@@ -60,6 +67,11 @@ for (const page of pages) {
       () => `<meta name="description" content="${escAttr(page.description)}" />`,
     )
     .replace(/(\n\s*)(<\/head>)/, (_m, indent, close) => `${indent}    ${buildHead(page)}${indent}${close}`)
+
+  // 英文页面同步声明 <html lang>
+  if (page.locale === 'en') {
+    out = out.replace('<html lang="zh-CN">', '<html lang="en">')
+  }
 
   let bodyHtml = ''
   try {
@@ -84,8 +96,15 @@ for (const page of pages) {
 await writeFile(join(dist, '404.html'), template)
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map((p) => `  <url><loc>${p.path === '/' ? `${SITE_URL}/` : `${SITE_URL}${p.path}/`}</loc></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${pages
+  .map((p) => {
+    const alternates = p.alternates
+      ? `\n    <xhtml:link rel="alternate" hreflang="zh" href="${abs(p.alternates.zh)}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${abs(p.alternates.en)}" />`
+      : ''
+    return `  <url><loc>${abs(p.path)}</loc>${alternates}</url>`
+  })
+  .join('\n')}
 </urlset>
 `
 await writeFile(join(dist, 'sitemap.xml'), sitemap)

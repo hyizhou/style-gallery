@@ -5,24 +5,35 @@ import { layoutPatterns } from '../data/layouts'
 import { pairings } from '../data/pairings'
 import DemoKit from '../components/DemoKit'
 import PromptCard from '../components/PromptCard'
-
-const styleName = (id: string) => styles.find((x) => x.id === id)?.name ?? id
-const layoutName = (id: string) => layoutPatterns.find((x) => x.id === id)?.name ?? id
+import { localeBase, useLocale, useT } from '../i18n'
 
 export default function StyleDetail() {
   const { id } = useParams()
+  const locale = useLocale()
+  const t = useT()
+  const base = localeBase(locale)
   const index = styles.findIndex((s) => s.id === id)
+
+  const displayName = (list: { id: string; name: string; en: string }[], pid: string) => {
+    const item = list.find((x) => x.id === pid)
+    if (!item) return pid
+    return locale === 'en' ? item.en : item.name
+  }
 
   useEffect(() => {
     if (index >= 0) {
       const s = styles[index]
-      document.title = `${s.name} ${s.en} · 风格标本馆`
+      document.title =
+        locale === 'en'
+          ? `${s.en} · ${t.siteSuffix}`
+          : `${s.name} ${s.en} · ${t.siteSuffix}`
     }
-  }, [index])
+  }, [index, locale, t])
 
-  if (index < 0) return <Navigate to="/" replace />
+  if (index < 0) return <Navigate to={base || '/'} replace />
 
   const s = styles[index]
+  const e = locale === 'en' ? s.i18n?.en : undefined
   const relatedPairings = pairings.filter((p) => p.styleIds.includes(s.id))
   const prev = styles[(index - 1 + styles.length) % styles.length]
   const next = styles[(index + 1) % styles.length]
@@ -31,20 +42,18 @@ export default function StyleDetail() {
     <>
       <div className={`detail theme-${s.id}`}>
         <div className="container">
-          <Link to="/" className="backlink">
-            ← 返回标本馆
+          <Link to={base || '/'} className="backlink">
+            {t.back}
           </Link>
           <header className="detail-head">
-            <span className="detail-en">
-              {s.en} · {s.period}
-            </span>
-            <h1>{s.name}</h1>
-            <p className="detail-tagline">{s.tagline}</p>
-            <p className="detail-desc">{s.desc}</p>
+            <span className="detail-en">{s.en} · {e ? e.period : s.period}</span>
+            <h1>{e ? s.en : s.name}</h1>
+            <p className="detail-tagline">{e ? e.tagline : s.tagline}</p>
+            <p className="detail-desc">{e ? e.desc : s.desc}</p>
             <div className="detail-tags">
-              {s.tags.map((t) => (
-                <span className="chip" key={t}>
-                  {t}
+              {(e ? e.tags : s.tags).map((tag) => (
+                <span className="chip" key={tag}>
+                  {tag}
                 </span>
               ))}
             </div>
@@ -55,60 +64,71 @@ export default function StyleDetail() {
         </div>
 
         <section className="container prompt-section">
-          <h2 className="section-title">对 AI 说 / Prompt</h2>
+          <h2 className="section-title">{t.promptTitle}</h2>
           <PromptCard
-            defaultKey="zh"
-            variants={[
-              { key: 'short', label: '一句话', text: s.prompt.short },
-              { key: 'zh', label: '中文详版', text: s.prompt.zh },
-              { key: 'en', label: 'English', text: s.prompt.en },
-            ]}
+            defaultKey={locale === 'en' ? 'en' : 'zh'}
+            variants={
+              locale === 'en'
+                ? [
+                    { key: 'en', label: t.variantEn, text: s.prompt.en },
+                    { key: 'short', label: t.variantShort, text: s.prompt.short },
+                    { key: 'zh', label: t.variantZh, text: s.prompt.zh },
+                  ]
+                : [
+                    { key: 'short', label: t.variantShort, text: s.prompt.short },
+                    { key: 'zh', label: t.variantZh, text: s.prompt.zh },
+                    { key: 'en', label: t.variantEn, text: s.prompt.en },
+                  ]
+            }
           />
         </section>
 
         {relatedPairings.length > 0 && (
           <section className="container pairing-section">
-            <h2 className="section-title">相配搭配 / Pairings</h2>
+            <h2 className="section-title">{t.pairingTitle}</h2>
             <div className="pairing-list">
-              {relatedPairings.map((p) => (
-                <div className="pairing-item" key={p.id}>
-                  <h3>{p.name}</h3>
-                  <p className="pairing-why">{p.why}</p>
-                  <div className="pairing-links">
-                    {p.styleIds
-                      .filter((id) => id !== s.id)
-                      .map((id) => (
-                        <Link to={`/styles/${id}`} key={id}>
-                          风格 · {styleName(id)}
+              {relatedPairings.map((p) => {
+                const pe = locale === 'en' ? p.i18n?.en : undefined
+                return (
+                  <div className="pairing-item" key={p.id}>
+                    <h3>{pe ? pe.name : p.name}</h3>
+                    <p className="pairing-why">{pe ? pe.why : p.why}</p>
+                    <div className="pairing-links">
+                      {p.styleIds
+                        .filter((sid) => sid !== s.id)
+                        .map((sid) => (
+                          <Link to={`${base}/styles/${sid}`} key={sid}>
+                            {t.pairingStyle(displayName(styles, sid))}
+                          </Link>
+                        ))}
+                      {p.layoutIds.map((lid) => (
+                        <Link to={`${base}/layouts/${lid}`} key={lid}>
+                          {t.pairingLayout(displayName(layoutPatterns, lid))}
                         </Link>
                       ))}
-                    {p.layoutIds.map((id) => (
-                      <Link to={`/layouts/${id}`} key={id}>
-                        布局 · {layoutName(id)}
-                      </Link>
-                    ))}
+                    </div>
+                    <PromptCard
+                      variants={[
+                        { key: 'zh', label: t.variantZhShort, text: p.prompt.zh },
+                        { key: 'en', label: t.variantEn, text: p.prompt.en },
+                      ]}
+                    />
                   </div>
-                  <PromptCard
-                    variants={[
-                      { key: 'zh', label: '中文', text: p.prompt.zh },
-                      { key: 'en', label: 'English', text: p.prompt.en },
-                    ]}
-                  />
-                </div>
-              ))}
+                )
+              })}
             </div>
           </section>
         )}
       </div>
 
-      <nav className="detail-nav container" aria-label="风格切换">
-        <Link to={`/styles/${prev.id}`} className="nav-card">
-          <span>← 上一种风格</span>
-          <strong>{prev.name}</strong>
+      <nav className="detail-nav container" aria-label={t.navStyles}>
+        <Link to={`${base}/styles/${prev.id}`} className="nav-card">
+          <span>{t.prevStyle}</span>
+          <strong>{locale === 'en' ? prev.en : prev.name}</strong>
         </Link>
-        <Link to={`/styles/${next.id}`} className="nav-card">
-          <span>下一种风格 →</span>
-          <strong>{next.name}</strong>
+        <Link to={`${base}/styles/${next.id}`} className="nav-card">
+          <span>{t.nextStyle}</span>
+          <strong>{locale === 'en' ? next.en : next.name}</strong>
         </Link>
       </nav>
     </>

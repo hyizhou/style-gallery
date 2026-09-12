@@ -3,56 +3,70 @@ import { Link } from 'react-router-dom'
 import { scenarios } from '../data/scenarios'
 import { styles } from '../data/styles'
 import { layoutPatterns } from '../data/layouts'
+import { modalPatterns } from '../data/modals'
+import { localeBase, useLocale, useT } from '../i18n'
 
-const nameOf = (kind: 'style' | 'layout', id: string) =>
-  kind === 'style'
-    ? (styles.find((s) => s.id === id)?.name ?? id)
-    : (layoutPatterns.find((p) => p.id === id)?.name ?? id)
-
-const hrefOf = (kind: 'style' | 'layout', id: string) =>
-  kind === 'style' ? `/styles/${id}` : `/layouts/${id}`
+type PickKind = 'style' | 'layout' | 'modal'
 
 // 场景导购：常见产品场景的风格 / 布局推荐，静态内容页 + 锚点
 export default function Scenarios() {
+  const locale = useLocale()
+  const t = useT()
+  const base = localeBase(locale)
+
+  const nameOf = (kind: PickKind, id: string) => {
+    const list: { id: string; name: string; en: string }[] =
+      kind === 'style' ? styles : kind === 'modal' ? modalPatterns : layoutPatterns
+    const item = list.find((p) => p.id === id)
+    if (!item) return id
+    return locale === 'en' ? item.en : item.name
+  }
+
+  const hrefOf = (kind: PickKind, id: string) =>
+    kind === 'style' ? `${base}/styles/${id}` : kind === 'modal' ? `${base}/modals/${id}` : `${base}/layouts/${id}`
+
   useEffect(() => {
-    document.title = '场景风格推荐 · 风格标本馆'
-  }, [])
+    document.title =
+      locale === 'en' ? `Style by Scenario · ${t.siteSuffix}` : `场景风格推荐 · ${t.siteSuffix}`
+  }, [locale, t])
 
   return (
     <>
       <header className="scenario-head container">
-        <p className="hero-eyebrow">STYLE BY SCENARIO</p>
-        <h1>什么产品用什么风格</h1>
-        <p>
-          不确定自己的项目该长什么样？按场景对号入座：每个推荐都给出理由，
-          点进词条可以看完整的可交互标本，并复制提示词直接交给你的 AI。
-        </p>
+        <p className="hero-eyebrow">{t.scEyebrow}</p>
+        <h1>{t.scTitle}</h1>
+        <p>{t.scLead}</p>
       </header>
 
       <section className="container">
-        <nav className="scenario-toc" aria-label="场景目录">
+        <nav className="scenario-toc" aria-label={t.scToc}>
           {scenarios.map((sc) => (
             <a href={`#${sc.id}`} key={sc.id}>
-              {sc.question}
+              {locale === 'en' ? (sc.i18n?.en.question ?? sc.question) : sc.question}
             </a>
           ))}
         </nav>
 
-        {scenarios.map((sc) => (
-          <section className="scenario-block" id={sc.id} key={sc.id}>
-            <h2>{sc.question}</h2>
-            <p className="scenario-context">{sc.context}</p>
-            <div className="scenario-picks">
-              {sc.picks.map((pick) => (
-                <div className="scenario-pick" key={`${pick.kind}-${pick.id}`}>
-                  <span className="kind">{pick.kind === 'style' ? '风格' : '布局'}</span>
-                  <Link to={hrefOf(pick.kind, pick.id)}>{nameOf(pick.kind, pick.id)}</Link>
-                  <span className="reason">{pick.reason}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        ))}
+        {scenarios.map((sc) => {
+          const e = locale === 'en' ? sc.i18n?.en : undefined
+          return (
+            <section className="scenario-block" id={sc.id} key={sc.id}>
+              <h2>{e ? e.question : sc.question}</h2>
+              <p className="scenario-context">{e ? e.context : sc.context}</p>
+              <div className="scenario-picks">
+                {sc.picks.map((pick, i) => (
+                  <div className="scenario-pick" key={`${pick.kind}-${pick.id}`}>
+                    <span className="kind">
+                      {pick.kind === 'style' ? t.kindStyle : pick.kind === 'modal' ? t.kindModal : t.kindLayout}
+                    </span>
+                    <Link to={hrefOf(pick.kind, pick.id)}>{nameOf(pick.kind, pick.id)}</Link>
+                    <span className="reason">{e ? (e.reasons[i] ?? pick.reason) : pick.reason}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        })}
       </section>
     </>
   )

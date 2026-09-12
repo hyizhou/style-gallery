@@ -8,11 +8,23 @@ export interface StyleInfo {
   tags: string[]
   aliases: string[]
   prompt: { short: string; zh: string; en: string }
+  i18n?: {
+    en: { period: string; tagline: string; desc: string; tags: string[]; aliases: string[] }
+  }
 }
 
 export const styles: StyleInfo[] = [
   {
     id: 'minimal',
+    i18n: {
+      en: {
+        period: '2010s–now',
+        tagline: 'Less is more; whitespace is the language.',
+        desc: 'Strip away every ornament and keep only content, hierarchy and breathing room. Minimalism trusts type and spacing to carry the message, delivering the clearest information with the fewest elements — the safest bet for tools and premium brands.',
+        tags: ['Whitespace', 'Monochrome', 'Type hierarchy', 'Breathing room'],
+        aliases: ['minimalist', 'clean UI', 'less is more'],
+      },
+    },
     aliases: ['简约风', '性冷淡风', '极简白', 'less is more'],
     prompt: {
       short: '用极简主义（Minimalism）风格设计：大量留白、黑白灰、克制的字体层级。',
@@ -28,6 +40,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'glass',
+    i18n: {
+      en: {
+        period: '2020s',
+        tagline: 'The texture of light through frosted glass.',
+        desc: 'Translucent panels layered over background blur and hairline borders create a light, floating hierarchy. Popularized by Apple and Windows 11, it is now a favorite of dark-mode products and media interfaces, usually paired with colorful gradient backgrounds.',
+        tags: ['Frosted glass', 'Translucency', 'Floating layers', 'Light & shadow'],
+        aliases: ['frosted glass', 'blur', 'translucent'],
+      },
+    },
     aliases: ['毛玻璃', '磨砂玻璃', '半透明悬浮', 'frosted glass'],
     prompt: {
       short: '用玻璃拟态（Glassmorphism）风格设计：半透明磨砂玻璃面板悬浮在彩色渐变背景上。',
@@ -43,6 +64,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'skeuo',
+    i18n: {
+      en: {
+        period: '2007–2013',
+        tagline: 'Make the interface a familiar physical object.',
+        desc: 'Borrowing materials and structure from real objects — leather grain, stitched trim, recessed input wells and glossy raised buttons — skeuomorphism lent digital interfaces the familiarity and intuition of physical things. Early iOS took it to its peak; flat design later replaced it, but its craft in light and material still nourishes texture-driven design.',
+        tags: ['Materials', 'Stitching', 'Embossed light & shadow', 'Real-world metaphor'],
+        aliases: ['skeuomorphic', 'realistic textures', 'leather UI'],
+      },
+    },
     aliases: ['拟真风格', '写实材质', '皮革质感', 'iOS 6 风'],
     prompt: {
       short: '用拟物风格（Skeuomorphism）设计：界面模仿皮革、纸张与金属按钮的真实材质。',
@@ -58,6 +88,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'neu',
+    i18n: {
+      en: {
+        period: '2019–2021',
+        tagline: 'Gently rising out of the surface.',
+        desc: 'Elements share the background color; depth comes only from paired light-and-dark shadows. Quiet and tactile, it receded with contrast and accessibility limits, yet remains a classic showcase of shadow craft and material imagination.',
+        tags: ['Dual shadows', 'Monochrome base', 'Soft UI'],
+        aliases: ['soft UI', 'embossed', 'soft shadows'],
+      },
+    },
     aliases: ['软 UI', 'Soft UI', '浮雕风', '同色阴影'],
     prompt: {
       short: '用新拟物（Neumorphism）风格设计：同色底上以双向柔影表现凹凸的 Soft UI。',
@@ -73,6 +112,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'clay',
+    i18n: {
+      en: {
+        period: '2021–2023',
+        tagline: 'Plump, soft, pinch-me cute.',
+        desc: 'Big radii, candy colors and full inner shadows make components feel like clay toys. Extremely approachable — common in kids’ products, campaigns and easygoing brand interfaces.',
+        tags: ['Large radii', 'Candy colors', 'Inner shadows'],
+        aliases: ['clay', 'puffy UI', 'cute style'],
+      },
+    },
     aliases: ['黏土风', '奶油风', '软萌风', '玩具质感'],
     prompt: {
       short: '用粘土拟物（Claymorphism）风格设计：大圆角糖果色的蓬松黏土质感。',
@@ -88,6 +136,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'brutal',
+    i18n: {
+      en: {
+        period: '2022–now',
+        tagline: 'Thick borders, hard shadows, zero shyness.',
+        desc: 'Heavy black outlines, blunt solid shadows and saturated clashing colors — deliberately “clumsy” to make a statement. Widely seen among indie creators, streetwear brands and campaign pages; the flagship of anti-polished aesthetics.',
+        tags: ['Outlines', 'Solid shadows', 'Clashing colors'],
+        aliases: ['brutalism', 'neo-brutalist', 'raw style'],
+      },
+    },
     aliases: ['粗野主义', '野兽派', '粗边框', '硬阴影'],
     prompt: {
       short: '用新粗野主义（Neo-Brutalism）设计：粗黑描边、实色硬投影、高饱和撞色。',
@@ -103,6 +160,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'aurora',
+    i18n: {
+      en: {
+        period: '2023–now',
+        tagline: 'Breathing glows on a dark canvas.',
+        desc: 'Blurred blobs of light drift across a dark background, joined by gradient borders and glowing accents — a deep, restrained tech feel that has become the default skin of AI products.',
+        tags: ['Dark mode', 'Glow', 'Gradient borders'],
+        aliases: ['dark glow', 'AI gradient', 'dark tech'],
+      },
+    },
     aliases: ['暗黑风', '深色科技感', '发光风', '渐变光晕'],
     prompt: {
       short: '用极光暗夜风格设计：深色底上的彩色光晕与发光强调。',
@@ -118,6 +184,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'bento',
+    i18n: {
+      en: {
+        period: '2022–now',
+        tagline: 'Pack information tile by tile.',
+        desc: 'Differently sized rounded cards assemble into a modular grid — dense yet orderly. Popularized by Apple keynotes, it is now the go-to layout for product homepages and personal pages.',
+        tags: ['Modular', 'Grid', 'High density'],
+        aliases: ['bento', 'modular grid', 'apple grid'],
+      },
+    },
     aliases: ['便当格', '模块网格', 'Bento', '发布会风'],
     prompt: {
       short: '用便当盒网格（Bento Grid）版式设计：大小不一的圆角模块拼成网格。',
@@ -133,6 +208,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'pixel',
+    i18n: {
+      en: {
+        period: 'Timeless retro',
+        tagline: 'The romance of 8-bit.',
+        desc: 'Square pixels, a limited palette and monospaced type recreate the visual memory of early video games. Never absent from games, indie projects and nostalgia themes — also a favorite Easter-egg style.',
+        tags: ['8-bit', 'Monospaced type', 'Retro memory'],
+        aliases: ['pixel art', '8-bit', 'retro game'],
+      },
+    },
     aliases: ['像素风', '8-bit', '复古游戏', '红白机'],
     prompt: {
       short: '用复古像素（Pixel Retro）风格设计：方形像素、有限色板与像素字体。',
@@ -148,6 +232,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'm3',
+    i18n: {
+      en: {
+        period: '2021–now',
+        tagline: 'Grow a whole interface from one seed color.',
+        desc: 'Google’s third-generation design language: Dynamic Color generates a complete tonal scheme from a seed color, interactions are expressed through elevation and state layers, shapes are round and the type scale is strict. Every component on this page is rendered by the official @material/web library — switch seed colors and light/dark modes live.',
+        tags: ['Dynamic color', 'State layers', 'Elevation', 'Official library'],
+        aliases: ['Material You', 'Google style', 'dynamic color'],
+      },
+    },
     aliases: ['Material You', '谷歌风', '动态色'],
     prompt: {
       short: '用 Material Design 3（Material You）设计语言：种子色生成的动态色调方案。',
@@ -163,6 +256,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'antd',
+    i18n: {
+      en: {
+        period: '2015–now',
+        tagline: 'Certainty for enterprise products.',
+        desc: 'The enterprise design system open-sourced by Ant Group, powering massive back-office products with design tokens and theme algorithms. Every component on this page is rendered by the official antd library — switch brand colors and the dark algorithm live and watch the token system remap instantly.',
+        tags: ['Design tokens', 'Enterprise', 'Theme algorithm', 'Official library'],
+        aliases: ['Ant', 'admin UI', 'enterprise UI'],
+      },
+    },
     aliases: ['蚂蚁设计', '中后台风格', '企业级 UI'],
     prompt: {
       short: '用 Ant Design 设计体系：设计令牌驱动的企业级中后台 UI。',
@@ -178,6 +280,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'swiss',
+    i18n: {
+      en: {
+        period: '1950s–now',
+        tagline: 'Grid, type and order.',
+        desc: 'The International Typographic Style: a strict grid, sans-serif type, bold red-black-white contrast and generous whitespace, conveying information through order. It shaped the skeleton of modern graphic design and remains an evergreen choice for editorial sites and portfolios.',
+        tags: ['Grid', 'Sans-serif', 'Red-black palette', 'Order'],
+        aliases: ['international style', 'grid design', 'Swiss'],
+      },
+    },
     aliases: ['国际主义排版', '网格风', '瑞士平面'],
     prompt: {
       short: '用瑞士排版（Swiss Style）设计：严格网格、无衬线大标题、红黑白配色。',
@@ -193,6 +304,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'crt',
+    i18n: {
+      en: {
+        period: 'Timeless geek',
+        tagline: 'Green on black; the command is king.',
+        desc: 'Recreating the phosphor-green text, scanlines and command-line interaction of CRT terminals, compressing the interface into the order of pure text. Forever present in developer tools, hacker themes and cyber narratives.',
+        tags: ['Monospaced type', 'Scanlines', 'Phosphor green'],
+        aliases: ['hacker screen', 'terminal', 'green on black'],
+      },
+    },
     aliases: ['黑客屏', '绿字黑底', '命令行风', '终端风'],
     prompt: {
       short: '用终端 CRT 风格设计：黑底绿字的命令行界面质感。',
@@ -208,6 +328,15 @@ export const styles: StyleInfo[] = [
   },
   {
     id: 'y2k',
+    i18n: {
+      en: {
+        period: '1997–2004, revived',
+        tagline: 'Bubbles, chrome and millennial optimism.',
+        desc: 'The futurism around the millennium: candy pastels, mirror chrome, bubble buttons and sparkling stars — the optimism of the early internet mixed with retro-tech vibes. Back on brand and campaign pages with the Y2K revival.',
+        tags: ['Candy colors', 'Chrome', 'Bubble buttons'],
+        aliases: ['Y2K', 'millennium', 'chrome bubble'],
+      },
+    },
     aliases: ['千禧风', '辣妹风', '铬金属', '闪亮风'],
     prompt: {
       short: '用 Y2K 千禧风格设计：糖果色、泡泡按钮与金属铬光泽。',

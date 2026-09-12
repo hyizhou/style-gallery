@@ -699,6 +699,26 @@ svg {
   gap: 1rem;
 }
 
+.lang-toggle {
+  display: inline-grid;
+  place-items: center;
+  height: 30px;
+  padding: 0 0.7rem;
+  border-radius: 15px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-toggle:hover {
+  color: #f9743f;
+  border-color: #f9743f;
+}
+
 .theme-toggle {
   width: 36px;
   height: 36px;

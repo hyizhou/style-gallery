@@ -34,9 +34,17 @@
 - [x] 盒装布局 Boxed Layout（页面骨架 · 冷门）—— 固定盒宽 + 装裱背景
 - [x] F 型动线 F-Pattern（视觉动线 · 冷门）—— 眼动热区引导层
 - [x] 横向滚动 Horizontal Scroll（交互容器 · 冷门）—— scroll-snap 长卷
-- [x] 弹窗 Modal（交互容器 · 热门）—— 遮罩聚焦 + 确认流，×/取消/Esc/点遮罩四种关闭路径
+- [x] 弹窗 Modal（弹窗大类 · 热门）—— 遮罩聚焦 + 确认流，×/取消/Esc/点遮罩四种关闭路径
 
-全部 21 个模式已完成。
+全部 20 个模式已完成。
+
+### 分类调整
+
+- [x] 弹窗移出布局「交互容器」，升为与视觉风格/布局模式同级的顶层大类：路由 `/modals/:id`、主页第三标签、详情页与布局共用 PatternDetail，旧地址 `/layouts/modal` 重定向；设计记录 docs/modals.md
+
+### 多语言
+
+- [x] 中英双语全量接入：`/en` 前缀路由 + `useLocale` 路径判定（src/i18n.ts UI 词典）、数据条目 `i18n.en` 全量翻译（14 风格 / 20 布局 / 1 弹窗 / 7 场景 / 5 搭配）、21 个演示组件与 DemoKit/Signature/M3/Ant 双语、顶栏语言切换器、SEO 双语言元数据 + hreflang + sitemap 交替链接；设计记录 docs/i18n.md
 
 ## 其他
 

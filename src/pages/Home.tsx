@@ -2,19 +2,24 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { styles } from '../data/styles'
 import { layoutPatterns } from '../data/layouts'
+import { modalPatterns, readyModalPatterns } from '../data/modals'
 import { SearchIcon } from '../icons'
+import { localeBase, useLocale, useT } from '../i18n'
 import type { StyleInfo } from '../data/styles'
 import type { LayoutPattern } from '../data/layouts'
+import type { ModalPattern } from '../data/modals'
 
 function StyleCard({ s }: { s: StyleInfo }) {
+  const locale = useLocale()
+  const e = locale === 'en' ? s.i18n?.en : undefined
   return (
-    <Link to={`/styles/${s.id}`} className="style-card">
+    <Link to={`${localeBase(locale)}/styles/${s.id}`} className="style-card">
       <div className={`card-preview theme-${s.id}`}>
         <div className="pv-col">
-          <span className="type-h2">风格标本 Aa</span>
+          <span className="type-h2">{e ? 'Style specimen Aa' : '风格标本 Aa'}</span>
           <div className="demo-row">
-            <span className="btn btn-primary">按钮</span>
-            <span className="chip chip-active">标签</span>
+            <span className="btn btn-primary">{e ? 'Button' : '按钮'}</span>
+            <span className="chip chip-active">{e ? 'Tag' : '标签'}</span>
           </div>
           <div className="progress">
             <div className="progress-fill" style={{ width: '70%' }} />
@@ -23,19 +28,29 @@ function StyleCard({ s }: { s: StyleInfo }) {
       </div>
       <div className="card-info">
         <div className="card-titlerow">
-          <h3>{s.name}</h3>
+          <h3>{e ? s.en : s.name}</h3>
           <span className="card-en">{s.en}</span>
           <span className="card-arrow" aria-hidden="true">
             →
           </span>
         </div>
-        <p>{s.tagline}</p>
+        <p>{e ? e.tagline : s.tagline}</p>
       </div>
     </Link>
   )
 }
 
-function LayoutCard({ p }: { p: LayoutPattern }) {
+function PatternCard({
+  p,
+  base,
+  gridLabel,
+}: {
+  p: LayoutPattern | ModalPattern
+  base: string
+  gridLabel?: string
+}) {
+  const locale = useLocale()
+  const e = locale === 'en' ? p.i18n?.en : undefined
   if (p.status !== 'ready') {
     return (
       <div className="style-card lp-card is-planned" aria-disabled="true">
@@ -51,17 +66,17 @@ function LayoutCard({ p }: { p: LayoutPattern }) {
         </div>
         <div className="card-info">
           <div className="card-titlerow">
-            <h3>{p.name}</h3>
+            <h3>{e ? p.en : p.name}</h3>
             <span className="card-en">{p.en}</span>
-            <span className="lp-planned-badge">规划中</span>
+            <span className="lp-planned-badge">{locale === 'en' ? 'Planned' : '规划中'}</span>
           </div>
-          <p>{p.tagline}</p>
+          <p>{e ? e.tagline : p.tagline}</p>
         </div>
       </div>
     )
   }
   return (
-    <Link to={`/layouts/${p.id}`} className="style-card">
+    <Link to={`${base}/${p.id}`} className="style-card" aria-label={gridLabel}>
       <div className={`lp-thumb lp-thumb-${p.id}`} aria-hidden="true">
         <i />
         <i />
@@ -71,54 +86,63 @@ function LayoutCard({ p }: { p: LayoutPattern }) {
       </div>
       <div className="card-info">
         <div className="card-titlerow">
-          <h3>{p.name}</h3>
+          <h3>{e ? p.en : p.name}</h3>
           <span className="card-en">{p.en}</span>
           <span className="card-arrow" aria-hidden="true">
             →
           </span>
         </div>
-        <p>{p.tagline}</p>
+        <p>{e ? e.tagline : p.tagline}</p>
       </div>
     </Link>
   )
 }
 
 export default function Home() {
-  const [category, setCategory] = useState<'styles' | 'layouts'>('styles')
+  const locale = useLocale()
+  const t = useT()
+  const base = localeBase(locale)
+  const [category, setCategory] = useState<'styles' | 'layouts' | 'modals'>('styles')
   const [q, setQ] = useState('')
   const kw = q.trim().toLowerCase()
   const filteredStyles = kw
-    ? styles.filter((s) =>
-        [s.name, s.en, ...s.aliases, ...s.tags].some((f) => f.toLowerCase().includes(kw)),
-      )
+    ? styles.filter((s) => {
+        const extra = locale === 'en' ? (s.i18n?.en.aliases ?? []) : []
+        return [s.name, s.en, ...s.aliases, ...extra, ...s.tags].some((f) =>
+          f.toLowerCase().includes(kw),
+        )
+      })
     : styles
 
   useEffect(() => {
-    document.title = '风格标本馆 · UI 设计风格组件展'
-  }, [])
+    document.title = t.homeTitle
+  }, [t])
 
   return (
     <>
       <section className="hero container">
-        <p className="hero-eyebrow">UI DESIGN PATTERNS · SPECIMEN COLLECTION</p>
+        <p className="hero-eyebrow">{t.heroEyebrow}</p>
         <h1>
-          看到想要的效果
+          {t.heroTitleA}
           <br />
-          拿到它的名字和提示词
+          {t.heroTitleB}
         </h1>
-        <p className="hero-lead">
-          每种风格与布局都配有一整套可交互的组件标本：看图认效果，用口语别名搜出术语——
-          毛玻璃、黑客屏、辣妹风都知道指什么。认出想要的那个，就把页面里的提示词复制给你的 AI。
-        </p>
+        <p className="hero-lead">{t.heroLead}</p>
         <div className="hero-meta">
-          <span>{styles.length} 种设计风格</span>
-          <span>{layoutPatterns.filter((p) => p.status === 'ready').length} / {layoutPatterns.length} 个布局模式</span>
-          <span>每个词条附可复制 AI 提示词</span>
+          <span>{t.metaStyles(styles.length)}</span>
+          <span>
+            {t.metaLayouts(
+              layoutPatterns.filter((p) => p.status === 'ready').length,
+              layoutPatterns.length,
+            )}
+          </span>
+          <span>{t.metaModals(readyModalPatterns.length)}</span>
+          <span>{t.metaPrompts}</span>
         </div>
       </section>
 
       <section className="container">
-        <div className="home-switch" role="tablist" aria-label="展示类别">
+        <div className="home-switch" role="tablist" aria-label={t.tablistLabel}>
           <button
             type="button"
             role="tab"
@@ -126,7 +150,7 @@ export default function Home() {
             className={category === 'styles' ? 'active' : ''}
             onClick={() => setCategory('styles')}
           >
-            视觉风格
+            {t.tabStyles}
           </button>
           <button
             type="button"
@@ -135,7 +159,16 @@ export default function Home() {
             className={category === 'layouts' ? 'active' : ''}
             onClick={() => setCategory('layouts')}
           >
-            布局模式
+            {t.tabLayouts}
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={category === 'modals'}
+            className={category === 'modals' ? 'active' : ''}
+            onClick={() => setCategory('modals')}
+          >
+            {t.tabModals}
           </button>
         </div>
 
@@ -147,32 +180,46 @@ export default function Home() {
                 type="search"
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
-                placeholder="搜风格名或口语词，如「毛玻璃」「黑客屏」"
-                aria-label="搜索风格"
+                placeholder={t.searchPlaceholder}
+                aria-label={t.searchLabel}
               />
             </div>
             <div className="home-links">
-              <Link to="/glossary">全部术语看词典</Link>
-              <Link to="/scenarios">不知道选什么？看场景推荐</Link>
+              <Link to={`${base}/glossary`}>{t.linkGlossary}</Link>
+              <Link to={`${base}/scenarios`}>{t.linkScenarios}</Link>
             </div>
             {kw && filteredStyles.length === 0 ? (
               <div className="search-empty">
-                没有匹配的风格。试试这些口语词：<code>毛玻璃</code> <code>黑客屏</code>{' '}
-                <code>辣妹风</code> <code>像素风</code>，或去 <Link to="/glossary">风格词典</Link>{' '}
-                翻一翻。
+                {t.searchEmptyLead} <code>毛玻璃</code> <code>黑客屏</code>{' '}
+                {locale === 'en' ? (
+                  <>
+                    <code>frosted glass</code> <code>hacker screen</code>
+                  </>
+                ) : (
+                  <code>辣妹风</code>
+                )}
+                {locale === 'en' ? '' : <code>像素风</code>}
+                {t.searchEmptyOr} <Link to={`${base}/glossary`}>{t.searchEmptyLink}</Link>
+                {t.searchEmptyTail}
               </div>
             ) : (
-              <div className="card-grid" aria-label="风格导航">
+              <div className="card-grid" aria-label={t.gridStyles}>
                 {filteredStyles.map((s) => (
                   <StyleCard key={s.id} s={s} />
                 ))}
               </div>
             )}
           </>
-        ) : (
-          <div className="card-grid" aria-label="布局模式导航">
+        ) : category === 'layouts' ? (
+          <div className="card-grid" aria-label={t.gridLayouts}>
             {layoutPatterns.map((p) => (
-              <LayoutCard key={p.id} p={p} />
+              <PatternCard key={p.id} p={p} base={`${base}/layouts`} />
+            ))}
+          </div>
+        ) : (
+          <div className="card-grid" aria-label={t.gridModals}>
+            {modalPatterns.map((p) => (
+              <PatternCard key={p.id} p={p} base={`${base}/modals`} />
             ))}
           </div>
         )}
@@ -180,7 +227,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="container">
-          <p>风格标本馆 · React + TypeScript + Vite 构建</p>
+          <p>{t.footer}</p>
         </div>
       </footer>
     </>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useT } from '../i18n'
 
 export interface PromptVariant {
   key: string
@@ -14,6 +15,7 @@ export default function PromptCard({
   variants: PromptVariant[]
   defaultKey?: string
 }) {
+  const t = useT()
   const [active, setActive] = useState(defaultKey ?? variants[0]?.key ?? '')
   const [copied, setCopied] = useState(false)
   const current = variants.find((v) => v.key === active) ?? variants[0]
@@ -39,7 +41,7 @@ export default function PromptCard({
   return (
     <div className="prompt-card">
       <div className="prompt-head">
-        <div className="prompt-tabs" role="tablist" aria-label="提示词变体">
+        <div className="prompt-tabs" role="tablist" aria-label={t.promptVariants}>
           {variants.map((v) => (
             <button
               type="button"
@@ -57,14 +59,14 @@ export default function PromptCard({
           type="button"
           className={`prompt-copy${copied ? ' done' : ''}`}
           onClick={copy}
-          aria-label="复制提示词"
+          aria-label={t.copyPrompt}
         >
-          {copied ? '已复制 ✓' : '复制'}
+          {copied ? t.copied : t.copy}
         </button>
       </div>
       <p className="prompt-text">{current.text}</p>
       <span className="sr-only" aria-live="polite">
-        {copied ? '提示词已复制到剪贴板' : ''}
+        {copied ? t.copiedLive : ''}
       </span>
     </div>
   )
