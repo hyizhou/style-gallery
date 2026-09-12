@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { styles } from '../data/styles'
 import { layoutPatterns } from '../data/layouts'
-import { modalPatterns, readyModalPatterns } from '../data/modals'
+import { feedbackPatterns, readyFeedbackPatterns } from '../data/feedback'
 import { SearchIcon } from '../icons'
 import { localeBase, useLocale, useT } from '../i18n'
 import type { StyleInfo } from '../data/styles'
 import type { LayoutPattern } from '../data/layouts'
-import type { ModalPattern } from '../data/modals'
+import type { FeedbackPattern } from '../data/feedback'
 
 function StyleCard({ s }: { s: StyleInfo }) {
   const locale = useLocale()
@@ -45,7 +45,7 @@ function PatternCard({
   base,
   gridLabel,
 }: {
-  p: LayoutPattern | ModalPattern
+  p: LayoutPattern | FeedbackPattern
   base: string
   gridLabel?: string
 }) {
@@ -55,7 +55,7 @@ function PatternCard({
     return (
       <div className="style-card lp-card is-planned" aria-disabled="true">
         <div className="lp-thumb">
-          <div className="lp-thumb-skeleton" aria-hidden="true">
+          <div className="lp-thumb-planned" aria-hidden="true">
             <i />
             <i />
             <i />
@@ -102,7 +102,7 @@ export default function Home() {
   const locale = useLocale()
   const t = useT()
   const base = localeBase(locale)
-  const [category, setCategory] = useState<'styles' | 'layouts' | 'modals'>('styles')
+  const [category, setCategory] = useState<'styles' | 'layouts' | 'feedback'>('styles')
   const [q, setQ] = useState('')
   const kw = q.trim().toLowerCase()
   const filteredStyles = kw
@@ -136,7 +136,7 @@ export default function Home() {
               layoutPatterns.length,
             )}
           </span>
-          <span>{t.metaModals(readyModalPatterns.length)}</span>
+          <span>{t.metaFeedback(readyFeedbackPatterns.length)}</span>
           <span>{t.metaPrompts}</span>
         </div>
       </section>
@@ -164,11 +164,11 @@ export default function Home() {
           <button
             type="button"
             role="tab"
-            aria-selected={category === 'modals'}
-            className={category === 'modals' ? 'active' : ''}
-            onClick={() => setCategory('modals')}
+            aria-selected={category === 'feedback'}
+            className={category === 'feedback' ? 'active' : ''}
+            onClick={() => setCategory('feedback')}
           >
-            {t.tabModals}
+            {t.tabFeedback}
           </button>
         </div>
 
@@ -217,9 +217,9 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className="card-grid" aria-label={t.gridModals}>
-            {modalPatterns.map((p) => (
-              <PatternCard key={p.id} p={p} base={`${base}/modals`} />
+          <div className="card-grid" aria-label={t.gridFeedback}>
+            {feedbackPatterns.map((p) => (
+              <PatternCard key={p.id} p={p} base={`${base}/feedback`} />
             ))}
           </div>
         )}

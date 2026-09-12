@@ -9,10 +9,10 @@
 
 ## 路由与导航
 
-- 主页类别切换项（视觉风格 / 布局模式 / 弹窗），切换的是主页卡片网格的数据源。
+- 主页类别切换项（视觉风格 / 布局模式 / 反馈），切换的是主页卡片网格的数据源。
 - 布局模式详情路由：`/layouts/:id`，由 BrowserRouter 承载；已知路由在构建时预渲染为真实静态文件，未知路径由 `404.html` 兜底。
 - 未实现（planned）的模式在列表中以「规划中」徽章出现，不可点击；详情页只对 `status === 'ready'` 的模式开放，非法 id 重定向回主页。
-- 「弹窗」是与本大类平级的顶层大类（同样复用 PatternDetail 详情页），见 [modals.md](./modals.md)。
+- 「反馈」是与本大类平级的顶层大类（同样复用 PatternDetail 详情页），见 [feedback.md](./feedback.md)。
 
 ## 数据模型（src/data/layouts.ts）
 
@@ -37,7 +37,7 @@ interface LayoutPattern {
 
 编目来源见 [layout-patterns.md](./layout-patterns.md)。
 
-## 详情页结构（src/pages/PatternDetail.tsx，弹窗大类共用）
+## 详情页结构（src/pages/PatternDetail.tsx，反馈大类共用）
 
 1. 风格页同款页头：眉题（英文名 · 分组 · 热度）、标题、标语、描述、标签。
 2. **预览宽度控制**：桌面 / 平板 / 手机三档，切换演示容器的最大宽度。

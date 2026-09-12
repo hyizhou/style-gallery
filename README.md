@@ -1,6 +1,6 @@
 # 风格标本馆 · Style Gallery
 
-一个面向「使用 AI 做设计的人」的风格词典与提示词工具：看到想要的效果，拿到它的名字和提示词。主页支持用口语别名搜索（毛玻璃、黑客屏、辣妹风……），每个风格、布局与弹窗词条配一整套可交互组件标本和可一键复制的 AI 提示词；另有风格词典（`/glossary`）与场景推荐（`/scenarios`）两个入口。设计见 [docs/prompt-tool-design.md](docs/prompt-tool-design.md)。
+一个面向「使用 AI 做设计的人」的风格词典与提示词工具：看到想要的效果，拿到它的名字和提示词。主页支持用口语别名搜索（毛玻璃、黑客屏、辣妹风……），每个风格、布局与反馈词条配一整套可交互组件标本和可一键复制的 AI 提示词；另有风格词典（`/glossary`）与场景推荐（`/scenarios`）两个入口。设计见 [docs/prompt-tool-design.md](docs/prompt-tool-design.md)。
 
 其中 Material Design 3 页面由官方 [@material/web](https://github.com/material-components/material-web) 组件库渲染（动态色：3 种种子色 × 明暗模式）；Ant Design 页面由官方 [antd](https://ant.design) 组件库渲染（设计令牌：3 种品牌色 × 暗色算法）。
 
@@ -12,11 +12,11 @@
 
 ## 布局模式大类
 
-主页可在「视觉风格 / 布局模式 / 弹窗」之间切换。布局模式与视觉风格正交：风格回答"长什么样"，布局回答"东西怎么摆"。每个布局模式配有可切换预览宽度（桌面/平板/手机）的活体演示，使用容器查询按容器宽度自动重排。调研编目见 [docs/layout-patterns.md](docs/layout-patterns.md)，接入设计见 [docs/layout-mode-design.md](docs/layout-mode-design.md)，推进计划见 [TODO.md](TODO.md)。当前已实现全部 20 个布局模式。
+主页可在「视觉风格 / 布局模式 / 反馈」之间切换。布局模式与视觉风格正交：风格回答"长什么样"，布局回答"东西怎么摆"。每个布局模式配有可切换预览宽度（桌面/平板/手机）的活体演示，使用容器查询按容器宽度自动重排。调研编目见 [docs/layout-patterns.md](docs/layout-patterns.md)，接入设计见 [docs/layout-mode-design.md](docs/layout-mode-design.md)，推进计划见 [TODO.md](TODO.md)。当前已实现全部 20 个布局模式。
 
-## 弹窗大类
+## 反馈大类
 
-与视觉风格、布局模式并列的第三个大类：布局回答「内容在页面里怎么摆」，弹窗回答「任务在哪个容器里发生」——遮罩、抽屉等打断式浮层容器。当前收录弹窗（Modal Dialog），路由 `/modals/:id`，详情页与布局模式共用同一结构。设计见 [docs/modals.md](docs/modals.md)。
+与视觉风格、布局模式并列的第三个大类：布局回答「内容在页面里怎么摆」，反馈回答「状态怎么告诉用户、任务在哪个容器里发生」——从最重的阻断弹窗到最轻的一行 Tooltip，按「消息提醒 / 浮层容器 / 气泡浮层 / 加载进度 / 结果状态」五组编目 14 种模式：警告提示、轻提示、通知、弹窗、抽屉、底部抽屉、气泡确认框、气泡卡片、文字提示、进度条、骨架屏、旋转加载、结果页、空状态。路由 `/feedback/:id`，详情页与布局模式共用同一结构。设计见 [docs/feedback.md](docs/feedback.md)。
 
 ## 多语言
 
@@ -25,7 +25,7 @@
 ## 技术栈
 
 - Vite 5 + React 18 + TypeScript
-- react-router-dom（BrowserRouter）：多页路由（主页 `/`、风格页 `/styles/:id`、布局页 `/layouts/:id`、弹窗页 `/modals/:id`、词典 `/glossary`、场景 `/scenarios`；英文版统一挂在 `/en` 前缀下）
+- react-router-dom（BrowserRouter）：多页路由（主页 `/`、风格页 `/styles/:id`、布局页 `/layouts/:id`、反馈页 `/feedback/:id`、词典 `/glossary`、场景 `/scenarios`；英文版统一挂在 `/en` 前缀下）
 - 轻量 i18n：语言由路由路径判定（`src/i18n.ts`），UI 词典 + 数据条目 `i18n.en` 字段 + 演示组件内嵌文案表，无第三方依赖
 - @material/web：Material Design 3 官方 Web 组件（m3 风格页）
 - antd + @ant-design/icons：Ant Design 官方组件库（antd 风格页）

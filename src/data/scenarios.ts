@@ -1,7 +1,7 @@
 // 场景导购：常见产品场景的风格 / 布局推荐（设计见 docs/prompt-tool-design.md）
 
 export interface ScenarioPick {
-  kind: 'style' | 'layout' | 'modal'
+  kind: 'style' | 'layout' | 'feedback'
   id: string
   reason: string
 }
@@ -163,7 +163,7 @@ export const scenarios: Scenario[] = [
         'Terminal texture is a straight shot at engineer aesthetics',
         'When tooling comes first, neutral minimal wears best',
         'Frequently switched zones need persistent navigation',
-        'Confirmation flows and short focused inputs without losing context',
+        'A modal category with confirms and short focused inputs that keep context alive',
       ],
       },
     },
@@ -173,7 +173,7 @@ export const scenarios: Scenario[] = [
       { kind: 'style', id: 'crt', reason: '终端质感是对工程师审美的直球示好' },
       { kind: 'style', id: 'minimal', reason: '工具属性优先时，中性极简最耐看' },
       { kind: 'layout', id: 'sidebar-dashboard', reason: '高频切换的功能区需要常驻导航' },
-      { kind: 'modal', id: 'modal', reason: '确认流与短输入聚焦，不丢上下文' },
+      { kind: 'feedback', id: 'modal', reason: '弹窗与气泡确认聚焦短任务，不丢上下文' },
     ],
   },
 ]

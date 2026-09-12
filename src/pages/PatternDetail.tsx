@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { layoutPatterns, readyLayoutPatterns } from '../data/layouts'
-import { modalPatterns, readyModalPatterns } from '../data/modals'
+import { feedbackPatterns, readyFeedbackPatterns } from '../data/feedback'
 import { styles } from '../data/styles'
 import { pairings } from '../data/pairings'
 import PromptCard from '../components/PromptCard'
@@ -26,9 +26,22 @@ import ThreeColumnDemo from '../components/layouts/ThreeColumnDemo'
 import BoxedDemo from '../components/layouts/BoxedDemo'
 import FPatternDemo from '../components/layouts/FPatternDemo'
 import HorizontalScrollDemo from '../components/layouts/HorizontalScrollDemo'
-import ModalDemo from '../components/modals/ModalDemo'
+import AlertDemo from '../components/feedback/AlertDemo'
+import ToastDemo from '../components/feedback/ToastDemo'
+import NotificationDemo from '../components/feedback/NotificationDemo'
+import ModalDemo from '../components/feedback/ModalDemo'
+import DrawerDemo from '../components/feedback/DrawerDemo'
+import BottomSheetDemo from '../components/feedback/BottomSheetDemo'
+import PopconfirmDemo from '../components/feedback/PopconfirmDemo'
+import PopoverDemo from '../components/feedback/PopoverDemo'
+import TooltipDemo from '../components/feedback/TooltipDemo'
+import ProgressDemo from '../components/feedback/ProgressDemo'
+import SkeletonDemo from '../components/feedback/SkeletonDemo'
+import SpinnerDemo from '../components/feedback/SpinnerDemo'
+import ResultDemo from '../components/feedback/ResultDemo'
+import EmptyDemo from '../components/feedback/EmptyDemo'
 
-// 布局与弹窗两个大类共用同一套详情页结构：画框、预览宽度、要点区、提示词区
+// 布局与反馈两个大类共用同一套详情页结构：画框、预览宽度、要点区、提示词区
 const collections = {
   layouts: {
     all: layoutPatterns,
@@ -57,11 +70,26 @@ const collections = {
     } as Record<string, () => JSX.Element>,
     base: '/layouts',
   },
-  modals: {
-    all: modalPatterns,
-    ready: readyModalPatterns,
-    demos: { modal: ModalDemo } as Record<string, () => JSX.Element>,
-    base: '/modals',
+  feedback: {
+    all: feedbackPatterns,
+    ready: readyFeedbackPatterns,
+    demos: {
+      alert: AlertDemo,
+      toast: ToastDemo,
+      notification: NotificationDemo,
+      modal: ModalDemo,
+      drawer: DrawerDemo,
+      'bottom-sheet': BottomSheetDemo,
+      popconfirm: PopconfirmDemo,
+      popover: PopoverDemo,
+      tooltip: TooltipDemo,
+      progress: ProgressDemo,
+      skeleton: SkeletonDemo,
+      spinner: SpinnerDemo,
+      result: ResultDemo,
+      empty: EmptyDemo,
+    } as Record<string, () => JSX.Element>,
+    base: '/feedback',
   },
 }
 

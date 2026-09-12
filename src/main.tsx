@@ -18,6 +18,7 @@ import './styles/themes/swiss.css'
 import './styles/themes/crt.css'
 import './styles/themes/y2k.css'
 import './styles/layouts.css'
+import './styles/feedback.css'
 import './styles/prompts.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

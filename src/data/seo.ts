@@ -1,6 +1,6 @@
 import { styles } from './styles'
 import { readyLayoutPatterns } from './layouts'
-import { readyModalPatterns } from './modals'
+import { readyFeedbackPatterns } from './feedback'
 
 export const SITE_URL = 'https://hyizhou.github.io/style-gallery'
 
@@ -43,7 +43,7 @@ const homeZh: PageMeta = {
   locale: 'zh',
   alternates: alt('/'),
   title: '风格标本馆 · UI 设计风格组件展',
-  description: `看图认风格、搜口语别名查术语：${styles.length} 种 UI 设计风格、${readyLayoutPatterns.length} 种布局模式与弹窗大类的可交互组件标本，每个词条附可一键复制的 AI 提示词。`,
+  description: `看图认风格、搜口语别名查术语：${styles.length} 种 UI 设计风格、${readyLayoutPatterns.length} 种布局模式、${readyFeedbackPatterns.length} 种反馈模式（弹窗 / 轻提示 / 骨架屏等）的可交互组件标本，每个词条附可一键复制的 AI 提示词。`,
   jsonLd: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -62,7 +62,7 @@ const homeEn: PageMeta = {
   locale: 'en',
   alternates: alt('/'),
   title: 'Style Gallery · Interactive UI Design Patterns & AI Prompts',
-  description: `See the look you want, get its name and the prompt: ${styles.length} interactive UI design styles, ${readyLayoutPatterns.length} layout patterns and a modals category — every entry with a copy-ready AI prompt. Search by nickname: frosted glass, hacker screen, Y2K.`,
+  description: `See the look you want, get its name and the prompt: ${styles.length} interactive UI design styles, ${readyLayoutPatterns.length} layout patterns and ${readyFeedbackPatterns.length} feedback patterns (modal, toast, skeleton…) — every entry with a copy-ready AI prompt. Search by nickname: frosted glass, hacker screen, toast.`,
 }
 
 const glossaryZh: PageMeta = {
@@ -143,22 +143,22 @@ const layoutPages = readyLayoutPatterns.flatMap((p): PageMeta[] => [
   },
 ])
 
-const modalPages = readyModalPatterns.flatMap((p): PageMeta[] => [
+const feedbackPages = readyFeedbackPatterns.flatMap((p): PageMeta[] => [
   {
-    path: `/modals/${p.id}`,
+    path: `/feedback/${p.id}`,
     locale: 'zh',
-    alternates: alt(`/modals/${p.id}`),
+    alternates: alt(`/feedback/${p.id}`),
     title: `${p.name} ${p.en} · 风格标本馆`,
     description: p.desc,
     jsonLd: breadcrumb(`${p.name} ${p.en}`),
   },
   {
-    path: `/en/modals/${p.id}`,
+    path: `/en/feedback/${p.id}`,
     locale: 'en',
-    alternates: alt(`/modals/${p.id}`),
-    title: `${p.en} · Style Gallery`,
+    alternates: alt(`/feedback/${p.id}`),
+    title: `${p.en} UI Feedback Pattern · Style Gallery`,
     description: p.i18n?.en.desc ?? p.desc,
-    jsonLd: breadcrumbEn(p.en, `/en/modals/${p.id}`),
+    jsonLd: breadcrumbEn(p.en, `/en/feedback/${p.id}`),
   },
 ])
 
@@ -171,5 +171,5 @@ export const pages: PageMeta[] = [
   scenariosEn,
   ...stylePages,
   ...layoutPages,
-  ...modalPages,
+  ...feedbackPages,
 ]

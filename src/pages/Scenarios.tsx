@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import { scenarios } from '../data/scenarios'
 import { styles } from '../data/styles'
 import { layoutPatterns } from '../data/layouts'
-import { modalPatterns } from '../data/modals'
+import { feedbackPatterns } from '../data/feedback'
 import { localeBase, useLocale, useT } from '../i18n'
 
-type PickKind = 'style' | 'layout' | 'modal'
+type PickKind = 'style' | 'layout' | 'feedback'
 
 // 场景导购：常见产品场景的风格 / 布局推荐，静态内容页 + 锚点
 export default function Scenarios() {
@@ -16,14 +16,14 @@ export default function Scenarios() {
 
   const nameOf = (kind: PickKind, id: string) => {
     const list: { id: string; name: string; en: string }[] =
-      kind === 'style' ? styles : kind === 'modal' ? modalPatterns : layoutPatterns
+      kind === 'style' ? styles : kind === 'feedback' ? feedbackPatterns : layoutPatterns
     const item = list.find((p) => p.id === id)
     if (!item) return id
     return locale === 'en' ? item.en : item.name
   }
 
   const hrefOf = (kind: PickKind, id: string) =>
-    kind === 'style' ? `${base}/styles/${id}` : kind === 'modal' ? `${base}/modals/${id}` : `${base}/layouts/${id}`
+    kind === 'style' ? `${base}/styles/${id}` : kind === 'feedback' ? `${base}/feedback/${id}` : `${base}/layouts/${id}`
 
   useEffect(() => {
     document.title =
@@ -57,7 +57,7 @@ export default function Scenarios() {
                 {sc.picks.map((pick, i) => (
                   <div className="scenario-pick" key={`${pick.kind}-${pick.id}`}>
                     <span className="kind">
-                      {pick.kind === 'style' ? t.kindStyle : pick.kind === 'modal' ? t.kindModal : t.kindLayout}
+                      {pick.kind === 'style' ? t.kindStyle : pick.kind === 'feedback' ? t.kindFeedback : t.kindLayout}
                     </span>
                     <Link to={hrefOf(pick.kind, pick.id)}>{nameOf(pick.kind, pick.id)}</Link>
                     <span className="reason">{e ? (e.reasons[i] ?? pick.reason) : pick.reason}</span>

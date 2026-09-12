@@ -46,6 +46,13 @@
 
 - [x] 中英双语全量接入：`/en` 前缀路由 + `useLocale` 路径判定（src/i18n.ts UI 词典）、数据条目 `i18n.en` 全量翻译（14 风格 / 20 布局 / 1 弹窗 / 7 场景 / 5 搭配）、21 个演示组件与 DemoKit/Signature/M3/Ant 双语、顶栏语言切换器、SEO 双语言元数据 + hreflang + sitemap 交替链接；设计记录 docs/i18n.md
 
+## 反馈大类（弹窗大类重构）
+
+- [x] 按反馈组件分类重编：五组（消息提醒 / 浮层容器 / 气泡浮层 / 加载进度 / 结果状态）14 词条——12 个基准术语（Alert / Toast / Notification / Modal / Drawer / Popconfirm / Popover / Tooltip / Progress / Skeleton / Result / Spinner）+ 补充底部抽屉 Bottom Sheet、空状态 Empty State
+- [x] 数据迁移 modals.ts → feedback.ts（`/feedback/:id` 命名空间，旧 `/modals/:id` 与 `/layouts/modal` 重定向），词条全量中英内容 + 提示词 + 要点
+- [x] 14 个可交互演示组件（feedback.css：`--fb-*` 状态色变量 + `fb-*` 演示样式 + 14 张主页缩略图）；原「规划中」占位缩略图类改名 `lp-thumb-planned`，让位给骨架屏词条
+- [x] 全站接线：主页三标签与计数、词典反馈区、场景导购 kind=feedback、SEO 元数据与 sitemap（102 URL）、README 与 docs（modals.md → feedback.md）
+
 ## 其他
 
 - [ ] GitHub Pages：等待仓库 Settings → Pages 开启「GitHub Actions」源后，确认线上部署结果

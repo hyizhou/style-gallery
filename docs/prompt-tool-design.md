@@ -40,7 +40,7 @@ interface Scenario {
   question: string    // 问题式标题，如「AI 产品官网用什么风格」
   context: string     // 场景约束一两句
   picks: {
-    kind: 'style' | 'layout' | 'modal'
+    kind: 'style' | 'layout' | 'feedback'
     id: string
     reason: string    // 一句话：为什么适合
   }[]

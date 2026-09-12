@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { styles } from '../data/styles'
 import { readyLayoutPatterns } from '../data/layouts'
-import { readyModalPatterns } from '../data/modals'
+import { readyFeedbackPatterns } from '../data/feedback'
 import { localeBase, useLocale, useT } from '../i18n'
 
 // 风格词典：术语 ↔ 口语别名的对照表，别名以正文文本出现（可被搜索索引）
@@ -74,14 +74,14 @@ export default function Glossary() {
         </section>
 
         <section className="glo-section">
-          <h2>{t.glossModals}</h2>
+          <h2>{t.glossFeedback}</h2>
           <div className="glo-grid">
-            {readyModalPatterns.map((p) => {
+            {readyFeedbackPatterns.map((p) => {
               const e = locale === 'en' ? p.i18n?.en : undefined
               const aliases = e?.aliases ?? p.aliases
               if (!aliases) return null
               return (
-                <Link to={`${base}/modals/${p.id}`} key={p.id} className="glo-item">
+                <Link to={`${base}/feedback/${p.id}`} key={p.id} className="glo-item">
                   <span className="glo-main">
                     <h3>{e ? p.en : p.name}</h3>
                     <span className="glo-en">{p.en}</span>

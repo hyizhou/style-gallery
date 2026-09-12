@@ -815,7 +815,7 @@
   box-shadow: none;
 }
 
-.lp-thumb-skeleton {
+.lp-thumb-planned {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 14px;
@@ -824,7 +824,7 @@
   opacity: 0.55;
 }
 
-.lp-thumb-skeleton i:first-child {
+.lp-thumb-planned i:first-child {
   grid-column: 1 / -1;
 }
 
