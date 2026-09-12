@@ -41,7 +41,7 @@ import SpinnerDemo from '../components/feedback/SpinnerDemo'
 import ResultDemo from '../components/feedback/ResultDemo'
 import EmptyDemo from '../components/feedback/EmptyDemo'
 
-// 布局与反馈两个大类共用同一套详情页结构：画框、预览宽度、要点区、提示词区
+// 布局与弹窗类型两个大类共用同一套详情页结构：画框、预览宽度、要点区、提示词区
 const collections = {
   layouts: {
     all: layoutPatterns,

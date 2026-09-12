@@ -43,7 +43,7 @@ const homeZh: PageMeta = {
   locale: 'zh',
   alternates: alt('/'),
   title: '风格标本馆 · UI 设计风格组件展',
-  description: `看图认风格、搜口语别名查术语：${styles.length} 种 UI 设计风格、${readyLayoutPatterns.length} 种布局模式、${readyFeedbackPatterns.length} 种反馈模式（弹窗 / 轻提示 / 骨架屏等）的可交互组件标本，每个词条附可一键复制的 AI 提示词。`,
+  description: `看图认风格、搜口语别名查术语：${styles.length} 种 UI 设计风格、${readyLayoutPatterns.length} 种布局模式、${readyFeedbackPatterns.length} 种弹窗类型（警告提示 / 轻提示 / 骨架屏等）的可交互组件标本，每个词条附可一键复制的 AI 提示词。`,
   jsonLd: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -62,7 +62,7 @@ const homeEn: PageMeta = {
   locale: 'en',
   alternates: alt('/'),
   title: 'Style Gallery · Interactive UI Design Patterns & AI Prompts',
-  description: `See the look you want, get its name and the prompt: ${styles.length} interactive UI design styles, ${readyLayoutPatterns.length} layout patterns and ${readyFeedbackPatterns.length} feedback patterns (modal, toast, skeleton…) — every entry with a copy-ready AI prompt. Search by nickname: frosted glass, hacker screen, toast.`,
+  description: `See the look you want, get its name and the prompt: ${styles.length} interactive UI design styles, ${readyLayoutPatterns.length} layout patterns and ${readyFeedbackPatterns.length} popup types (modal, toast, skeleton…) — every entry with a copy-ready AI prompt. Search by nickname: frosted glass, hacker screen, toast.`,
 }
 
 const glossaryZh: PageMeta = {
@@ -156,7 +156,7 @@ const feedbackPages = readyFeedbackPatterns.flatMap((p): PageMeta[] => [
     path: `/en/feedback/${p.id}`,
     locale: 'en',
     alternates: alt(`/feedback/${p.id}`),
-    title: `${p.en} UI Feedback Pattern · Style Gallery`,
+    title: `${p.en} Popup Pattern · Style Gallery`,
     description: p.i18n?.en.desc ?? p.desc,
     jsonLd: breadcrumbEn(p.en, `/en/feedback/${p.id}`),
   },

@@ -52,6 +52,7 @@
 - [x] 数据迁移 modals.ts → feedback.ts（`/feedback/:id` 命名空间，旧 `/modals/:id` 与 `/layouts/modal` 重定向），词条全量中英内容 + 提示词 + 要点
 - [x] 14 个可交互演示组件（feedback.css：`--fb-*` 状态色变量 + `fb-*` 演示样式 + 14 张主页缩略图）；原「规划中」占位缩略图类改名 `lp-thumb-planned`，让位给骨架屏词条
 - [x] 全站接线：主页三标签与计数、词典反馈区、场景导购 kind=feedback、SEO 元数据与 sitemap（102 URL）、README 与 docs（modals.md → feedback.md）
+- [x] 大类显示名更名：「反馈」→「弹窗类型」（tab / 计数 / 词典 / 场景徽章 / SEO 文案；路由 /feedback 与数据标识不变）
 
 ## 其他
 
